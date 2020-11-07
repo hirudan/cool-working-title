@@ -58,7 +58,7 @@ CHECK_FILES = [
 
 SERVER_LOC = "Z:\\assets"
 CHECK_DIR = os.path.join(SCRIPT_PATH, "..")
-DATE_STR_FORMAT = "%Y-%m-%d %T%H:%M:%S"
+DATE_STR_FORMAT = "%Y-%m-%d %H:%M:%S"
 CHECK_FILE = os.path.join(SCRIPT_PATH, "..", "asset_changes.json")
 
 # Helpers #
@@ -92,7 +92,7 @@ def get_hashes_only(file):
     return {fpath: {"hash": dct["hash"]} for fpath, dct in file.items()}
 
 def get_dates_only(file):
-    return {fpath: {"date": dct["date"]} for fpath, dct in file.items()}
+    return {fpath: {"time": dct["time"]} for fpath, dct in file.items()}
 
 def generate_hash_commits(files):
     hashes = {}
@@ -108,8 +108,9 @@ def write_hash_checklist(hashes):
 
 def get_prior_hash_checklist(cur_branch, to_branch):
     try:
-        sp.check_call("git fetch origin")
-        sp.check_call("git checkout {} -- asset_changes.json".format(to_branch), cwd=CHECK_DIR)
+        if cur_branch != to_branch:
+            sp.check_call("git fetch origin")
+            sp.check_call("git checkout {} -- asset_changes.json".format(to_branch), cwd=CHECK_DIR)
 
         if not os.path.exists(CHECK_FILE):
             with open(CHECK_FILE, "w") as f:
@@ -122,7 +123,8 @@ def get_prior_hash_checklist(cur_branch, to_branch):
             # convert relative to absolute
             return {os.path.join(CHECK_DIR, k): v for k, v in dct.items()}
     finally:
-        sp.check_call("git checkout {} -- asset_changes.json".format(cur_branch), cwd=CHECK_DIR)
+        if cur_branch != to_branch:
+            sp.check_call("git checkout {} -- asset_changes.json".format(cur_branch), cwd=CHECK_DIR)
 
 def get_syncable_files():
     assets = []
@@ -136,12 +138,15 @@ def calculate_time_diff(dict_one, dict_two):
     time_diff = {}
     for k, v in dict_one.items():
         if k in dict_two:
-            time_diff[k] = dict_one[k]["date"] >= dict_two[k]["date"]
+            if dict_one[k]["hash"] == dict_two[k]["hash"]:
+                continue
+
+            time_diff[k] = dict_one[k]["time"] >= dict_two[k]["time"]
         else:
             time_diff[k] = True
 
     for k, v in dict_two.items():
-        if k in time_diff:
+        if k in dict_one:
             continue
 
         # Setting to false means we have an "older" file, non-existent
@@ -157,11 +162,22 @@ def main():
     parser.add_argument("--no", help="No to prop push.", action="store_true", default=False)
     args = parser.parse_args()
 
+    # Do not run script if there are files that need to be registered in a commit first
+    check_status = sp.check_output("git status").decode("utf-8")
+    if "asset_changes.json" in check_status:
+        print("Please commit asset_changes.json locally first.")
+        return -1
+
     syncables = get_syncable_files()
     check_sums = generate_hash_commits(syncables)
     cur_branch = get_current_branch()
     to_branch = args.to_branch
+    push_location = os.path.join(SERVER_LOC, to_branch)
     prior_check_sums_in_git = get_prior_hash_checklist(cur_branch, to_branch)
+
+    # This happens if a new branch is created. Check server remote and see if there are any files there, if not, wipe everything.
+    if not os.path.exists(push_location):
+        prior_check_sums_in_git = {}
 
     # check if checksums are the same
     if get_hashes_only(check_sums) == get_hashes_only(prior_check_sums_in_git):
@@ -186,7 +202,6 @@ def main():
     rel_newer_files = [os.path.relpath(v, CHECK_DIR) for v in newer_files]
     rel_older_files = [os.path.relpath(v, CHECK_DIR) for v in older_files]
 
-    push_location = os.path.join(SERVER_LOC, to_branch)
     print("From branch: {}".format(cur_branch))
     print("To branch: {}".format(to_branch))
     print()
@@ -194,7 +209,8 @@ def main():
     print("New files to be uploaded to asset server:\n {} ".format(rel_newer_files))
     print("Old files that need to be pulled from asset server:\n {}".format(rel_older_files))
     print()
-    print("Files will be pushed to {}".format(push_location))
+    if not args.no:
+        print("Files will be pushed to {}".format(push_location))
 
     user_input = None
 
