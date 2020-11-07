@@ -198,7 +198,8 @@ def main():
     print("New files to be uploaded to asset server:\n {} ".format(rel_newer_files))
     print("Old files that need to be pulled from asset server:\n {}".format(rel_older_files))
     print()
-    print("Files will be pushed to {}".format(push_location))
+    if not args.no:
+        print("Files will be pushed to {}".format(push_location))
 
     user_input = None
 
