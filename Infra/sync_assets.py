@@ -162,6 +162,12 @@ def main():
     parser.add_argument("--no", help="No to prop push.", action="store_true", default=False)
     args = parser.parse_args()
 
+    # Do not run script if there are files that need to be registered in a commit first
+    check_status = sp.check_output("git status").decode("utf-8")
+    if "asset_changes.json" in check_status:
+        print("Please commit asset_changes.json locally first.")
+        return -1
+
     syncables = get_syncable_files()
     check_sums = generate_hash_commits(syncables)
     cur_branch = get_current_branch()
