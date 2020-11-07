@@ -21,6 +21,7 @@
 
 # Visual Studio cache directory
 .vs/
+.vscode/
 
 # Gradle cache directory
 .gradle/
@@ -58,3 +59,47 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Media files
+*.3dm
+*.3ds
+*.blend
+*.c4d
+*.collada
+*.dae
+*.dxf
+*.fbx
+*.jas
+*.lws
+*.lxo
+*.ma
+*.max
+*.mb
+*.obj
+*.ply
+*.skp
+*.stl
+*.ztl
+*.aif
+*.aiff
+*.it
+*.mod
+*.mp3
+*.ogg
+*.s3m
+*.wav
+*.xm
+*.otf
+*.ttf
+*.bmp
+*.exr
+*.gif
+*.hdr
+*.iff
+*.jpeg
+*.jpg
+*.pict
+*.png
+*.psd
+*.tga
+*.tif
+*.tiff
