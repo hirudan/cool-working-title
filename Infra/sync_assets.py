@@ -58,7 +58,7 @@ CHECK_FILES = [
 
 SERVER_LOC = "Z:\\assets"
 CHECK_DIR = os.path.join(SCRIPT_PATH, "..")
-DATE_STR_FORMAT = "%Y-%m-%d %T%H:%M:%S"
+DATE_STR_FORMAT = "%Y-%m-%d %H:%M:%S"
 CHECK_FILE = os.path.join(SCRIPT_PATH, "..", "asset_changes.json")
 
 # Helpers #
@@ -92,7 +92,7 @@ def get_hashes_only(file):
     return {fpath: {"hash": dct["hash"]} for fpath, dct in file.items()}
 
 def get_dates_only(file):
-    return {fpath: {"date": dct["date"]} for fpath, dct in file.items()}
+    return {fpath: {"time": dct["time"]} for fpath, dct in file.items()}
 
 def generate_hash_commits(files):
     hashes = {}
@@ -108,8 +108,9 @@ def write_hash_checklist(hashes):
 
 def get_prior_hash_checklist(cur_branch, to_branch):
     try:
-        sp.check_call("git fetch origin")
-        sp.check_call("git checkout {} -- asset_changes.json".format(to_branch), cwd=CHECK_DIR)
+        if cur_branch != to_branch:
+            sp.check_call("git fetch origin")
+            sp.check_call("git checkout {} -- asset_changes.json".format(to_branch), cwd=CHECK_DIR)
 
         if not os.path.exists(CHECK_FILE):
             with open(CHECK_FILE, "w") as f:
@@ -122,7 +123,8 @@ def get_prior_hash_checklist(cur_branch, to_branch):
             # convert relative to absolute
             return {os.path.join(CHECK_DIR, k): v for k, v in dct.items()}
     finally:
-        sp.check_call("git checkout {} -- asset_changes.json".format(cur_branch), cwd=CHECK_DIR)
+        if cur_branch != to_branch:
+            sp.check_call("git checkout {} -- asset_changes.json".format(cur_branch), cwd=CHECK_DIR)
 
 def get_syncable_files():
     assets = []
@@ -136,12 +138,15 @@ def calculate_time_diff(dict_one, dict_two):
     time_diff = {}
     for k, v in dict_one.items():
         if k in dict_two:
-            time_diff[k] = dict_one[k]["date"] >= dict_two[k]["date"]
+            if dict_one[k]["hash"] == dict_two[k]["hash"]:
+                continue
+
+            time_diff[k] = dict_one[k]["time"] >= dict_two[k]["time"]
         else:
             time_diff[k] = True
 
     for k, v in dict_two.items():
-        if k in time_diff:
+        if k in dict_one:
             continue
 
         # Setting to false means we have an "older" file, non-existent
