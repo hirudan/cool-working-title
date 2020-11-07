@@ -161,7 +161,12 @@ def main():
     check_sums = generate_hash_commits(syncables)
     cur_branch = get_current_branch()
     to_branch = args.to_branch
+    push_location = os.path.join(SERVER_LOC, to_branch)
     prior_check_sums_in_git = get_prior_hash_checklist(cur_branch, to_branch)
+
+    # This happens if a new branch is created. Check server remote and see if there are any files there, if not, wipe everything.
+    if not os.path.exists(push_location):
+        prior_check_sums_in_git = {}
 
     # check if checksums are the same
     if get_hashes_only(check_sums) == get_hashes_only(prior_check_sums_in_git):
@@ -186,7 +191,6 @@ def main():
     rel_newer_files = [os.path.relpath(v, CHECK_DIR) for v in newer_files]
     rel_older_files = [os.path.relpath(v, CHECK_DIR) for v in older_files]
 
-    push_location = os.path.join(SERVER_LOC, to_branch)
     print("From branch: {}".format(cur_branch))
     print("To branch: {}".format(to_branch))
     print()
