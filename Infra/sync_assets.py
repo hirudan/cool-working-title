@@ -4,6 +4,7 @@ import glob
 import json
 import shutil
 import hashlib
+import argparse
 import subprocess as sp
 from datetime import datetime
 
@@ -62,17 +63,7 @@ CHECK_FILE = os.path.join(SCRIPT_PATH, "..", "asset_changes.json")
 
 # Helpers #
 def get_current_branch():
-    # If called by git hooks, we can get the values from args directly
-    if len(sys.argv) >= 4:
-        return os.path.basename(sys.argv[1])
-
     return sp.check_output("git rev-parse --abbrev-ref HEAD").decode("utf-8").strip()
-
-def get_to_branch():
-    if len(sys.argv) >= 4:
-        return os.path.basename(sys.argv[3])
-
-    return get_current_branch()
 
 def hash_file(fpath):
     hasher = hashlib.md5()
@@ -113,16 +104,25 @@ def generate_hash_commits(files):
 
 def write_hash_checklist(hashes):
     with open(CHECK_FILE, "w+") as f:
-        json.dump(hashes, f, default=json_serialize)
+        json.dump(hashes, f, default=json_serialize, indent=2)
 
-def get_prior_hash_checklist():
-    if not os.path.exists(CHECK_FILE):
-        with open(CHECK_FILE, "w") as f:
-            f.write("{}")
-        return {}
+def get_prior_hash_checklist(cur_branch, to_branch):
+    try:
+        sp.check_call("git fetch origin")
+        sp.check_call("git checkout {} -- asset_changes.json".format(to_branch), cwd=CHECK_DIR)
 
-    with open(CHECK_FILE, "r") as f:
-        return json.load(f, object_hook=json_parse)
+        if not os.path.exists(CHECK_FILE):
+            with open(CHECK_FILE, "w") as f:
+                f.write("{}")
+            return {}
+
+        with open(CHECK_FILE, "r") as f:
+            dct = json.load(f, object_hook=json_parse)
+    
+            # convert relative to absolute
+            return {os.path.join(CHECK_DIR, k): v for k, v in dct.items()}
+    finally:
+        sp.check_call("git checkout {} -- asset_changes.json".format(cur_branch), cwd=CHECK_DIR)
 
 def get_syncable_files():
     assets = []
@@ -150,17 +150,22 @@ def calculate_time_diff(dict_one, dict_two):
 
     return time_diff
 
-
 def main():
+    parser = argparse.ArgumentParser(description="Sync assets")
+    parser.add_argument("--to-branch", help="Branch to push and pull assets to. Defaults to current branch", default=get_current_branch())
+    parser.add_argument("--yes", help="Yes to prop push.", action="store_true", default=False)
+    parser.add_argument("--no", help="No to prop push.", action="store_true", default=False)
+    args = parser.parse_args()
+
     syncables = get_syncable_files()
     check_sums = generate_hash_commits(syncables)
-    prior_check_sums_in_git = get_prior_hash_checklist()
     cur_branch = get_current_branch()
-    to_branch = get_to_branch()
+    to_branch = args.to_branch
+    prior_check_sums_in_git = get_prior_hash_checklist(cur_branch, to_branch)
 
     # check if checksums are the same
     if get_hashes_only(check_sums) == get_hashes_only(prior_check_sums_in_git):
-        print("No asset file needed to sync.")
+        print("No asset files needed to sync.")
         return
 
     # There is a difference! Check if the prior is older, if so we can push
@@ -168,19 +173,20 @@ def main():
 
     newer_files = []
     older_files = []
-    final_hash_file = check_sums
+    # Use relative path version
+    final_hash_file = {os.path.relpath(k, CHECK_DIR): v for k, v in check_sums.items()}
     for fpath, comp in time_diff.items():
         if comp:
             newer_files.append(fpath)
         else:
             older_files.append(fpath)
-            final_hash_file[fpath] = prior_check_sums_in_git[fpath]
+            final_hash_file[os.path.relpath(fpath, CHECK_DIR)] = prior_check_sums_in_git[fpath]
 
 
     rel_newer_files = [os.path.relpath(v, CHECK_DIR) for v in newer_files]
     rel_older_files = [os.path.relpath(v, CHECK_DIR) for v in older_files]
 
-    push_location = os.path.join(SERVER_LOC, cur_branch)
+    push_location = os.path.join(SERVER_LOC, to_branch)
     print("From branch: {}".format(cur_branch))
     print("To branch: {}".format(to_branch))
     print()
@@ -189,7 +195,16 @@ def main():
     print("Old files that need to be pulled from asset server:\n {}".format(rel_older_files))
     print()
     print("Files will be pushed to {}".format(push_location))
-    user_input = input("Y to confirm. Anything else to abort. ")
+
+    user_input = None
+
+    if args.no:
+        return -1
+    elif not args.yes:
+        user_input = input("Y to confirm. Anything else to abort. ")
+    else:
+        user_input = "Y"
+
     if user_input != "Y":
         print("ABORTING...")
         return -1
