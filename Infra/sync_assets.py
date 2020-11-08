@@ -129,7 +129,7 @@ def get_prior_hash_checklist(cur_branch, to_branch):
 def get_syncable_files():
     assets = []
     for ext in CHECK_FILES:
-        for file in glob.glob(os.path.join(CHECK_DIR, "**", ext)):
+        for file in glob.glob(os.path.join(CHECK_DIR, "Assets", "**", ext), recursive=True):
             assets.append(file)
     return assets
 
