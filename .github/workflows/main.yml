@@ -26,9 +26,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Mount NFS
+        run: 'mkdir mountpoint && mount -t nfs ${{ secrets.NAS_PATH }} mountpoint'
+
       - name: Grab Assets
         id: grab-assets
-        run: 'python Infra/sync_assets.py --folder-location ${{ secrets.NAS_PATH }} --yes'
+        run: 'python Infra/sync_assets.py --folder-location mountpoint --yes'
 
       - name: cache-resources
         uses: actions/cache@v1.1.0
