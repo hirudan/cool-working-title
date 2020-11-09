@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 530601078}
   - component: {fileID: 530601077}
   - component: {fileID: 530601079}
+  - component: {fileID: 530601080}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -244,7 +245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530601076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 0.03, z: -8.67}
+  m_LocalPosition: {x: -0.01, y: 0.03, z: -0.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -271,6 +272,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &530601080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530601076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028f4d5ba5d7705429a5692262cf8963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: {x: 0, y: 1, z: 0}
-  speed: {x: 1, y: 1, z: 1}
+  velocity: {x: 1, y: 1, z: 1}
 --- !u!65 &1173955669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -574,6 +587,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
   emitBulletCount: 8
   emitFrequency: 0.5
+  bulletDecayTime: 0
 --- !u!850595691 &1459560103
 LightingSettings:
   m_ObjectHideFlags: 0
