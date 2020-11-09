@@ -70,6 +70,9 @@ namespace Tests
                 Vector3 comparison = (derivative - difference);
 
                 // Print magnitude of deviation
+                Debug.Log("Bullet ID: " + bulletId.ToString());
+                Debug.Log(newLocations[x]);
+                Debug.Log(priorLocations[x]);
                 Debug.Log(comparison.magnitude);
 
                 // Randomly check tolerance of 
