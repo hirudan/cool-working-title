@@ -16,7 +16,7 @@ public class Level : MonoBehaviour
     public string mainLightName = "Main Light";
     Light mainLight;
 
-    void initCamera()
+    void InitCamera()
     {
         // Enable the main camera for usage
         this.mainCamera.enabled = true;
@@ -31,7 +31,7 @@ public class Level : MonoBehaviour
         this.mainCamera.clearFlags = CameraClearFlags.SolidColor;
     }
 
-    void initSun()
+    void InitSun()
     {
         // Grab a directional light if possible
         // otherwise create one
@@ -60,8 +60,8 @@ public class Level : MonoBehaviour
         this.mainCamera = Camera.main;
 
         // Initialize Camera
-        this.initCamera();
-        this.initSun();
+        this.InitCamera();
+        this.InitSun();
     }
 
     // Update is called once per frame

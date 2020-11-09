@@ -1,21 +1,56 @@
 ﻿using UnityEngine;
 
+/**
+ * Base class for bullets. Bullets are destroyed when they no longer are
+ * in the view of the Camera.
+ */
 public class Bullet : MonoBehaviour
 {
-    // Public Class Variables are Auto Exposed to Inspector
+    // Public Class variables are auto exposed to inspector
     public float decayTime = 1f;
-    public float speed = 1f;
-    public Vector3 direction = new Vector3(1, 0, 0);
+    public float instantiationTime = 0.0f;
+
+    // Metadata
+    public Emitter emitter = null;
+    public BulletPattern bulletPattern = null;
+    private int bulletId;
 
     void Start()
     {
         // Destroy self in N seconds after emitt
-        Destroy(this.gameObject, decayTime);
+        // Do not do so if set to zero.
+        if (decayTime != 0)
+        {
+            Destroy(this.gameObject, decayTime);
+        }
+        this.instantiationTime = Time.timeSinceLevelLoad;
+    }
+
+    void OnBecameInvisible() {
+        Destroy(this.gameObject);
     }
 
     void Update()
     {
+        // TODO: Check if this is effective
+        // Also if this more viable than frames.
+        float timeAlive = Time.timeSinceLevelLoad - this.instantiationTime;
+
         // Move in a fixed direction until otherwise
-        transform.Translate(direction * speed * Time.deltaTime);
+        // Optimize this call if need be when we hit optimization issues.
+        Vector3 translation = this.bulletPattern.GetTranslation(timeAlive, this.bulletId) * Time.deltaTime;
+
+        // This is to support bullet time, slows down bullet by multiplier
+        translation.Scale(this.emitter.bulletSpeedMultiplier);
+
+        // Move the actual bullet.
+        transform.Translate(translation);
+    }
+
+    public virtual void SetData(Emitter emitter, BulletPattern bulletPattern, int bulletId)
+    {
+        this.emitter = emitter;
+        this.bulletPattern = bulletPattern;
+        this.bulletId = bulletId;
     }
 }
