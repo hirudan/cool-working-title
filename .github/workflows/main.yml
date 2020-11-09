@@ -28,7 +28,7 @@ jobs:
 
       - name: Grab Assets
         id: grab-assets
-        run: 'python Infra/sync_assets.py --yes'
+        run: 'python Infra/sync_assets.py --folder-location ${{ secrets.NAS_PATH }} --yes'
 
       - name: cache-resources
         uses: actions/cache@v1.1.0
