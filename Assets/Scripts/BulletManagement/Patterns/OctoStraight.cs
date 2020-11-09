@@ -11,8 +11,8 @@ public class OctoStraight : BulletPattern
     {
         float spokeCount = bulletId % 8;
 
-        // Derivative functions for with respect to time:
         float c = (Mathf.PI / 4) * spokeCount;
+        // Derivative functions with respect to time
         float x = Mathf.Cos(c);
         float y = Mathf.Sin(c);
 
