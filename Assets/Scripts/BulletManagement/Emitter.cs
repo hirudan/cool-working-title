@@ -21,7 +21,7 @@ public class Emitter : MonoBehaviour
     public float emitFrequency;
 
     // Generates bullets
-    // Pattern is defined by bulletPattern()
+    // Pattern is defined by bulletPattern
     void EmitBullets() {
         // Instantiate the bulletPrefab at emitter position
         for (int id = 0; id < this.emitBulletCount; ++id)
