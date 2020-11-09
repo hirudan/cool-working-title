@@ -1,4 +1,8 @@
 # This .gitignore file should be placed at the root of your Unity project directory
+# Known bug where unit tests can produce multiple init test scenes
+InitTestScene*.unity
+InitTestScene*.unity.meta
+
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
