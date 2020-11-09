@@ -129,7 +129,7 @@ def get_prior_hash_checklist(cur_branch, to_branch):
 def get_syncable_files():
     assets = []
     for ext in CHECK_FILES:
-        for file in glob.glob(os.path.join(CHECK_DIR, "**", ext)):
+        for file in glob.glob(os.path.join(CHECK_DIR, "Assets", "**", ext), recursive=True):
             assets.append(file)
     return assets
 
@@ -157,7 +157,8 @@ def calculate_time_diff(dict_one, dict_two):
 
 def main():
     parser = argparse.ArgumentParser(description="Sync assets")
-    parser.add_argument("--to-branch", help="Branch to push and pull assets to. Defaults to current branch", default=get_current_branch())
+    parser.add_argument("--to-branch", "-b", help="Branch to push and pull assets to. Defaults to current branch", default=get_current_branch())
+    parser.add_argument("--folder-location", "-f", help="Folder to push and pull data from.", default=SERVER_LOC)
     parser.add_argument("--yes", help="Yes to prop push.", action="store_true", default=False)
     parser.add_argument("--no", help="No to prop push.", action="store_true", default=False)
     args = parser.parse_args()
@@ -172,7 +173,7 @@ def main():
     check_sums = generate_hash_commits(syncables)
     cur_branch = get_current_branch()
     to_branch = args.to_branch
-    push_location = os.path.join(SERVER_LOC, to_branch)
+    push_location = os.path.join(args.folder_location, to_branch)
     prior_check_sums_in_git = get_prior_hash_checklist(cur_branch, to_branch)
 
     # This happens if a new branch is created. Check server remote and see if there are any files there, if not, wipe everything.
