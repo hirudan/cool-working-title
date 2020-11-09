@@ -17,7 +17,7 @@ jobs:
         projectPath:
           - cool-working-title
         unityVersion:
-          - 2019.2.11f12020.1.12f1
+          - 2020.1.12f1
         targetPlatform:
           - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Mount NFS
-        run: 'mkdir mountpoint && mount -t nfs ${{ secrets.NAS_PATH }} mountpoint'
+        run: 'mkdir mountpoint && mount ${{ secrets.NAS_PATH }} mountpoint'
 
       - name: Grab Assets
         id: grab-assets
