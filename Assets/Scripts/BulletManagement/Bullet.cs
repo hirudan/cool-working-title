@@ -50,4 +50,9 @@ public class Bullet : MonoBehaviour
         this.bulletPattern = bulletPattern;
         this.bulletId = bulletId;
     }
+
+    public int getBulletId()
+    {
+        return this.bulletId;
+    }
 }
