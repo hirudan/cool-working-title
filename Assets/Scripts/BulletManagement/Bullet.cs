@@ -51,8 +51,5 @@ public class Bullet : MonoBehaviour
         this.bulletId = bulletId;
     }
 
-    public int getBulletId()
-    {
-        return this.bulletId;
-    }
+    public int BulletId { get; private set; }
 }

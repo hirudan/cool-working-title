@@ -58,7 +58,7 @@ namespace Tests
             Debug.Log("Bullet position deviations after " + waitNUnits.ToString() + " seconds:");
             for(int x = 0; x < bullets.Length; ++x) {
                 Vector3 difference = newLocations[x] - priorLocations[x];
-                int bulletId = bullets[x].getBulletId();
+                int bulletId = bullets[x].BulletId;
                 float c = (Mathf.PI / 4) * (bulletId % 8);
                 float dx = Mathf.Cos(c) * waitNUnits;
                 float dy = Mathf.Sin(c) * waitNUnits;
