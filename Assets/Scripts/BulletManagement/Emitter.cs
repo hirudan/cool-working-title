@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BulletManagement;
+using UnityEngine;
 
 /**
  * Emits Bullet types. Each Emitter dictates the bullet speed.

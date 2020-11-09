@@ -1,53 +1,56 @@
 ﻿using UnityEngine;
 
-/**
- * Base class for bullets. Bullets are destroyed when they no longer are
- * in the view of the Camera.
- */
-public class Bullet : MonoBehaviour
+namespace BulletManagement
 {
-    public float decayTime = 1f;
-    public float instantiationTime = 0.0f;
-
-    // Metadata
-    public Emitter emitter = null;
-    public BulletPattern bulletPattern = null;
-    private int bulletId;
-
-    void Start()
+    /**
+    * Base class for bullets. Bullets are destroyed when they no longer are
+    * in the view of the Camera.
+    */
+    public class Bullet : MonoBehaviour
     {
-        // Destroy self in N seconds after emitt
-        // Do not do so if set to zero.
-        if (decayTime != 0)
+        public float decayTime = 1f;
+        public float instantiationTime;
+
+        // Metadata
+        public Emitter emitter;
+        public BulletPattern bulletPattern;
+        private int bulletId;
+
+        private void Start()
         {
-            Destroy(this.gameObject, decayTime);
+            // Destroy self in N seconds after emitt
+            // Do not do so if set to zero.
+            if (decayTime != 0)
+            {
+                Destroy(this.gameObject, decayTime);
+            }
+            instantiationTime = Time.timeSinceLevelLoad;
         }
-        this.instantiationTime = Time.timeSinceLevelLoad;
-    }
 
-    void OnBecameInvisible() {
-        Destroy(this.gameObject);
-    }
+        private void OnBecameInvisible() {
+            Destroy(gameObject);
+        }
 
-    void Update()
-    {
-        float timeAlive = (Time.timeSinceLevelLoad - this.instantiationTime);
+        void Update()
+        {
+            var timeAlive = (Time.timeSinceLevelLoad - instantiationTime);
 
-        // Move in a fixed direction until otherwise
-        // Optimize this call if need be when we hit optimization issues.
-        Vector3 translation = this.bulletPattern.GetTranslation(timeAlive, this.bulletId) * Time.deltaTime;
+            // Move in a fixed direction until otherwise
+            // Optimize this call if need be when we hit optimization issues.
+            Vector3 translation = bulletPattern.GetTranslation(timeAlive, bulletId) * Time.deltaTime;
 
-        // This is to support bullet time, slows down bullet by multiplier
-        translation.Scale(this.emitter.bulletSpeedMultiplier);
+            // This is to support bullet time, slows down bullet by multiplier
+            translation.Scale(emitter.bulletSpeedMultiplier);
 
-        // Move the actual bullet.
-        transform.Translate(translation);
-    }
+            // Move the actual bullet.
+            transform.Translate(translation);
+        }
 
-    public virtual void SetData(Emitter emitter, BulletPattern bulletPattern, int bulletId)
-    {
-        this.emitter = emitter;
-        this.bulletPattern = bulletPattern;
-        this.bulletId = bulletId;
+        public virtual void SetData(Emitter emitter, BulletPattern bulletPattern, int bulletId)
+        {
+            this.emitter = emitter;
+            this.bulletPattern = bulletPattern;
+            this.bulletId = bulletId;
+        }
     }
 }
