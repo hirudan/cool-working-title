@@ -6,7 +6,6 @@
  */
 public class Bullet : MonoBehaviour
 {
-    // Public Class variables are auto exposed to inspector
     public float decayTime = 1f;
     public float instantiationTime = 0.0f;
 

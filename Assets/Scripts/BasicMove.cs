@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+// Moves object in a single direction. Great for testing movement.
 public class BasicMove : MonoBehaviour
 {
     public Vector3 moveDirection = new Vector3(0, 1, 0);

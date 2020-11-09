@@ -3,7 +3,6 @@
 /**
  * Defines bullet patterns for each bullet.
  * Requires a time t, representing how long a bullet has lived.
- * Encodes bullet movement as delta T.
  */
 public class BulletPattern : MonoBehaviour
 {
