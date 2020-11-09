@@ -34,7 +34,7 @@ namespace BulletManagement
 
         void Update()
         {
-            var timeAlive = (Time.timeSinceLevelLoad - instantiationTime);
+            float timeAlive = (Time.timeSinceLevelLoad - instantiationTime);
 
             // Move in a fixed direction until otherwise
             // Optimize this call if need be when we hit optimization issues.

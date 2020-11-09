@@ -22,18 +22,18 @@ namespace BulletManagement
         public float emitFrequency;
 
         // Bullet decay, can be set to 0f for no decay
-        public float bulletDecayTime = 0f;
+        public float bulletDecayTime;
 
         // Generates bullets
         // Pattern is defined by bulletPattern
         private void EmitBullets()
         {
             // Instantiate the bulletPrefab at emitter position
-            for (int id = 0; id < this.emitBulletCount; ++id)
+            for (int id = 0; id < emitBulletCount; ++id)
             {
                 GameObject bulletGO = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
                 Bullet bullet = bulletGO.GetComponent<Bullet>();
-                bullet.SetData(this, this.bulletPattern, id);
+                bullet.SetData(this, bulletPattern, id);
                 bullet.decayTime = bulletDecayTime;
             }
         }
@@ -42,7 +42,7 @@ namespace BulletManagement
         {
             if (emitFrequency != 0)
             {
-                InvokeRepeating("EmitBullets", this.emitFrequency, this.emitFrequency);
+                InvokeRepeating("EmitBullets", emitFrequency, emitFrequency);
             }
 
             EmitBullets();

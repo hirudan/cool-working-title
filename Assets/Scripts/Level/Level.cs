@@ -37,7 +37,7 @@ namespace Level
             // Grab a directional light if possible otherwise create one
             foreach (var light in FindObjectsOfType<Light>())
             {
-                if (light.type == LightType.Directional && light.name == this.mainLightName)
+                if (light.type == LightType.Directional && light.name == mainLightName)
                 {
                     mainLight = light;
                     break;
@@ -46,7 +46,7 @@ namespace Level
 
             if (mainLight == null)
             {
-                GameObject lightGameObject = new GameObject(this.mainLightName);
+                GameObject lightGameObject = new GameObject(mainLightName);
                 mainLight = lightGameObject.AddComponent<Light>();
                 mainLight.type = LightType.Directional;
             }
