@@ -20,6 +20,9 @@ public class Emitter : MonoBehaviour
     // set to 0 to emit on instantiation.
     public float emitFrequency;
 
+    // Bullet decay, can be set to 0f for no decay
+    public float bulletDecayTime = 0f;
+
     // Generates bullets
     // Pattern is defined by bulletPattern
     void EmitBullets() {
@@ -29,6 +32,7 @@ public class Emitter : MonoBehaviour
             GameObject bulletGO = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             Bullet bullet = bulletGO.GetComponent<Bullet>();
             bullet.SetData(this, this.bulletPattern, id);
+            bullet.decayTime = bulletDecayTime;
         }
     }
 

@@ -6,7 +6,7 @@
  */
 public class BulletPattern : MonoBehaviour
 {
-    // Calculates the displacement when given time t of the lifetime
+    // Calculates translation when given time t of the lifetime
     // of an object from float. bulletId is used if each bullet
     // needs to have unique patterns.
     public virtual Vector3 GetTranslation(float time, int bulletId)

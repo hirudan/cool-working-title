@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        float timeAlive = Time.timeSinceLevelLoad - this.instantiationTime;
+        float timeAlive = (Time.timeSinceLevelLoad - this.instantiationTime);
 
         // Move in a fixed direction until otherwise
         // Optimize this call if need be when we hit optimization issues.
