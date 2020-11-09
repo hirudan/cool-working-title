@@ -22,12 +22,14 @@ namespace BulletManagement
             // Do not do so if set to zero.
             if (decayTime != 0)
             {
-                Destroy(this.gameObject, decayTime);
+                Destroy(gameObject, decayTime);
             }
+
             instantiationTime = Time.timeSinceLevelLoad;
         }
 
-        private void OnBecameInvisible() {
+        private void OnBecameInvisible()
+        {
             Destroy(gameObject);
         }
 

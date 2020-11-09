@@ -34,14 +34,17 @@ namespace Level
         private void InitSun()
         {
             // Grab a directional light if possible otherwise create one
-            foreach (var light in FindObjectsOfType<Light>()) {
-                if (light.type == LightType.Directional && light.name == this.mainLightName) {
+            foreach (var light in FindObjectsOfType<Light>())
+            {
+                if (light.type == LightType.Directional && light.name == this.mainLightName)
+                {
                     mainLight = light;
                     break;
                 }
             }
 
-            if (this.mainLight == null) {
+            if (mainLight == null)
+            {
                 GameObject lightGameObject = new GameObject(this.mainLightName);
                 mainLight = lightGameObject.AddComponent<Light>();
                 mainLight.type = LightType.Directional;
