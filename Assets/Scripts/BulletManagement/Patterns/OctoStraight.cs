@@ -13,9 +13,9 @@ public class OctoStraight : BulletPattern
 
         float c = (Mathf.PI / 4) * spokeCount;
         // Derivative functions with respect to time
-        float x = Mathf.Cos(c);
-        float y = Mathf.Sin(c);
+        float dx = Mathf.Cos(c);
+        float dy = Mathf.Sin(c);
 
-        return new Vector3(x, y, 0);
+        return new Vector3(dx, dy, 0);
     }
 }
