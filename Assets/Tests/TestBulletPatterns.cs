@@ -64,7 +64,6 @@ namespace Tests
                 float dy = Mathf.Sin(c) * waitNUnits;
                 float dz = 0f;
 
-                // There should be less than 0.7f difference
                 Vector3 derivative = new Vector3(dx, dy, dz);
                 Vector3 comparison = (derivative - difference);
 
