@@ -26,12 +26,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Mount NFS
-        run: 'mkdir mountpoint && mount ${{ secrets.NAS_PATH }} mountpoint'
-
-      - name: Grab Assets
-        id: grab-assets
-        run: 'python Infra/sync_assets.py --folder-location mountpoint --yes'
+      - name: Get Assets
+        id: get-assets
+        run: 'scp -r ${{ secrets.NAS_USER }}@${{ secrets.NAS_PATH }}/assets/{{GITHUB_REF##*/}}/Assets Assets'
 
       - name: cache-resources
         uses: actions/cache@v1.1.0
