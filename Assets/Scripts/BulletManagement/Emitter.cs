@@ -2,15 +2,14 @@
 
 namespace BulletManagement
 {
-    /**
-    * Emits Bullet types. Each Emitter dictates the bullet speed.
-    * Each bullet is responsible for knowing what speed it should go
-    * as each GameObject must be updated by Unity so this is the most effective.
-    */
+    /// <summary>
+    /// Emits Bullet types. Each Emitter dictates the bullet speed.
+    /// Each bullet is responsible for knowing what speed it should go
+    /// as each GameObject must be updated by Unity so this is the most effective.
+    /// </summary>
     public class Emitter : MonoBehaviour
     {
-        // We encode speed as a Vector so that some bullets are faster
-        // one way than another.
+        // We encode speed as a Vector so that some bullets are faster one way than another.
         public Vector3 bulletSpeedMultiplier = new Vector3(1, 1, 1);
         public BulletPattern bulletPattern;
         public GameObject bulletPrefab;
@@ -27,7 +26,7 @@ namespace BulletManagement
 
         // Generates bullets
         // Pattern is defined by bulletPattern
-        void EmitBullets()
+        private void EmitBullets()
         {
             // Instantiate the bulletPrefab at emitter position
             for (int id = 0; id < this.emitBulletCount; ++id)

@@ -2,13 +2,14 @@
 
 namespace Movement
 {
-    /**
-     * Behaviour that moves an object along the horizontal and vertical axes based on player input.
-     */
+    /// <summary>
+    /// Behaviour that moves an object along the horizontal and vertical axes based on player input.
+    /// </summary>
     public class InputMove : Move
     {
         private const float Speed = 1f;
 
+        /// <inheritdoc/>
         protected override void MoveOnUpdate()
         {
             transform.position +=

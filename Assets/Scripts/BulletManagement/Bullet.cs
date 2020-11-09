@@ -2,10 +2,9 @@
 
 namespace BulletManagement
 {
-    /**
-    * Base class for bullets. Bullets are destroyed when they no longer are
-    * in the view of the Camera.
-    */
+    /// <summary>
+    /// Base class for bullets. Bullets are destroyed when they no longer are in the view of the Camera.
+    /// </summary>
     public class Bullet : MonoBehaviour
     {
         public float decayTime = 1f;

@@ -2,12 +2,13 @@
 
 namespace Level
 {
-    /**
-     * Logic associated with a Unity Scene.
-     * Can handle movement of objects and instantiation of them
-     * Generally you want anything that should be at the start of the game to be
-     * placed in the scene first. For example the Camera which should already be in the Scene.
-     */
+    /// <summary>
+    /// Logic associated with a Unity Scene. Can handle movement of objects and instantiation of them.
+    /// </summary>
+    /// <remarks>
+    /// Generally you want anything that should be at the start of the game to be
+    /// placed in the scene first. For example the Camera which should already be in the Scene.
+    /// </remarks>
     public class Level : MonoBehaviour
     {
         // Camera of the scene
