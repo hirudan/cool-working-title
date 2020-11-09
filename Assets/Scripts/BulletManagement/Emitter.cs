@@ -7,10 +7,12 @@
  */
 public class Emitter : MonoBehaviour
 {
+    // Will attempt to get BulletPattern on object at program start.
+    private BulletPattern bulletPattern;
+
     // We encode speed as a Vector so that some bullets are faster
     // one way than another.
     public Vector3 bulletSpeedMultiplier = new Vector3(1, 1, 1);
-    public BulletPattern bulletPattern;
     public GameObject bulletPrefab;
 
     // Number of bullets to emit each emit cycle.
@@ -38,6 +40,8 @@ public class Emitter : MonoBehaviour
 
     void Start()
     {
+        this.bulletPattern = this.GetComponent<BulletPattern>();
+
         if (emitFrequency != 0)
         {
             InvokeRepeating("EmitBullets", this.emitFrequency, this.emitFrequency);
