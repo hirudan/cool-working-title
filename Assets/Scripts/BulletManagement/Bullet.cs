@@ -31,8 +31,6 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        // TODO: Check if this is effective
-        // Also if this more viable than frames.
         float timeAlive = Time.timeSinceLevelLoad - this.instantiationTime;
 
         // Move in a fixed direction until otherwise

@@ -34,7 +34,6 @@ public class Emitter : MonoBehaviour
 
     void Start()
     {
-        // Testing purposes
         if (emitFrequency != 0)
         {
             InvokeRepeating("EmitBullets", this.emitFrequency, this.emitFrequency);
