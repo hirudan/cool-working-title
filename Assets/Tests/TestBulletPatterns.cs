@@ -49,10 +49,10 @@ namespace Tests
             Assert.True(bullets.Length == 8);
 
             // Track each bullet's differential speed to see if they are in the correct position
-            Vector3[] priorLocations = this.getBulletPositions(bullets);
+            Vector3[] priorLocations = getBulletPositions(bullets);
             // Wait exactly n second to get n unit of translation (because of deltaTime multiplication in Bullet.cs)
             yield return new WaitForSeconds(waitNUnits);
-            Vector3[] newLocations = this.getBulletPositions(bullets);
+            Vector3[] newLocations = getBulletPositions(bullets);
 
             // Subtract each position and check if they are equal to roughly our derivative
             Debug.Log("Bullet position deviations after " + waitNUnits.ToString() + " seconds:");
