@@ -28,7 +28,7 @@ jobs:
 
       - name: Get Assets
         id: get-assets
-        run: 'scp -r ${{ secrets.NAS_USER }}@${{ secrets.NAS_PATH }}/assets/{{GITHUB_REF##*/}}/Assets Assets'
+        run: 'scp -r ${{ secrets.NAS_USER }}@${{ secrets.NAS_PATH }}/assets/${{GITHUB_REF##*/}}/Assets Assets'
 
       - name: cache-resources
         uses: actions/cache@v1.1.0
