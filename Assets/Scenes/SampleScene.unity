@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce4ae2c47d33984e84d87a40722fde2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDirection: {x: 0, y: 1, z: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
   velocity: {x: 1, y: 1, z: 1}
 --- !u!65 &1173955669
 BoxCollider:
@@ -466,11 +466,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6964f510de09d0e4aa960ad93f9200a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeedMultiplier: {x: 1, y: 1, z: 1}
+  bulletSpeedMultiplier: 1
   bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
-  emitBulletCount: 8
+  emitBulletCount: 1
   emitFrequency: 0.5
-  bulletDecayTime: 0
+  bulletDecayTime: 20
 --- !u!114 &1173955674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,9 +480,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1173955667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f47de08bf6a880a44977d4f9d8d7df9a, type: 3}
+  m_Script: {fileID: 11500000, guid: f965c07a381745c4c9ffc3e606c126a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sideLength: 1
 --- !u!850595691 &1459560103
 LightingSettings:
   m_ObjectHideFlags: 0

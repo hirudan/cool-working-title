@@ -12,10 +12,10 @@ namespace BulletManagement
         // Will attempt to get BulletPattern on object at program start.
         private BulletPattern bulletPattern;
 
-        // We encode speed as a Vector so that some bullets are faster
-        // one way than another.
-        public Vector3 bulletSpeedMultiplier = new Vector3(1, 1, 1);
+        public float bulletSpeedMultiplier = 1.0f;
         public GameObject bulletPrefab;
+
+        public double timeCounter = 0.0;
 
         // Number of bullets to emit each emit cycle.
         public int emitBulletCount;
@@ -43,12 +43,17 @@ namespace BulletManagement
         void Start()
         {
             this.bulletPattern = this.GetComponent<BulletPattern>();
+        }
 
-            if (emitFrequency != 0)
+        // Update is called once per frame
+        void Update()
+        {
+            timeCounter += Time.deltaTime * bulletSpeedMultiplier;
+            if (timeCounter >= emitFrequency)
             {
-                InvokeRepeating("EmitBullets", this.emitFrequency, this.emitFrequency);
+                EmitBullets();
+                timeCounter = 0f;
             }
-            EmitBullets();
         }
     }
 }
