@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6964f510de09d0e4aa960ad93f9200a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeedMultiplier: {x: 1, y: 1, z: 1}
+  bulletSpeedMultiplier: 1
   bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  timeCounter: 0
   emitBulletCount: 8
-  emitFrequency: 0
+  emitFrequency: 1
   bulletDecayTime: 0
 --- !u!114 &1400839160238362036
 MonoBehaviour:

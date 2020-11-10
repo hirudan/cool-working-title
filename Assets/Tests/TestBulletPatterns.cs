@@ -41,13 +41,14 @@ namespace Tests
                 MonoBehaviour.Instantiate(Resources.Load<GameObject>("Emitters/OctoEmitter"));
             Emitter octoEmitter = patternGameObject.GetComponent<Emitter>();
 
-            // Wait for game loop to update, wait 0.1f seconds
-            yield return new WaitForSeconds(0.1f);
+            // Wait for game loop to update, wait 1f seconds to shoot first bullet
+            yield return new WaitForSeconds(1f);
 
             Bullet[] bullets = Object.FindObjectsOfType<Bullet>();
 
             // Once emitter has been instantiated, bullets should appear.
             // Check that there are exactly 8 bullets
+            Debug.Log("total bullets: " + bullets.Length.ToString());
             Assert.True(bullets.Length == 8);
 
             // Track each bullet's differential speed to see if they are in the correct position
