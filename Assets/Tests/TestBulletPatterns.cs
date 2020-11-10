@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using BulletManagement;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
 namespace Tests
 {
+    [TestFixture]
     public class TestBulletPatterns
     {
-        public Vector3[] getBulletPositions(Bullet[] bullets)
+        private static Vector3[] getBulletPositions(IReadOnlyList<Bullet> bullets)
         {
-            Vector3[] positions = new Vector3[bullets.Length];
-            for(int x = 0; x < bullets.Length; ++x)
+            Vector3[] positions = new Vector3[bullets.Count];
+            for(int x = 0; x < bullets.Count; ++x)
             {
                 positions[x] = bullets[x].transform.position;
             }
