@@ -18,21 +18,16 @@ namespace SlipTime
         public float slipTimeDuration = 3f;
         
         private bool inSlipTime;
-        private SlipTimeAdherent[] slipTimeAdherents;
         private double timeCounter;
-
+        
         // Update is called once per frame
-        private void Start()
-        {
-            slipTimeAdherents = FindObjectsOfType<SlipTimeAdherent>();
-        }
-
         private void Update()
         {
             // Logic for entering SlipTime
             if (Input.GetButtonDown("Fire2") && !inSlipTime)
             {
                 inSlipTime = true;
+                var slipTimeAdherents = FindObjectsOfType<SlipTimeAdherent>();
                 foreach (SlipTimeAdherent slipTimeAdherent in slipTimeAdherents)
                 {
                     slipTimeAdherent.SlipTimeCoefficient = slipTimeScalar;
@@ -43,6 +38,7 @@ namespace SlipTime
             else if (Input.GetButtonDown("Fire2") && inSlipTime)
             {
                 inSlipTime = false;
+                var slipTimeAdherents = FindObjectsOfType<SlipTimeAdherent>();
                 foreach (SlipTimeAdherent slipTimeAdherent in slipTimeAdherents)
                 {
                     slipTimeAdherent.SlipTimeCoefficient = 1f;
@@ -57,6 +53,7 @@ namespace SlipTime
                 {
                     inSlipTime = false;
                     timeCounter = 0f;
+                    var slipTimeAdherents = FindObjectsOfType<SlipTimeAdherent>();
                     foreach (SlipTimeAdherent slipTimeAdherent in slipTimeAdherents)
                     {
                         slipTimeAdherent.SlipTimeCoefficient = 1f;
