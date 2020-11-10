@@ -13,6 +13,7 @@ namespace BulletManagement.Patterns
         {
             return new Vector3(circleInterval, 0, 0);
         }
+
         public override Vector3 GetTranslation(double time, int bulletId) 
         {
             int circleNum = bulletId + 1;
