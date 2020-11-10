@@ -20,8 +20,8 @@ namespace BulletManagement
 
         /// <summary>
         /// Calculates translation when given time t of the lifetime
-        // of an object from float. bulletId is used if each bullet
-        // needs to have unique patterns.
+        /// of an object from float. bulletId is used if each bullet
+        /// needs to have unique patterns.
         /// </summary>
         /// <param name="time">time in double precision. Usually Time.deltaTime.</param>
         /// <param name="bulletId">Unique bullet ID assigned for each ejected group of bullets.</param>
