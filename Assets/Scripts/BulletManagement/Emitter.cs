@@ -29,7 +29,7 @@ namespace BulletManagement
 
         // Generates bullets
         // Pattern is defined by bulletPattern
-        void EmitBullets() {
+        protected void EmitBullets() {
             // Instantiate the bulletPrefab at emitter position
             for (int id = 0; id < this.emitBulletCount; ++id)
             {

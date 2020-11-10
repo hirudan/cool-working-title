@@ -3,8 +3,8 @@
 namespace BulletManagement.Patterns
 {
     /**
-    * Emitts a pattern from the center in a straight line with 8 spokes.
-    */
+ * Emits a pattern from the center in a straight line with 8 spokes.
+ */
     public class OctoStraight : BulletPattern
     {
         public override Vector3 GetTranslation(double time, int bulletId)
