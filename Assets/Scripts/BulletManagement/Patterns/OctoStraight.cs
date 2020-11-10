@@ -7,7 +7,7 @@ namespace BulletManagement.Patterns
     */
     public class OctoStraight : BulletPattern
     {
-        public override Vector3 GetTranslation(float time, int bulletId)
+        public override Vector3 GetTranslation(double time, int bulletId)
         {
             float spokeCount = bulletId % 8;
 
