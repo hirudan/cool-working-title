@@ -32,7 +32,8 @@ namespace BulletManagement
 
         void Update()
         {
-            // When speeding up bullet, the input needs to be multipled and also the derivative is multiplied.
+            // When speeding up bullet, the input needs to be multiplied and also the derivative is multiplied.
+            // Speed and SlipTime modifiers should all come from the emitter.
             timeAlive += Time.deltaTime * emitter.bulletSpeedMultiplier * emitter.SlipTimeCoefficient;
 
             // Need to keep track of time so that slo-motion will effect decay as well.
@@ -45,7 +46,7 @@ namespace BulletManagement
             // Optimize this call if need be when we hit optimization issues.
             Vector3 translation = this.bulletPattern.GetTranslation(timeAlive, this.bulletId) * Time.deltaTime;
 
-            // Move the actual bullet.
+            // Move the actual bullet. Speed and SlipTime modifiers should all come from the emitter.
             transform.Translate(translation * (emitter.bulletSpeedMultiplier * emitter.SlipTimeCoefficient));
         }
 

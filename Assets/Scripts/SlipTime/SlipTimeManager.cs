@@ -29,6 +29,7 @@ namespace SlipTime
 
         private void Update()
         {
+            // Logic for entering SlipTime
             if (Input.GetButtonDown("Fire2") && !inSlipTime)
             {
                 inSlipTime = true;
@@ -37,6 +38,8 @@ namespace SlipTime
                     slipTimeAdherent.SlipTimeCoefficient = slipTimeScalar;
                 }
             }
+            
+            // Logic for exiting SlipTime at user prompt
             else if (Input.GetButtonDown("Fire2") && inSlipTime)
             {
                 inSlipTime = false;
@@ -45,6 +48,8 @@ namespace SlipTime
                     slipTimeAdherent.SlipTimeCoefficient = 1f;
                 }
             }
+            
+            // Logic to keep track of when to exit SlipTime by default
             if (inSlipTime)
             {
                 timeCounter += Time.deltaTime;
