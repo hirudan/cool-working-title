@@ -23,7 +23,7 @@ namespace BulletManagement.Patterns
             var dTheta = Mathf.Deg2Rad * spin;
             var initialPosition = GetInitialPosition(bulletId);
             var dx = Mathf.Cos(dTheta * (float) time) - Mathf.Sin(dTheta * (float)time)*(dTheta*(float)time);
-            var dy = Mathf.Sin(dTheta * (float) time) + Mathf.Cos(dTheta * (float)time)*(dTheta*(float)time);;
+            var dy = Mathf.Sin(dTheta * (float) time) + Mathf.Cos(dTheta * (float)time)*(dTheta*(float)time);
             
             return new Vector3(dx, dy, 0);
         }
