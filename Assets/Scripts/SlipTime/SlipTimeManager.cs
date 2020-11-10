@@ -1,31 +1,61 @@
-﻿using BulletManagement;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SlipTime
 {
+    /// <summary>
+    /// Manages activating and deactivating SlipTime.
+    /// </summary>
     public class SlipTimeManager : MonoBehaviour
     {
-        private bool inSlipTime;
+        /// <summary>
+        /// The percentage by which to scale time in SlipTime.
+        /// </summary>
+        public float slipTimeScalar = 0.25f;
         
+        /// <summary>
+        /// The default duration of SlipTime in seconds.
+        /// </summary>
+        public float slipTimeDuration = 3f;
+        
+        private bool inSlipTime;
+        private SlipTimeAdherent[] slipTimeAdherents;
+        private double timeCounter;
+
         // Update is called once per frame
+        private void Start()
+        {
+            slipTimeAdherents = FindObjectsOfType<SlipTimeAdherent>();
+        }
+
         private void Update()
         {
             if (Input.GetButtonDown("Fire2") && !inSlipTime)
             {
                 inSlipTime = true;
-                var emitters = FindObjectsOfType<Emitter>();
-                foreach (var emitter in emitters)
+                foreach (SlipTimeAdherent slipTimeAdherent in slipTimeAdherents)
                 {
-                    emitter.bulletSpeedMultiplier = new Vector3(0.25f, 0.25f, 0.25f);
+                    slipTimeAdherent.SlipTimeCoefficient = slipTimeScalar;
                 }
             }
             else if (Input.GetButtonDown("Fire2") && inSlipTime)
             {
                 inSlipTime = false;
-                var emitters = FindObjectsOfType<Emitter>();
-                foreach (var emitter in emitters)
+                foreach (SlipTimeAdherent slipTimeAdherent in slipTimeAdherents)
                 {
-                    emitter.bulletSpeedMultiplier = new Vector3(1, 1, 1);
+                    slipTimeAdherent.SlipTimeCoefficient = 1f;
+                }
+            }
+            if (inSlipTime)
+            {
+                timeCounter += Time.deltaTime;
+                if (timeCounter > slipTimeDuration)
+                {
+                    inSlipTime = false;
+                    timeCounter = 0f;
+                    foreach (SlipTimeAdherent slipTimeAdherent in slipTimeAdherents)
+                    {
+                        slipTimeAdherent.SlipTimeCoefficient = 1f;
+                    }
                 }
             }
         }
