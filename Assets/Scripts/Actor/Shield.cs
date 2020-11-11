@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Player
+namespace Actor
 {
     public class Shield : MonoBehaviour
     {

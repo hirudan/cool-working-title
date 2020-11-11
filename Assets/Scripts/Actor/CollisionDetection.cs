@@ -4,7 +4,7 @@ using UnityEngine;
 /*
  * TODO This can probably be removed and added to some sort of player object when we have that.
  */
-namespace Player
+namespace Actor
 {
     public class CollisionDetection : MonoBehaviour
     {
