@@ -15,11 +15,11 @@
     "hash": "3ee9dd920ef78691ec1f5d92c444e585",
     "time": "2020-11-10 02:07:21"
   },
-  "Assets\\MainMenu\\Images\\Full_Menu_Selector_Rectangle.png": {
+  "Assets\\UI\\MainMenu\\Full_Menu_Selector_Rectangle.png": {
     "hash": "9a97994d429a1bed0dbf53d27044bf92",
     "time": "2020-11-10 23:16:20"
   },
-  "Assets\\MainMenu\\Images\\_hole_menu.png": {
+  "Assets\\UI\\MainMenu\\_hole_menu.png": {
     "hash": "dda8670642fa10e0a6bee24805a967cd",
     "time": "2020-11-10 23:16:20"
   }
