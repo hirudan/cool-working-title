@@ -44,9 +44,6 @@ namespace BulletManagement
         
         // Flag used to control if the spin should reverse upon hitting max speed
         public bool reverseSpin = false;
-        
-        // Controls delay before first shot
-        public float startDelay = 0f;
 
         /// <summary>
         /// Generates bullets. Pattern is defined by bulletPattern
@@ -67,14 +64,13 @@ namespace BulletManagement
         private void Start()
         {
             this.bulletPattern = this.GetComponent<BulletPattern>();
-            rotationVector.z = startAngle;
         }
 
         // Update is called once per frame
         void Update()
         {
             // Apply translation to this emitter
-            this.transform.Rotate(Vector3.forward * (spinRate * Time.deltaTime));
+            this.transform.Rotate(Vector3.forward * (spinRate * Time.deltaTime * SlipTimeCoefficient));
             
             timeCounter += Time.deltaTime * bulletSpeedMultiplier * SlipTimeCoefficient;
             if (timeCounter >= emitFrequency)
