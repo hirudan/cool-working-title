@@ -23,8 +23,6 @@ namespace BulletManagement.Patterns
         {
             var dTheta = Mathf.Deg2Rad * spin;
             var a = dTheta * time;
-            //var dx = Mathf.Cos(dTheta * (float) time) - Mathf.Sin(dTheta * (float)time)*(dTheta*(float)time);
-            //var dy = Mathf.Sin(dTheta * (float) time) + Mathf.Cos(dTheta * (float)time)*(dTheta*(float)time);;
             var dx = Math.Cos(a) - a * Math.Sin(a);
             var dy = Math.Sin(a) + a * Math.Cos(a);
             
