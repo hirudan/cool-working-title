@@ -9,17 +9,17 @@ namespace BulletManagement
         public int emitCycles = 1;
 
         // Running total of emitted bullet waves
-        private int _cyclesEmitted = 0;
+        private int cyclesEmitted = 0;
         
         // Update is called once per frame
         void Update()
         {
-            if(_cyclesEmitted >= emitCycles) Destroy(this);
+            if(cyclesEmitted >= emitCycles) Destroy(this);
             timeCounter += Time.deltaTime * bulletSpeedMultiplier;
-            if (!(timeCounter >= emitFrequency) || _cyclesEmitted >= emitCycles) return;
+            if (!(timeCounter >= emitFrequency) || cyclesEmitted >= emitCycles) return;
             EmitBullets();
             timeCounter = 0f;
-            _cyclesEmitted++;
+            cyclesEmitted++;
         }
     }
 }

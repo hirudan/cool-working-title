@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace BulletManagement.Patterns
 {
@@ -21,11 +22,11 @@ namespace BulletManagement.Patterns
         public override Vector3 GetTranslation(double time, int bulletId)
         {
             var dTheta = Mathf.Deg2Rad * spin;
-            var initialPosition = GetInitialPosition(bulletId);
-            var dx = Mathf.Cos(dTheta * (float) time) - Mathf.Sin(dTheta * (float)time)*(dTheta*(float)time);
-            var dy = Mathf.Sin(dTheta * (float) time) + Mathf.Cos(dTheta * (float)time)*(dTheta*(float)time);;
+            var a = dTheta * time;
+            var dx = Math.Cos(a) - Math.Sin(Math.Pow(a,2));
+            var dy = Math.Sin(a) + Math.Cos(Math.Pow(a,2));
             
-            return new Vector3(dx, dy, 0);
+            return new Vector3((float)dx, (float)dy, 0);
         }
     }
 }
