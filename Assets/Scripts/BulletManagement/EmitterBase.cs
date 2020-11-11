@@ -11,6 +11,8 @@ namespace BulletManagement
     {
         // Will attempt to get BulletPattern on object at program start.
         protected BulletPattern bulletPattern;
+        // Vector of three Euler angles for rotating the emitter
+        private Vector3 rotationVector = new Vector3(0,0,0);
 
         public float bulletSpeedMultiplier = 1.0f;
 
@@ -28,10 +30,23 @@ namespace BulletManagement
         // Bullet decay, can be set to 0f for no decay
         public float bulletDecayTime = 0f;
         
-        private void Start()
-        {
-            this.bulletPattern = this.GetComponent<BulletPattern>();
-        }
+        // Angle at which the emtiter points
+        public float startAngle = 0f;
+
+        // The rate at which the emitter should spin each update cycle
+        public float spinRate = 0f;
+
+        // The maximum spin rate at which spin will reverse
+        public float spinMax = 1f;
+        
+        // Analogous to angular acceleration, the rate at which spinRate increases
+        public float spinAccel = 0f;
+        
+        // Flag used to control if the spin should reverse upon hitting max speed
+        public bool reverseSpin = false;
+        
+        // Controls delay before first shot
+        public float startDelay = 0f;
 
         /// <summary>
         /// Generates bullets. Pattern is defined by bulletPattern
@@ -41,10 +56,40 @@ namespace BulletManagement
             // Instantiate the bulletPrefab at emitter position
             for (int id = 0; id < this.emitBulletCount; ++id)
             {
-                GameObject bulletGO = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                var currentTransform = this.transform;
+                GameObject bulletGO = Instantiate(bulletPrefab, currentTransform.position, currentTransform.rotation);
                 Bullet bullet = bulletGO.GetComponent<Bullet>();
                 bullet.SetData(this, this.bulletPattern, id);
                 bullet.decayTime = bulletDecayTime;
+            }
+        }
+
+        private void Start()
+        {
+            this.bulletPattern = this.GetComponent<BulletPattern>();
+            rotationVector.z = startAngle;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            // Apply translation to this emitter
+            this.transform.Rotate(Vector3.forward * (spinRate * Time.deltaTime));
+            
+            timeCounter += Time.deltaTime * bulletSpeedMultiplier * SlipTimeCoefficient;
+            if (timeCounter >= emitFrequency)
+            {
+                EmitBullets();
+                timeCounter = 0f;
+            }
+            
+            // Update spin rate
+            spinRate += spinAccel; 
+
+            //Invert the spin if set to 1
+            if (!reverseSpin) return;
+            if (spinRate < -spinMax || spinRate > spinMax) {
+                spinAccel = -spinAccel;
             }
         }
     }
