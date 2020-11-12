@@ -21,7 +21,8 @@ namespace BulletManagement
         // Getter and Setters
         public int BulletId => this.bulletId;
 
-        void OnBecameInvisible() {
+        void OnBecameInvisible()
+        {
             Destroy(this.gameObject);
         }
 
@@ -34,7 +35,7 @@ namespace BulletManagement
         {
             // When speeding up bullet, the input needs to be multiplied and also the derivative is multiplied.
             // Speed and SlipTime modifiers should all come from the emitter.
-            timeAlive += Time.deltaTime * emitter.bulletSpeedMultiplier * emitter.SlipTimeCoefficient;
+            timeAlive += Time.deltaTime * emitter.bulletSpeedMultiplier * emitter.SlipTimeManager.slipTimeCoefficient;
 
             // Need to keep track of time so that slo-motion will effect decay as well.
             if (decayTime != 0 && timeAlive >= decayTime)
@@ -47,7 +48,8 @@ namespace BulletManagement
             Vector3 translation = this.bulletPattern.GetTranslation(timeAlive, this.bulletId) * Time.deltaTime;
 
             // Move the actual bullet. Speed and SlipTime modifiers should all come from the emitter.
-            transform.Translate(translation * (emitter.bulletSpeedMultiplier * emitter.SlipTimeCoefficient));
+            transform.Translate(translation *
+                                (emitter.bulletSpeedMultiplier * emitter.SlipTimeManager.slipTimeCoefficient));
         }
 
         public virtual void SetData(Emitter emitter, BulletPattern bulletPattern, int bulletId)

@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 180.25, y: 162.4}
-  m_SizeDelta: {x: 360.5, y: 70.83954}
+  m_AnchoredPosition: {x: 247, y: 236.67}
+  m_SizeDelta: {x: 515.24994, y: 126.65662}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &353729104
 MonoBehaviour:
@@ -197,11 +197,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1de60350df6d59345a11762c561dbf9e, type: 3}
-    m_FontSize: 30
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 54
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -463,6 +463,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 899736491032066801, guid: 2ad64fb933e4a774289498cf981c41aa, type: 3}
+      propertyPath: slipTimeManager
+      value: 
+      objectReference: {fileID: 2101260596}
     - target: {fileID: 899736491032066811, guid: 2ad64fb933e4a774289498cf981c41aa, type: 3}
       propertyPath: m_Name
       value: StarEmitter
@@ -484,6 +488,14 @@ PrefabInstance:
       propertyPath: moveDirection.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2425154436543106883, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
+      propertyPath: slipTimeManager
+      value: 
+      objectReference: {fileID: 2101260596}
+    - target: {fileID: 3484942365795540654, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
+      propertyPath: slipTimeManager
+      value: 
+      objectReference: {fileID: 2101260596}
     - target: {fileID: 3484942365795540661, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -643,12 +655,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -709,6 +721,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 2878554341998852033, guid: 6fddbd68736fff04d917044dceb315fe, type: 3}
+    - target: {fileID: 7285868813779451964, guid: 944ed6f1214f64a4d9b52dedb342569f, type: 3}
+      propertyPath: slipTimeManager
+      value: 
+      objectReference: {fileID: 2101260596}
     - target: {fileID: 7285868813779451965, guid: 944ed6f1214f64a4d9b52dedb342569f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -785,6 +801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slipTimeScalar: 0.25
+  slipTimeCoefficient: 1
   slipTimeDuration: 3
 --- !u!4 &2101260597
 Transform:
@@ -811,6 +828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpiralEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 4436082445831247926, guid: 4bf026c635ae31f4e9d2ec530963ced7, type: 3}
+      propertyPath: slipTimeManager
+      value: 
+      objectReference: {fileID: 2101260596}
     - target: {fileID: 4436082445831247927, guid: 4bf026c635ae31f4e9d2ec530963ced7, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -912,6 +933,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6220917563752105756, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
+      propertyPath: slipTimeManager
+      value: 
+      objectReference: {fileID: 2101260596}
     - target: {fileID: 6927457032460220823, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
       propertyPath: m_Size.x
       value: 0.64
@@ -941,6 +966,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SemicircleEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 6141497211927844082, guid: 0da35b29dc9f7564cbeccfe92b9e049c, type: 3}
+      propertyPath: slipTimeManager
+      value: 
+      objectReference: {fileID: 2101260596}
     - target: {fileID: 6141497211927844084, guid: 0da35b29dc9f7564cbeccfe92b9e049c, type: 3}
       propertyPath: m_RootOrder
       value: 6

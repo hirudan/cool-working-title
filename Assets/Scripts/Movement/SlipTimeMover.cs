@@ -1,9 +1,15 @@
-﻿using UnityEngine;
+﻿using SlipTime;
+using UnityEngine;
 
 namespace Movement
 {
-    public class SlipTimeMover : SlipTime.SlipTimeAdherent
+    public class SlipTimeMover : MonoBehaviour, ISlipTimeAdherent
     {
+        public SlipTimeManager SlipTimeManager => slipTimeManager;
+
+        [SerializeField]
+        private SlipTimeManager slipTimeManager;
+        
         private Animator animator;
 
         private void Start()
@@ -18,7 +24,7 @@ namespace Movement
         {
             animator.SetFloat("HorizontalMovement", translate.x);
             animator.SetFloat("VerticalMovement", translate.y);
-            transform.Translate(translate * this.SlipTimeCoefficient);
+            transform.Translate(translate * this.SlipTimeManager.slipTimeCoefficient);
         }
     }
 }
