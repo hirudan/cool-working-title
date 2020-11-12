@@ -1,24 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using SlipTime;
 using UnityEngine;
 
-namespace Actor {
+namespace Actor
+{
     /// <summary>
     /// Function that keeps track of health and 
     /// any resources dealing with morbid death.
     /// </summary>
-    public class Living : SlipTime.SlipTimeAdherent
+    public class Living : MonoBehaviour, ISlipTimeAdherent
     {
+        public SlipTimeManager SlipTimeManager => slipTimeManager;
+
         public Color damageTint;
+
         // Private Variables
+        [SerializeField]
+        private SlipTimeManager slipTimeManager;
+        
         [SerializeField]
         private int health = 100;
 
         [SerializeField]
         private Animator animator;
-
+        
         [SerializeField]
         private float colorDecayTime = 2.0f;
+        
         private SpriteRenderer spriteRenderer;
         private bool takenDamage = false;
         private float timeCounter = 0;
@@ -47,7 +54,7 @@ namespace Actor {
             {
                 Color lerpedColor = Color.Lerp(damageTint, Color.white, timeCounter);
                 spriteRenderer.color = lerpedColor;
-                timeCounter += (Time.deltaTime * this.SlipTimeCoefficient) / colorDecayTime;
+                timeCounter += (Time.deltaTime * this.SlipTimeManager.slipTimeCoefficient) / colorDecayTime;
 
                 if (timeCounter >= colorDecayTime)
                 {
@@ -73,7 +80,7 @@ namespace Actor {
 
             health -= amt;
             // Use basic red color tint for now instead of a new sprite
-            spriteRenderer.color =  damageTint;
+            spriteRenderer.color = damageTint;
             takenDamage = true;
             animator.SetTrigger("Damage");
         }

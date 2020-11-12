@@ -8,13 +8,18 @@ namespace BulletManagement
     * Each bullet is responsible for knowing what speed it should go
     * as each GameObject must be updated by Unity so this is the most effective.
     */
-    public class Emitter : SlipTimeAdherent
+    public class Emitter : MonoBehaviour, ISlipTimeAdherent
     {
+        public SlipTimeManager SlipTimeManager => slipTimeManager;
+
+        [SerializeField]
+        private SlipTimeManager slipTimeManager;
+
         // Will attempt to get BulletPattern on object at program start.
         private BulletPattern bulletPattern;
 
         public float bulletSpeedMultiplier = 1.0f;
-        
+
         public GameObject bulletPrefab;
 
         public double timeCounter = 0.0;
@@ -31,7 +36,8 @@ namespace BulletManagement
 
         // Generates bullets
         // Pattern is defined by bulletPattern
-        protected void EmitBullets() {
+        protected void EmitBullets()
+        {
             // Instantiate the bulletPrefab at emitter position
             for (int id = 0; id < this.emitBulletCount; ++id)
             {
@@ -44,14 +50,13 @@ namespace BulletManagement
 
         private void Start()
         {
-            this.SlipTimeCoefficient = 1.0f;
             this.bulletPattern = this.GetComponent<BulletPattern>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            timeCounter += Time.deltaTime * bulletSpeedMultiplier * SlipTimeCoefficient;
+            timeCounter += Time.deltaTime * bulletSpeedMultiplier * SlipTimeManager.slipTimeCoefficient;
             if (timeCounter >= emitFrequency)
             {
                 EmitBullets();
