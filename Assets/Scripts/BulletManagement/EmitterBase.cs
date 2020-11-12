@@ -16,11 +16,19 @@ using UnityEngine;
         // Vector of three Euler angles for rotating the emitter
         private Vector3 rotationVector = new Vector3(0,0,0);
 
+        // Running total of emitted bullet waves
+        private int cyclesEmitted = 0;
+
+        private bool limited = false;
+
         public float bulletSpeedMultiplier = 1.0f;
 
         public GameObject bulletPrefab;
 
         public double timeCounter = 0.0;
+        
+        // The number of bullet waves to emit. Set to zero for no limit.
+        public int emitCycles = 0;
 
         // Number of bullets to emit each emit cycle.
         public int emitBulletCount;
@@ -76,6 +84,8 @@ using UnityEngine;
 
         private void Start()
         {
+            limited = emitCycles != 0;
+            this.SlipTimeCoefficient = 1.0f;
             this.bulletPattern = this.GetComponent<BulletPattern>();
             if (aimed)
             {
@@ -92,6 +102,8 @@ using UnityEngine;
         // Update is called once per frame
         void Update()
         {
+            // Destroy the emitter if it has finished all its cycles (when applicable)
+            if(limited && cyclesEmitted >= emitCycles) Destroy(this);
             if (aimed)
             {
                 var angleToPlayer = AngleToPlayer();
@@ -101,11 +113,10 @@ using UnityEngine;
             this.transform.Rotate(Vector3.forward * (spinRate * Time.deltaTime * SlipTimeCoefficient));
             
             timeCounter += Time.deltaTime * bulletSpeedMultiplier * SlipTimeCoefficient;
-            if (timeCounter >= emitFrequency)
-            {
-                EmitBullets();
-                timeCounter = 0f;
-            }
+            if (!(timeCounter >= emitFrequency) || limited && (cyclesEmitted >= emitCycles)) return;
+            EmitBullets();
+            timeCounter = 0f;
+            cyclesEmitted++;
             
             // Update spin rate
             spinRate += spinAccel; 
