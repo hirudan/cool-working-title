@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace MainMenu
+namespace UI.MainMenu
 {
     /// <summary>
     /// Controls interactions with the main menu.
