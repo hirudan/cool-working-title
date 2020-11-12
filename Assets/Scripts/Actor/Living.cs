@@ -45,9 +45,9 @@ namespace Actor {
             // we can decide to use sprites instead later down the line for crazier effects
             if (takenDamage)
             {
-                Color lerpedColor = Color.Lerp(damageTint, Color.white,  timeCounter);
+                Color lerpedColor = Color.Lerp(damageTint, Color.white, timeCounter);
                 spriteRenderer.color = lerpedColor;
-                timeCounter += (Time.deltaTime * (this.SlipTimeCoefficient)) / colorDecayTime;
+                timeCounter += (Time.deltaTime * this.SlipTimeCoefficient) / colorDecayTime;
 
                 if (timeCounter >= colorDecayTime)
                 {
