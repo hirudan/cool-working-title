@@ -28,13 +28,13 @@ namespace Actor {
         public Color DamageTint => this.damageTint;
         public float ColorDecayTime => this.colorDecayTime;
 
-        void Start()
+        private void Start()
         {
             animator = gameObject.GetComponent<Animator>();
             spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         }
 
-        void Update()
+        private void Update()
         {
             if (health <= 0)
             {
