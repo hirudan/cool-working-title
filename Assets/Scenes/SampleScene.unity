@@ -651,6 +651,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6927457032460220823, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927457032460220823, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927457032460220823, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bbb14ae4efbf9fc479272d90ab3ca906, type: 3}
+    - target: {fileID: 6927457032460220823, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
 --- !u!1001 &6141497212114022960
