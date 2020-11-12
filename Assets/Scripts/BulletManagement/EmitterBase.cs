@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using SlipTime;
+using UnityEngine;
 
-namespace BulletManagement
+ namespace BulletManagement
 {
     /// <summary>
     /// Emits Bullet types. Each Emitter dictates the bullet speed.
@@ -44,6 +46,9 @@ namespace BulletManagement
         
         // Flag used to control if the spin should reverse upon hitting max speed
         public bool reverseSpin = false;
+        
+        // Determines if the emitter should aim at the player or not. Note that this will overwrite startAngle.
+        public bool aimed = false;
 
         /// <summary>
         /// Generates bullets. Pattern is defined by bulletPattern
@@ -61,15 +66,37 @@ namespace BulletManagement
             }
         }
 
+        protected float AngleToPlayer()
+        {
+            var playerTransform = GameObject.Find("Player").transform;
+            var emitterTransform = transform;
+            Vector3 targetDir = playerTransform.position - emitterTransform.position;
+            return Vector3.SignedAngle(targetDir, emitterTransform.up, Vector3.forward);
+        }
+
         private void Start()
         {
             this.bulletPattern = this.GetComponent<BulletPattern>();
-            transform.Rotate(Vector3.forward * startAngle, Space.Self);
+            if (aimed)
+            {
+                var angleToPlayer = AngleToPlayer();
+                transform.Rotate(Vector3.forward * -angleToPlayer, Space.Self);
+            }
+            else
+            {
+                transform.Rotate(Vector3.forward * startAngle, Space.Self);
+            }
+            
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (aimed)
+            {
+                var angleToPlayer = AngleToPlayer();
+                transform.Rotate(Vector3.forward * -angleToPlayer, Space.Self);
+            }
             // Apply translation to this emitter
             this.transform.Rotate(Vector3.forward * (spinRate * Time.deltaTime * SlipTimeCoefficient));
             
