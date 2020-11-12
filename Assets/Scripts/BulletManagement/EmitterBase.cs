@@ -28,6 +28,24 @@ namespace BulletManagement
         // Bullet decay, can be set to 0f for no decay
         public float bulletDecayTime = 0f;
         
-        protected abstract void EmitBullets();
+        private void Start()
+        {
+            this.bulletPattern = this.GetComponent<BulletPattern>();
+        }
+
+        /// <summary>
+        /// Generates bullets. Pattern is defined by bulletPattern
+        /// </summary>
+        protected void EmitBullets()
+        {
+            // Instantiate the bulletPrefab at emitter position
+            for (int id = 0; id < this.emitBulletCount; ++id)
+            {
+                GameObject bulletGO = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                Bullet bullet = bulletGO.GetComponent<Bullet>();
+                bullet.SetData(this, this.bulletPattern, id);
+                bullet.decayTime = bulletDecayTime;
+            }
+        }
     }
 }

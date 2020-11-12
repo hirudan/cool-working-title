@@ -3,7 +3,7 @@
 namespace BulletManagement
 {
     // An emitter that emits a fixed number of bullet cycles and then destroys itself
-    public class LimitedEmitter : Emitter
+    public class LimitedEmitter : SlipTimeEmitter
     {
         // The number of bullet waves to emit
         public int emitCycles = 1;

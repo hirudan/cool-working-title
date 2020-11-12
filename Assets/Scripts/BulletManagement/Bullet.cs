@@ -37,7 +37,7 @@ namespace BulletManagement
             
             // When speeding up bullet, the input needs to be multiplied and also the derivative is multiplied.
             // Speed and SlipTime modifiers should all come from the emitter.
-            if (emitter is Emitter slipTimeEmitter)
+            if (emitter is SlipTimeEmitter slipTimeEmitter)
             {
                 timeAlive += Time.deltaTime * emitter.bulletSpeedMultiplier * slipTimeEmitter.SlipTimeManager.slipTimeCoefficient;
                 

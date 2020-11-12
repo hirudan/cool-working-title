@@ -39,7 +39,7 @@ namespace Tests
 
             GameObject patternGameObject =
                 MonoBehaviour.Instantiate(Resources.Load<GameObject>("Emitters/OctoEmitter"));
-            Emitter octoEmitter = patternGameObject.GetComponent<Emitter>();
+            SlipTimeEmitter octoEmitter = patternGameObject.GetComponent<SlipTimeEmitter>();
 
             // Wait for game loop to update, wait 1f seconds to shoot first bullet
             yield return new WaitForSeconds(1f);
