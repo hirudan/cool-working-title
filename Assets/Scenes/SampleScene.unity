@@ -477,6 +477,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ad64fb933e4a774289498cf981c41aa, type: 3}
+--- !u!1 &1390729768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6220917563752105735, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
+  m_PrefabInstance: {fileID: 5150820763486936421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1390729777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390729768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7bf651c1506ae43810775dad6bf38f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeedMultiplier: 0.2
+  bulletPrefab: {fileID: 2761347485312425095, guid: 1aeb7edf1f44c1a4391d9a4236331342, type: 3}
+  timeCounter: 0
+  emitBulletCount: 1
+  emitFrequency: 0.1
+  bulletDecayTime: 1
+--- !u!114 &1390729778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390729768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 132ccf9c073ecdc46b398d605fbb1ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circleInterval: 5
 --- !u!1001 &1402444843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -720,7 +756,7 @@ PrefabInstance:
     - target: {fileID: 7285868813779451964, guid: 944ed6f1214f64a4d9b52dedb342569f, type: 3}
       propertyPath: bulletPrefab
       value: 
-      objectReference: {fileID: 2878554341998852033, guid: 6fddbd68736fff04d917044dceb315fe, type: 3}
+      objectReference: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
     - target: {fileID: 7285868813779451964, guid: 944ed6f1214f64a4d9b52dedb342569f, type: 3}
       propertyPath: slipTimeManager
       value: 

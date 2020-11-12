@@ -1,22 +1,16 @@
-﻿using SlipTime;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BulletManagement
 {
-    /**
-    * Emits Bullet types. Each Emitter dictates the bullet speed.
-    * Each bullet is responsible for knowing what speed it should go
-    * as each GameObject must be updated by Unity so this is the most effective.
-    */
-    public class Emitter : MonoBehaviour, ISlipTimeAdherent
+    /// <summary>
+    /// Emits Bullet types. Each Emitter dictates the bullet speed.
+    /// Each bullet is responsible for knowing what speed it should go
+    /// as each GameObject must be updated by Unity so this is the most effective.
+    /// </summary>
+    public abstract class EmitterBase : MonoBehaviour
     {
-        public SlipTimeManager SlipTimeManager => slipTimeManager;
-
-        [SerializeField]
-        private SlipTimeManager slipTimeManager;
-
         // Will attempt to get BulletPattern on object at program start.
-        private BulletPattern bulletPattern;
+        protected BulletPattern bulletPattern;
 
         public float bulletSpeedMultiplier = 1.0f;
 
@@ -33,9 +27,15 @@ namespace BulletManagement
 
         // Bullet decay, can be set to 0f for no decay
         public float bulletDecayTime = 0f;
+        
+        private void Start()
+        {
+            this.bulletPattern = this.GetComponent<BulletPattern>();
+        }
 
-        // Generates bullets
-        // Pattern is defined by bulletPattern
+        /// <summary>
+        /// Generates bullets. Pattern is defined by bulletPattern
+        /// </summary>
         protected void EmitBullets()
         {
             // Instantiate the bulletPrefab at emitter position
@@ -45,22 +45,6 @@ namespace BulletManagement
                 Bullet bullet = bulletGO.GetComponent<Bullet>();
                 bullet.SetData(this, this.bulletPattern, id);
                 bullet.decayTime = bulletDecayTime;
-            }
-        }
-
-        private void Start()
-        {
-            this.bulletPattern = this.GetComponent<BulletPattern>();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            timeCounter += Time.deltaTime * bulletSpeedMultiplier * SlipTimeManager.slipTimeCoefficient;
-            if (timeCounter >= emitFrequency)
-            {
-                EmitBullets();
-                timeCounter = 0f;
             }
         }
     }
