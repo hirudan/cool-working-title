@@ -17,7 +17,7 @@ namespace BulletManagement.Patterns
 
         public override Vector3 GetTranslation(double time, int bulletId)
         {
-            return new Vector3(acceleration * (1 + Time.deltaTime), acceleration * (1+Time.deltaTime), 0);
+            return Vector3.up;
         }
     }
 }

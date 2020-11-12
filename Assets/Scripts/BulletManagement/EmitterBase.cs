@@ -64,6 +64,7 @@ namespace BulletManagement
         private void Start()
         {
             this.bulletPattern = this.GetComponent<BulletPattern>();
+            transform.Rotate(Vector3.forward * startAngle, Space.Self);
         }
 
         // Update is called once per frame
