@@ -98,6 +98,8 @@ GameObject:
   - component: {fileID: 7333863935855031014}
   - component: {fileID: 6220917563752105734}
   - component: {fileID: 6220917563752105759}
+  - component: {fileID: 5794501969456287002}
+  - component: {fileID: -7528456622467027127}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -217,6 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTint: {r: 1, g: 0.5801887, b: 0.5801887, a: 1}
+  slipTimeManager: {fileID: 0}
   health: 100
   animator: {fileID: 0}
   colorDecayTime: 2
@@ -351,3 +354,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5794501969456287002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220917563752105735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7bf651c1506ae43810775dad6bf38f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeedMultiplier: 0.2
+  bulletPrefab: {fileID: 2761347485312425095, guid: 1aeb7edf1f44c1a4391d9a4236331342, type: 3}
+  timeCounter: 0
+  emitBulletCount: 1
+  emitFrequency: 0.1
+  bulletDecayTime: 1
+--- !u!114 &-7528456622467027127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220917563752105735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 132ccf9c073ecdc46b398d605fbb1ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circleInterval: 5
