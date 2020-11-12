@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BulletManagement.Patterns
 {
@@ -7,12 +6,12 @@ namespace BulletManagement.Patterns
     {
         public float offset = 0f;
 
-        public float acceleration = 0f;
+        public float spreadAngle = 0f;
         
         public override Vector3 GetInitialPosition(int bulletId)
         {
             var c = 1/offset * bulletId;
-            return new Vector3(0, c, 0);
+            return new Vector3(Mathf.Sin(spreadAngle) * bulletId, c + Mathf.Cos(spreadAngle), 0);
         }
 
         public override Vector3 GetTranslation(double time, int bulletId)
