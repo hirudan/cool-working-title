@@ -78,7 +78,7 @@ namespace SlipTime
                 }
             }
 
-            if (slipTimeCharges < maxSlipTimeCharges && !inSlipTime)
+            if (slipTimeCharges < maxSlipTimeCharges && (slipTimeCharges != maxSlipTimeCharges - 1 || !inSlipTime))
             {
                 chargeTimeCounter += Time.deltaTime;
                 if (chargeTimeCounter >= slipTimeChargeDuration)

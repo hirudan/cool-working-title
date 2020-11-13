@@ -1,14 +1,15 @@
 ﻿using SlipTime;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class SlipTimeUi : MonoBehaviour
+    public class SlipTimeUI : MonoBehaviour
     {
         public SlipTimeManager slipTimeManager;
     
-        public Text slipTimeUiText;
+        public Text slipTimeUIText;
 
         private int slipTimeCharges;
 
@@ -16,7 +17,7 @@ namespace UI
         void Start()
         {
             slipTimeCharges = slipTimeManager.slipTimeCharges;
-            slipTimeUiText.text = $"Slip Time Charges: {slipTimeCharges}";
+            slipTimeUIText.text = $"Slip Time Charges: {slipTimeCharges}";
         }
 
         // Update is called once per frame
@@ -25,7 +26,7 @@ namespace UI
             if (slipTimeCharges != slipTimeManager.slipTimeCharges)
             {
                 slipTimeCharges = slipTimeManager.slipTimeCharges;
-                slipTimeUiText.text = $"Slip Time Charges: {slipTimeCharges}";
+                slipTimeUIText.text = $"Slip Time Charges: {slipTimeCharges}";
             }
         }
     }
