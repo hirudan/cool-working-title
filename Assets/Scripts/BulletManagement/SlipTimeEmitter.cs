@@ -16,14 +16,11 @@ namespace BulletManagement
 
         private bool limited = false;
 
-        public float bulletSpeedMultiplier = 1.0f;
-        
+        private Transform playerTransform;
+
         // The number of bullet waves to emit. Set to zero for no limit.
         public int emitCycles = 0;
 
-        // Number of bullets to emit each emit cycle.
-        public int emitBulletCount;
-        
         // Angle at which the emtiter points
         public float startAngle = 0f;
 
@@ -46,6 +43,7 @@ namespace BulletManagement
         {
             limited = emitCycles != 0;
             this.bulletPattern = this.GetComponent<BulletPattern>();
+            playerTransform = GameObject.Find("Player").transform;
             if (aimed)
             {
                 var angleToPlayer = AngleToPlayer();
@@ -60,25 +58,11 @@ namespace BulletManagement
         
         protected float AngleToPlayer()
         {
-            var playerTransform = GameObject.Find("Player").transform;
             var emitterTransform = transform;
             Vector3 targetDir = playerTransform.position - emitterTransform.position;
             return Vector3.SignedAngle(targetDir, emitterTransform.up, Vector3.forward);
         }
 
-        private void EmitBullets()
-        {
-            // Instantiate the bulletPrefab at emitter position
-            for (int id = 0; id < this.emitBulletCount; ++id)
-            {
-                var currentTransform = this.transform;
-                GameObject bulletGO = Instantiate(bulletPrefab, currentTransform.position, currentTransform.rotation);
-                Bullet bullet = bulletGO.GetComponent<Bullet>();
-                bullet.SetData(this, this.bulletPattern, id);
-                bullet.decayTime = bulletDecayTime;
-            }
-        }
-        
         // Update is called once per frame
         private void Update()
         {
