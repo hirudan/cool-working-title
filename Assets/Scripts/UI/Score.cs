@@ -9,7 +9,7 @@ namespace UI
     public class Score : MonoBehaviour
     {
         // TODO remove this field when we implement player scoring
-        public int score;
+        public static int score;
         
         /// <summary>
         /// The score text box to update and display.

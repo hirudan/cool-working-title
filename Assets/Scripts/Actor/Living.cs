@@ -13,6 +13,8 @@ namespace Actor
 
         public Color damageTint;
 
+        public int DamageLayer = 10;
+
         // Private Variables
         [SerializeField]
         private SlipTimeManager slipTimeManager;
@@ -92,7 +94,7 @@ namespace Actor
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.layer == 10)
+            if (other.gameObject.layer == DamageLayer)
             {
                 TakeDamage(10);
             }
