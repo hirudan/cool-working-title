@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Actor;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Level
 {
@@ -15,6 +17,8 @@ namespace Level
 
         public string mainLightName = "Main Light";
         Light mainLight;
+
+        private Living playerObject, bossObject;
 
         private void InitCamera()
         {
@@ -64,6 +68,17 @@ namespace Level
             // Initialize Camera
             this.InitCamera();
             this.InitSun();
+
+            playerObject = GameObject.Find("Player").GetComponent<Living>();
+            bossObject = GameObject.Find("Boss").GetComponent<Living>();
+        }
+
+        void Update()
+        {
+            if (bossObject.IsDead() || playerObject.IsDead())
+            {
+                SceneManager.LoadScene("PlayerScore");
+            }
         }
     }
 }
