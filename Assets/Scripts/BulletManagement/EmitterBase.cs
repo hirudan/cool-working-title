@@ -27,8 +27,8 @@ namespace BulletManagement
 
         // Bullet decay, can be set to 0f for no decay
         public float bulletDecayTime = 0f;
-        
-        private void Start()
+
+        protected void Start()
         {
             this.bulletPattern = this.GetComponent<BulletPattern>();
         }
