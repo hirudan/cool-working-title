@@ -21,7 +21,7 @@ namespace BulletManagement
                 // Only count if need be
                 if (timeCounter >= emitFrequency)
                 {
-                    // As long as shoot is in the shoot state, the 
+                    // As long as shoot is in the shoot state, the audio will play
                     animator.SetTrigger("Shoot");
                     EmitBullets();
                     timeCounter = 0f;
