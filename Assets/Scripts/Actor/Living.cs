@@ -94,9 +94,15 @@ namespace Actor
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.layer == DamageLayer)
+            GameObject go = other.gameObject;
+            if (go.layer == DamageLayer)
             {
                 TakeDamage(10);
+                if (go.GetComponent<BulletManagement.Bullet>().destroyBulletOnHit)
+                {
+                    // Destroy the bullet that hit the object
+                    Destroy(go);
+                }
             }
         }
     }

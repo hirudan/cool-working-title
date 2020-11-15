@@ -16,6 +16,11 @@ namespace UI
         /// </summary>
         public Text scoreTextBox;
 
+        private void Start()
+        {
+            score = 0;
+        }
+
         // Update is called once per frame
         private void Update()
         {

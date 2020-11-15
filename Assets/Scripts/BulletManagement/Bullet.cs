@@ -15,6 +15,10 @@ namespace BulletManagement
         public EmitterBase emitter = null;
         public BulletPattern bulletPattern = null;
 
+        // Checks if a bullet should be destroyed once it hits an object.
+        // Checked by Living.cs
+        public bool destroyBulletOnHit = true;
+
         [SerializeField]
         private int bulletId;
 
