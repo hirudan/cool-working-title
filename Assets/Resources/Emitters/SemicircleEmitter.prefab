@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6141497211927844084
 Transform:
   m_ObjectHideFlags: 0
@@ -56,13 +56,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 6141497211927844081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef9faeb729c46a290c323eeedf3b27d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6964f510de09d0e4aa960ad93f9200a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeedMultiplier: 1
+  bulletSpeedMultiplier: 3
   bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
   timeCounter: 0
   emitBulletCount: 5
-  emitFrequency: 1
+  emitFrequency: 0.5
   bulletDecayTime: 0
-  emitCycles: 10
+  slipTimeManager: {fileID: 0}
+  emitCycles: 0
+  startAngle: 0
+  spinRate: 50
+  spinMax: 1
+  spinAccel: 0
+  reverseSpin: 0
+  aimed: 0
