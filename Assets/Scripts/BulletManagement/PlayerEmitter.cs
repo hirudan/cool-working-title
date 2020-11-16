@@ -7,7 +7,7 @@ namespace BulletManagement
         // For playing bullet animations and audio fx
         public Animator animator;
 
-        protected void Start()
+        protected new void Start()
         {
             base.Start();
             animator = transform.parent.gameObject.GetComponent<Animator>();

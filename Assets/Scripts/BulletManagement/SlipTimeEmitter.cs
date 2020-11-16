@@ -39,7 +39,7 @@ namespace BulletManagement
         // Determines if the emitter should aim at the player or not. Note that this will overwrite startAngle.
         public bool aimed = false;
 
-        void Start()
+        private new void Start()
         {
             limited = emitCycles != 0;
             this.bulletPattern = this.GetComponent<BulletPattern>();

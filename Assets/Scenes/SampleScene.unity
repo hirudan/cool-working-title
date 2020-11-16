@@ -641,8 +641,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 425, y: -262}
-  m_SizeDelta: {x: 361.7489, y: 147.12907}
+  m_AnchoredPosition: {x: 425.6, y: -227.13}
+  m_SizeDelta: {x: 361.7489, y: 145.73268}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1014272262
 MonoBehaviour:
@@ -691,7 +691,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Slip Time Charge
+  m_Text: 'Slip Time Charges: 3'
 --- !u!222 &1014272264
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1026,10 +1026,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slipTimeScalar: 0.25
   slipTimeCoefficient: 1
-  slipTimeDuration: 3
+  slipTimeDuration: 7
   maxSlipTimeCharges: 3
   slipTimeCharges: 0
-  slipTimeChargeDuration: 3
+  slipTimeCooldownDuration: 60
+  slipTimeMovementPenaltyCoefficient: 0.5
+  bulletGrazingCooldownDecreaseCoefficient: 0.5
 --- !u!4 &2101260597
 Transform:
   m_ObjectHideFlags: 0
@@ -1057,7 +1059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6603763128859147253, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.030089978
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6603763128859147253, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1095,6 +1097,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6603763129029014502, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
+      propertyPath: slipTimeManager
+      value: 
+      objectReference: {fileID: 2101260596}
     - target: {fileID: 6603763129383013086, guid: a205c73077ce14e428e9ea4efae203c1, type: 3}
       propertyPath: bulletPrefab
       value: 

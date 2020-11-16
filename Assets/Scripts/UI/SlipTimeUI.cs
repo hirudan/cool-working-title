@@ -1,6 +1,6 @@
-﻿using SlipTime;
+﻿using System;
+using SlipTime;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI
@@ -8,26 +8,42 @@ namespace UI
     public class SlipTimeUI : MonoBehaviour
     {
         public SlipTimeManager slipTimeManager;
-    
+
         public Text slipTimeUIText;
 
         private int slipTimeCharges;
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             slipTimeCharges = slipTimeManager.slipTimeCharges;
             slipTimeUIText.text = $"Slip Time Charges: {slipTimeCharges}";
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            if (slipTimeCharges != slipTimeManager.slipTimeCharges)
+            var slipTimeText = $"Slip Time Charges: {slipTimeManager.slipTimeCharges}";
+            
+            // Leave this code here for now. We may be able to re-use it later once we get a better UI for SlipTime
+            // if we don't have to constantly update the text box.
+            // if (slipTimeCharges != slipTimeManager.slipTimeCharges)
+            // {
+            //     slipTimeCharges = slipTimeManager.slipTimeCharges;
+            //     slipTimeUIText.text = $"Slip Time Charges: {slipTimeCharges}";
+            // }
+
+            if (slipTimeManager.InSlipTime)
             {
-                slipTimeCharges = slipTimeManager.slipTimeCharges;
-                slipTimeUIText.text = $"Slip Time Charges: {slipTimeCharges}";
+                slipTimeText += $"\nSlip Time Duration: {Convert.ToInt32(slipTimeManager.SlipTimeCounter)}";
             }
+
+            if (slipTimeManager.IsChargingSlipTime)
+            {
+                slipTimeText += $"\nSlip Time Cooldown: {Convert.ToInt32(slipTimeManager.ChargeTimeCounter)}";
+            }
+
+            slipTimeUIText.text = slipTimeText;
         }
     }
 }

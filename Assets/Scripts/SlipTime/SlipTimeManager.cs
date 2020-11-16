@@ -20,13 +20,13 @@ namespace SlipTime
         /// <summary>
         /// The default duration of SlipTime in seconds.
         /// </summary>
-        public float slipTimeDuration = 3f;
+        public float slipTimeDuration = 7f;
 
         /// <summary>
         /// The maximum number of charges of SlipTime a player can have.
         /// </summary>
         public int maxSlipTimeCharges = 3;
-        
+
         /// <summary>
         /// The number of SlipTime charges the player currently has.
         /// </summary>
@@ -36,56 +36,110 @@ namespace SlipTime
         /// <summary>
         /// The default amount of time it takes to charge one charge of SlipTime.
         /// </summary>
-        public float slipTimeChargeDuration = 3;
+        public float slipTimeCooldownDuration = 60f;
 
-        private bool inSlipTime;
-        private double slipTimeCounter;
-        private double chargeTimeCounter;
+        /// <summary>
+        /// How much SlipTime duration to subtract if the player moves during SlipTime.
+        /// </summary>
+        public float slipTimeMovementPenaltyCoefficient = 0.5f;
+
+        /// <summary>
+        /// The default amount of time to decrease the current cooldown of SlipTime by when bullet grazing.
+        /// </summary>
+        public float bulletGrazingCooldownDecreaseCoefficient = 0.5f;
+
+        /// <summary>
+        /// Counter to keep track of time spent in SlipTime.
+        /// </summary>
+        public float SlipTimeCounter { get; private set; }
+
+        /// <summary>
+        /// Counter to keep track of time spent charging SlipTime.
+        /// </summary>
+        public float ChargeTimeCounter { get; private set; }
+
+        /// <summary>
+        /// Whether the player is in SlipTime.
+        /// </summary>
+        public bool InSlipTime { get; private set; }
+
+        /// <summary>
+        /// Whether the player is charging a charge of SlipTime.
+        /// </summary>
+        public bool IsChargingSlipTime { get; private set; }
 
         private void Start()
         {
             slipTimeCharges = maxSlipTimeCharges;
+            InSlipTime = false;
+            IsChargingSlipTime = false;
+            SlipTimeCounter = slipTimeDuration;
+            ChargeTimeCounter = slipTimeCooldownDuration;
         }
 
-        // Update is called once per frame
+        // Update is called once per frame.
         private void Update()
         {
-            // Logic for entering SlipTime
-            if (Input.GetButtonDown("Fire2") && !inSlipTime && slipTimeCharges > 0)
+            // Logic for entering SlipTime.
+            if (Input.GetButtonDown("Fire2") && !InSlipTime && slipTimeCharges > 0)
             {
-                inSlipTime = true;
+                InSlipTime = true;
                 slipTimeCoefficient = slipTimeScalar;
                 slipTimeCharges -= 1;
             }
 
-            // Logic for exiting SlipTime at user prompt
-            else if (Input.GetButtonDown("Fire2") && inSlipTime)
+            // Logic for exiting SlipTime at user prompt.
+            else if (Input.GetButtonDown("Fire2") && InSlipTime)
             {
-                inSlipTime = false;
-                slipTimeCounter = 0f;
+                InSlipTime = false;
+                SlipTimeCounter = slipTimeDuration;
                 slipTimeCoefficient = 1f;
+                IsChargingSlipTime = true;
             }
 
-            // Logic to keep track of when to exit SlipTime by default
-            if (inSlipTime)
+            // Logic to decrease the active SlipTime duration if the player moves.
+            if (Input.GetButton("Horizontal") || Input.GetButton("Vertical") && InSlipTime)
             {
-                slipTimeCounter += Time.deltaTime;
-                if (slipTimeCounter > slipTimeDuration)
+                SlipTimeCounter -= Time.deltaTime * slipTimeMovementPenaltyCoefficient;
+            }
+
+            // Logic to keep track of when to exit SlipTime by default.
+            if (InSlipTime)
+            {
+                SlipTimeCounter -= Time.deltaTime;
+                if (SlipTimeCounter <= 0)
                 {
-                    inSlipTime = false;
-                    slipTimeCounter = 0f;
+                    InSlipTime = false;
+                    SlipTimeCounter = slipTimeDuration;
                     slipTimeCoefficient = 1f;
+                    IsChargingSlipTime = true;
                 }
             }
 
-            if (slipTimeCharges < maxSlipTimeCharges && (slipTimeCharges != maxSlipTimeCharges - 1 || !inSlipTime))
+            // Logic to handle the cooldown of SlipTime charges.
+            if (IsChargingSlipTime)
             {
-                chargeTimeCounter += Time.deltaTime;
-                if (chargeTimeCounter >= slipTimeChargeDuration)
+                ChargeTimeCounter -= Time.deltaTime;
+                if (ChargeTimeCounter <= 0)
                 {
                     slipTimeCharges += 1;
-                    chargeTimeCounter = 0f;
+                    ChargeTimeCounter = slipTimeCooldownDuration;
+                    if (slipTimeCharges == maxSlipTimeCharges)
+                    {
+                        IsChargingSlipTime = false;
+                    }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Decrease the current cooldown of SlipTime.
+        /// </summary>
+        public void DecreaseCooldown()
+        {
+            if (slipTimeCharges < maxSlipTimeCharges)
+            {
+                ChargeTimeCounter -= Time.deltaTime * bulletGrazingCooldownDecreaseCoefficient;
             }
         }
     }
