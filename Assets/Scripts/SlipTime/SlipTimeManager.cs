@@ -133,7 +133,7 @@ namespace SlipTime
         }
 
         /// <summary>
-        /// Decrease the current cooldown of SlipTime by the given amount.
+        /// Decrease the current cooldown of SlipTime.
         /// </summary>
         public void DecreaseCooldown()
         {

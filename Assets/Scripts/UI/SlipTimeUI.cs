@@ -26,7 +26,7 @@ namespace UI
             var slipTimeText = $"Slip Time Charges: {slipTimeManager.slipTimeCharges}";
             
             // Leave this code here for now. We may be able to re-use it later once we get a better UI for SlipTime
-            // if we don't have to constantly update the text box. If this comment is confusing, talk to NLow.
+            // if we don't have to constantly update the text box.
             // if (slipTimeCharges != slipTimeManager.slipTimeCharges)
             // {
             //     slipTimeCharges = slipTimeManager.slipTimeCharges;
