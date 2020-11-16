@@ -1,31 +1,36 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.Score
 {
     /// <summary>
     /// Handles displaying and updating the player score.
     /// </summary>
     public class Score : MonoBehaviour
     {
-        // TODO remove this field when we implement player scoring
-        public static int score;
-        
         /// <summary>
         /// The score text box to update and display.
         /// </summary>
         public Text scoreTextBox;
 
+        private int score;
+
         private void Start()
         {
-            score = 0;
+            PlayerStats.Score = 0;
+            score = PlayerStats.Score;
         }
 
         // Update is called once per frame
         private void Update()
         {
-            score += 1;
-            scoreTextBox.text = "Score\n" + score;
+            if (PlayerStats.Score != score)
+            {
+                score = PlayerStats.Score;
+                scoreTextBox.text = "Score\n" + score;
+            }
+            
         }
     }
 }
