@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UI.PlayerScore
+namespace UI.Score
 {
     public class ScoreScreenManager: MonoBehaviour
     {
