@@ -6,7 +6,7 @@ namespace BulletManagement
     /// <inheritdoc cref="BulletManagement.EmitterBase" />
     public class SlipTimeEmitter : EmitterBase, ISlipTimeAdherent
     {
-        public SlipTimeManager SlipTimeManager => slipTimeManager;
+        public SlipTimeManager SlipTimeManager { get; set; }
 
         [SerializeField]
         private SlipTimeManager slipTimeManager;
