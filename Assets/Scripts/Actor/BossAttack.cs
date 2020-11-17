@@ -26,7 +26,7 @@ namespace Actor
         void Start()
         {
             emitterInstances.AddRange(GetComponentsInChildren<SlipTimeEmitter>());
-            SlipTimeManager slipTimeMgr = GameObject.FindObjectOfType<SlipTimeManager>();
+            SlipTimeManager slipTimeMgr = FindObjectOfType<SlipTimeManager>();
             for (int index = 0; index < emitterInstances.Count; index++)
             {
                 var emitterObject = emitterInstances[index];
