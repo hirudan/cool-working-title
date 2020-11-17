@@ -144,11 +144,15 @@ MonoBehaviour:
   damageLayer: 11
   slipTimeManager: {fileID: 2101260596}
   health: 100
-  animator: {fileID: 0}
+  animator: {fileID: 334377074}
   colorDecayTime: 2
-  damageLayer: 11
-  hitScoreBonus: 50
-  deathScoreBonus: 100
+  hitScoreBonus: 1
+  deathScoreBonus: 1000
+--- !u!95 &334377074 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3484942365795540653, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
+  m_PrefabInstance: {fileID: 546017553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &353729102
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +427,10 @@ PrefabInstance:
     - target: {fileID: 3484942365795540661, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484942365795540661, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8316242647486818202, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
       propertyPath: m_RootOrder

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Actor
 {
-    public class BossAttack: MonoBehaviour
+    public class EnemyAttack: MonoBehaviour
     {
         // How long the attack lasts if the player times it out
         public float durationSeconds;
@@ -21,15 +21,14 @@ namespace Actor
         public int scoreBonus = 0;
 
         // A list of the emitters saved for destruction later
-        private List<SlipTimeEmitter> emitterInstances = new List<SlipTimeEmitter>();
+        private readonly List<SlipTimeEmitter> emitterInstances = new List<SlipTimeEmitter>();
 
-        void Start()
+        private void Start()
         {
             emitterInstances.AddRange(GetComponentsInChildren<SlipTimeEmitter>());
-            SlipTimeManager slipTimeMgr = FindObjectOfType<SlipTimeManager>();
-            for (int index = 0; index < emitterInstances.Count; index++)
+            var slipTimeMgr = FindObjectOfType<SlipTimeManager>();
+            foreach (SlipTimeEmitter emitterObject in emitterInstances)
             {
-                var emitterObject = emitterInstances[index];
                 emitterObject.SlipTimeManager = slipTimeMgr;
                 emitterObject.transform.parent.gameObject.SetActive(true);
             }
@@ -37,7 +36,7 @@ namespace Actor
 
         public void CleanUp()
         {
-            foreach (var emitter in emitterInstances)
+            foreach (SlipTimeEmitter emitter in emitterInstances)
             {
                 Destroy(emitter);
             }

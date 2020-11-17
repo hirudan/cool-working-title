@@ -38,7 +38,7 @@ namespace Actor
         public Color DamageTint => this.damageTint;
         public float ColorDecayTime => this.colorDecayTime;
 
-        private void Start()
+        protected void Start()
         {
             animator = gameObject.GetComponent<Animator>();
             spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
