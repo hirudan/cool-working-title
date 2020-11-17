@@ -317,9 +317,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - {fileID: 2879879175268880555, guid: 72da1909b7b280c45bd19d7671886e69, type: 3}
+  - {fileID: 1905843006174083967, guid: 91f4351965aea6f4fa09f1ee9cdb20c9, type: 3}
   - {fileID: 994569399657622720, guid: df6683f004a4b7a4fbc0451ded790a56, type: 3}
-  - {fileID: 2879879175268880555, guid: 72da1909b7b280c45bd19d7671886e69, type: 3}
+  - {fileID: 1905843006174083967, guid: 91f4351965aea6f4fa09f1ee9cdb20c9, type: 3}
   attackSwitchCooldownSeconds: 2
   currentAttack: {fileID: 0}
   attackNameText: {fileID: 1744848078}

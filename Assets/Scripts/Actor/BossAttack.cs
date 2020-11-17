@@ -20,26 +20,18 @@ namespace Actor
         // For special attacks, define a capture bonus
         public int scoreBonus = 0;
 
-        // A list of the emitters associated with this pattern
-        public GameObject[] emitterPrefabs;
-        
         // A list of the emitters saved for destruction later
-        private List<GameObject> emitterInstances = new List<GameObject>();
-
-        // A list of the xy coordinates for each emitter
-        public int[] xCoords, yCoords;
+        private List<SlipTimeEmitter> emitterInstances = new List<SlipTimeEmitter>();
 
         void Start()
         {
+            emitterInstances.AddRange(GetComponentsInChildren<SlipTimeEmitter>());
             SlipTimeManager slipTimeMgr = GameObject.FindObjectOfType<SlipTimeManager>();
-            GameObject emitterObject;
-            for (int index = 0; index < emitterPrefabs.Length; index++)
+            for (int index = 0; index < emitterInstances.Count; index++)
             {
-                emitterObject = Instantiate(emitterPrefabs[index],
-                    new Vector3(xCoords[index], yCoords[index], 0), Quaternion.identity);
-                emitterObject.GetComponent<SlipTimeEmitter>().SlipTimeManager = slipTimeMgr;
-                emitterObject.SetActive(true);
-                emitterInstances.Add(emitterObject);
+                var emitterObject = emitterInstances[index];
+                emitterObject.SlipTimeManager = slipTimeMgr;
+                emitterObject.transform.parent.gameObject.SetActive(true);
             }
         }
 
