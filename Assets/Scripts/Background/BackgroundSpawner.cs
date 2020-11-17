@@ -19,6 +19,9 @@ namespace Background
         public float minLocalScale = 0f;
         public float maxLocalScale = 1f;
 
+        // Easier just for design to delegate snapping rather than auto-calc
+        public bool snapToEdge = false;
+
         public float timeCounter = 0f;
         public float timeAlive = 4f;
 
@@ -35,9 +38,19 @@ namespace Background
         private void Update()
         {
             timeCounter += Time.deltaTime * slipTimeManager.slipTimeCoefficient;
+            
             if (timeCounter >= emitRateMax)
             {
-                BackgroundSlider go = Instantiate(backgroundSlider, transform.position, transform.rotation);
+                Vector3 spawnLocation = transform.position;
+                if (snapToEdge)
+                {
+                    // Clamp object to nearest camera side
+                    Vector3 cameraPos = Camera.main.WorldToViewportPoint(spawnLocation);
+                    cameraPos.x = Mathf.Clamp01(cameraPos.x);
+                    spawnLocation = Camera.main.ViewportToWorldPoint(cameraPos);
+                }
+
+                BackgroundSlider go = Instantiate(backgroundSlider, spawnLocation, transform.rotation);
                 go.SetData(slipTimeManager, transform.localScale, timeAlive);
                 timeCounter = 0f;
             }

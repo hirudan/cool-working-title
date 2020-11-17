@@ -18,8 +18,15 @@ namespace Background
         public float maxTimeAlive = 4f;
 
         public SlipTimeManager slipTimeManager;
+        public Vector3 spawnPosition;
+        public bool reuseObjectAfterExpire = false;
 
         float timeAlive = 0f;
+
+        private void Start()
+        {
+            spawnPosition = transform.position;
+        }
 
         // Update is called once per frame
         private void Update()
@@ -27,7 +34,7 @@ namespace Background
             // Travel speed is proportional to how far z-axis is set in object
             // So that speed is encoded in position and can be varied
             float slowTime = Time.deltaTime * this.SlipTimeManager.slipTimeCoefficient;
-            float speed = -transform.position.z;
+            float speed = -(10f - transform.position.z);
             float travel = slowTime * speed;
             timeAlive += slowTime;
 
@@ -36,7 +43,15 @@ namespace Background
 
             if (timeAlive >= maxTimeAlive)
             {
-                Destroy(gameObject);
+                if (!reuseObjectAfterExpire)
+                {
+                    Destroy(gameObject);
+                }
+                else if (reuseObjectAfterExpire)
+                {
+                    transform.position = spawnPosition;
+                    timeAlive = 0;
+                }
             }
         }
 
