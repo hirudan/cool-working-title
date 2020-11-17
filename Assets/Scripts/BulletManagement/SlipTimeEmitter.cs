@@ -9,7 +9,7 @@ namespace BulletManagement
         public SlipTimeManager SlipTimeManager
         {
             get => slipTimeManager;
-            set => SlipTimeManager = value;
+            set => slipTimeManager = value;
         }
 
         [SerializeField]
