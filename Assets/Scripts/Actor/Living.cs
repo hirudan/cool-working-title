@@ -1,5 +1,6 @@
 ﻿using SlipTime;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Actor
 {
@@ -13,7 +14,7 @@ namespace Actor
 
         public Color damageTint;
 
-        public int DamageLayer = 10;
+        public int damageLayer = 10;
 
         // Private Variables
         [SerializeField]
@@ -87,7 +88,7 @@ namespace Actor
             animator.SetTrigger("Damage");
         }
 
-        private void Die()
+        protected virtual void Die()
         {
             animator.SetTrigger("Die");
         }
@@ -95,7 +96,7 @@ namespace Actor
         private void OnTriggerEnter2D(Collider2D other)
         {
             GameObject go = other.gameObject;
-            if (go.layer == DamageLayer)
+            if (go.layer == damageLayer)
             {
                 TakeDamage(10);
                 if (go.GetComponent<BulletManagement.Bullet>().destroyBulletOnHit)
