@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Actor
@@ -23,7 +24,7 @@ namespace Actor
         /// <summary>
         /// The score text box to update and display.
         /// </summary>
-        public Text attackNameText;
+        [CanBeNull] public Text attackNameText;
         
         /// <summary>
         /// Whether the enemy should loop through its attacks.
@@ -136,7 +137,10 @@ namespace Actor
         private void UpdateNameTextbox()
         {
             string updateText = string.IsNullOrEmpty(currentAttack.attackName) ? "" : currentAttack.attackName;
-            attackNameText.text = updateText;
+            if (attackNameText != null)
+            {
+                attackNameText.text = updateText;
+            }
         }
     }
 }

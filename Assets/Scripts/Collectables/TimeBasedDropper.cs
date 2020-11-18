@@ -18,7 +18,16 @@ namespace Collectables
         public bool oneTimeDrop;
 
         private float timeCounter;
-        
+
+        private void Start()
+        {
+            // If the frequency is invalid, destroy the dropper.
+            if (frequency <= 0)
+            {
+                Destroy(this);
+            }
+        }
+
         private void Update()
         {
             if (timeCounter >= frequency)

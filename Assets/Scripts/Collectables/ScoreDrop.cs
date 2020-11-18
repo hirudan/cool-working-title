@@ -13,11 +13,12 @@ namespace Collectables
         /// </summary>
         public int scoreBonus = 100;
         
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.layer == 8)
             {
                 PlayerStats.Score += scoreBonus;
+                Destroy(gameObject);
             }
         }
     }
