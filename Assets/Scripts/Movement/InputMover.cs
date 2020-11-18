@@ -7,7 +7,14 @@ namespace Movement
      */
     public class InputMover : Mover
     {
-        private const float Speed = 1f;
+        public float Speed = 1f;
+
+        protected new void Start()
+        {
+            base.Start();
+            // Player should be restricted to main camera
+            snapToCameraBorder = true;
+        }
 
         private void Update()
         {

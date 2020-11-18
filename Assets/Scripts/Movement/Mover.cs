@@ -4,9 +4,11 @@ namespace Movement
 {
     public class Mover : MonoBehaviour
     {
+
+        public bool snapToCameraBorder = false;
         private Animator animator;
 
-        private void Start()
+        protected void Start()
         {
             // Always require an animator for anything that moves
             // Animators can be set to a no-op. Much more faster
@@ -19,6 +21,15 @@ namespace Movement
             animator.SetFloat("HorizontalMovement", translate.x);
             animator.SetFloat("VerticalMovement", translate.y);
             transform.Translate(translate);
+
+            // Snap object to camera if toggled
+            if (snapToCameraBorder)
+            {
+                Vector3 cameraPos = Camera.main.WorldToViewportPoint(transform.position);
+                cameraPos.x = Mathf.Clamp01(cameraPos.x);
+                cameraPos.y = Mathf.Clamp01(cameraPos.y);
+                transform.position = Camera.main.ViewportToWorldPoint(cameraPos);
+            }
         }
     }
 }
