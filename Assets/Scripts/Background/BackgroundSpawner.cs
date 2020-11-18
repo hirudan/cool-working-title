@@ -88,11 +88,11 @@ namespace Background
 
                 BackgroundSlider go = Instantiate(backgroundSlider, spawnLocation, transform.rotation);
                 go.SetData(slipTimeManager, pickedLocalScale, timeAlive);
-                var sprite = go.GetComponent<SpriteRenderer>();
 
-                // Flip spirte if possible
+                // Flip sprite if possible
                 if (randomImageMirror && Random.Range(0, 1) == 1)
                 {
+                    var sprite = go.GetComponent<SpriteRenderer>();
                     sprite.flipY = true;
                 }
 
