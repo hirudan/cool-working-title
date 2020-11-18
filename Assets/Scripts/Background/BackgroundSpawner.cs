@@ -13,15 +13,33 @@ namespace Background
     {
         public SlipTimeManager SlipTimeManager => SlipTimeManager;
         public BackgroundSlider backgroundSlider;
-        public float emitRateMax = 1f;
-        public float emitRateMin = 0f;
 
-        public float minLocalScale = 0f;
-        public float maxLocalScale = 1f;
+        // Random reflect
+        public bool randomImageMirror = false;
+
+        // Random emitter settings
+        public float emitRateMin = 0f;
+        public float emitRateMax = 1f;
+        public float pickedEmitRate = 0f;
+
+        // Random scaling settings
+        /// <summary>
+        /// Minimum scale range that emitter can emit
+        /// Must be integer to preserve proper sprite scaling.
+        /// </summary>
+        public int minLocalScale = 1;
+
+        /// <summary>
+        /// Maximum scale range that emitter can emit
+        /// Must be integer to preserve proper sprite scaling.
+        /// </summary>
+        public int maxLocalScale = 3;
+        public Vector3 pickedLocalScale;
 
         // Easier just for design to delegate snapping rather than auto-calc
         public bool snapToEdge = false;
 
+        // Counter logic
         public float timeCounter = 0f;
         public float timeAlive = 4f;
 
@@ -34,14 +52,32 @@ namespace Background
         // Same rot as the object is placed in scene
         private Quaternion spawnRotation;
 
+        public void RandSelectEmitRate()
+        {
+            // Pick a random emitRate Threshold
+            pickedEmitRate = Random.Range(emitRateMin, emitRateMax);
+        }
+
+        public void RandEmitScale()
+        {
+            pickedLocalScale = Vector3.one * (float) Random.Range(minLocalScale, maxLocalScale);
+        }
+
+        private void Start()
+        {
+            RandSelectEmitRate();
+            RandEmitScale();
+        }
+
         // Update is called once per frame
         private void Update()
         {
             timeCounter += Time.deltaTime * slipTimeManager.slipTimeCoefficient;
             
-            if (timeCounter >= emitRateMax)
+            if (timeCounter >= pickedEmitRate)
             {
                 Vector3 spawnLocation = transform.position;
+
                 if (snapToEdge)
                 {
                     // Clamp object to nearest camera side
@@ -51,8 +87,18 @@ namespace Background
                 }
 
                 BackgroundSlider go = Instantiate(backgroundSlider, spawnLocation, transform.rotation);
-                go.SetData(slipTimeManager, transform.localScale, timeAlive);
+                go.SetData(slipTimeManager, pickedLocalScale, timeAlive);
+                var sprite = go.GetComponent<SpriteRenderer>();
+
+                // Flip spirte if possible
+                if (randomImageMirror && Random.Range(0, 1) == 1)
+                {
+                    sprite.flipY = true;
+                }
+
                 timeCounter = 0f;
+                RandSelectEmitRate();
+                RandEmitScale();
             }
         }
     }
