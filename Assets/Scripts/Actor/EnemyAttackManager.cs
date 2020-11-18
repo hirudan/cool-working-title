@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Actor
 {
-    public class Enemy: MonoBehaviour
+    public class EnemyAttackManager: MonoBehaviour
     {
         /// <summary>
         /// A list of attack patterns that can contain non-spells and spells.
