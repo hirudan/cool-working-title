@@ -17,6 +17,7 @@ namespace UI
         // Start is called before the first frame update
         private void Start()
         {
+            // Handle image setup
             meter.type = Image.Type.Filled;
             meter.fillAmount = 1;
             foreach (var img in bars)
