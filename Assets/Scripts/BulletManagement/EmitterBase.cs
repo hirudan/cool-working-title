@@ -39,11 +39,11 @@ namespace BulletManagement
         protected void EmitBullets()
         {
             // Instantiate the bulletPrefab at emitter position
-            for (int id = 0; id < this.emitBulletCount; ++id)
+            for (var id = 0; id < this.emitBulletCount; ++id)
             {
-                var currentTransform = this.transform;
+                Transform currentTransform = this.transform;
                 GameObject bulletGO = Instantiate(bulletPrefab, currentTransform.position, currentTransform.rotation);
-                Bullet bullet = bulletGO.GetComponent<Bullet>();
+                var bullet = bulletGO.GetComponent<Bullet>();
                 bullet.SetData(this, this.bulletPattern, id);
                 bullet.decayTime = bulletDecayTime;
             }
