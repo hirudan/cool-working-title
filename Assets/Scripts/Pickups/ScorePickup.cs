@@ -1,12 +1,12 @@
 ﻿using Player;
 using UnityEngine;
 
-namespace Collectables
+namespace Pickups
 {
     /// <summary>
     /// A drop that increases the player's score.
     /// </summary>
-    public class ScoreDrop : MonoBehaviour
+    public class ScorePickup : Pickup
     {
         /// <summary>
         /// The amount to increase the player's score by.

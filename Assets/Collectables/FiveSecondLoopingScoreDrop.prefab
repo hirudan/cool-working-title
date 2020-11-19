@@ -13,8 +13,10 @@ GameObject:
   - component: {fileID: 1625572892773990116}
   - component: {fileID: 1625572892773990119}
   - component: {fileID: 1625572892773990118}
+  - component: {fileID: 2451152525688155531}
+  - component: {fileID: 6959385804578127297}
   m_Layer: 0
-  m_Name: ScoreDrop
+  m_Name: FiveSecondLoopingScoreDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +95,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625572892773990113}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -134,4 +136,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4d260df9174b219f46f55e2b32d41f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthThreshold: -1
+  frequency: 5
+  shouldLoop: 1
   scoreBonus: 100
+--- !u!114 &2451152525688155531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625572892773990113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4ae2c47d33984e84d87a40722fde2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slipTimeManager: {fileID: 0}
+  moveDirection: {x: 0, y: -1, z: 0}
+  velocity: {x: 1, y: 1, z: 1}
+--- !u!95 &6959385804578127297
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625572892773990113}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &574037155821144404
+--- !u!1 &7403460484689180482
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,28 +8,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4954902962528612475}
-  - component: {fileID: 3567138048210909124}
-  - component: {fileID: 901041060314039331}
-  - component: {fileID: 3775527442791890101}
-  - component: {fileID: 574037155821144405}
-  - component: {fileID: 574037155821144396}
-  - component: {fileID: 3465873170275758953}
-  - component: {fileID: 4011127674441777168}
+  - component: {fileID: 4563314041924232617}
+  - component: {fileID: 3945439623253824970}
+  - component: {fileID: 7254838097743147678}
+  - component: {fileID: 6390599465961280320}
+  - component: {fileID: 7544127948621138028}
+  - component: {fileID: 3666651014163344612}
+  - component: {fileID: 7403460484689180493}
+  - component: {fileID: 6323221290433433983}
+  - component: {fileID: 7403460484689180483}
   m_Layer: 12
-  m_Name: Boss
+  m_Name: Boss 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4954902962528612475
+--- !u!4 &4563314041924232617
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574037155821144404}
+  m_GameObject: {fileID: 7403460484689180482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
@@ -37,13 +38,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3567138048210909124
+--- !u!212 &3945439623253824970
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574037155821144404}
+  m_GameObject: {fileID: 7403460484689180482}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -88,14 +89,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &901041060314039331
+--- !u!50 &7254838097743147678
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574037155821144404}
+  m_GameObject: {fileID: 7403460484689180482}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -109,13 +110,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &3775527442791890101
+--- !u!58 &6390599465961280320
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574037155821144404}
+  m_GameObject: {fileID: 7403460484689180482}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -125,13 +126,13 @@ CircleCollider2D:
   m_Offset: {x: -0.00067491626, y: -0.01}
   serializedVersion: 2
   m_Radius: 0.27591628
---- !u!82 &574037155821144405
+--- !u!82 &7544127948621138028
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574037155821144404}
+  m_GameObject: {fileID: 7403460484689180482}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -221,14 +222,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &574037155821144396
+--- !u!95 &3666651014163344612
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574037155821144404}
+  m_GameObject: {fileID: 7403460484689180482}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 89a39db6e363ae34f8020421462f3e17, type: 2}
@@ -240,13 +241,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3465873170275758953
+--- !u!114 &7403460484689180493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574037155821144404}
+  m_GameObject: {fileID: 7403460484689180482}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adaf244855bc465c9e349bb9efe12ef2, type: 3}
@@ -256,17 +257,17 @@ MonoBehaviour:
   damageLayer: 11
   slipTimeManager: {fileID: 0}
   health: 100
-  animator: {fileID: 574037155821144396}
+  animator: {fileID: 3666651014163344612}
   colorDecayTime: 2
   hitScoreBonus: 1
   deathScoreBonus: 1000
---- !u!114 &4011127674441777168
+--- !u!114 &6323221290433433983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574037155821144404}
+  m_GameObject: {fileID: 7403460484689180482}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2a57875aecc49bfb1be96d5cf33cfac, type: 3}
@@ -281,3 +282,20 @@ MonoBehaviour:
   attackNameText: {fileID: 0}
   shouldLoopAttacks: 0
   canBeTimedOut: 0
+--- !u!114 &7403460484689180483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403460484689180482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dde082e613c44588eaf035b340a6982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slipTimeManager: {fileID: 0}
+  pickupPrefabs:
+  - {fileID: 1625572892773990113, guid: b5a777252c73df4429dea9ee0d7f8075, type: 3}
+  - {fileID: 272565321790307909, guid: ff0d7a9c355b4454690a3c2f0149113e, type: 3}
+  entity: {fileID: 7403460484689180493}
