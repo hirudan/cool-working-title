@@ -1,106 +1,146 @@
 {
   "Assets\\Audio\\mainmen.mp3": {
     "hash": "ed5948711b8ae0ff13c896ad9bbd1751",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Audio\\nya.wav": {
     "hash": "101ac9d997b9de3d2a3666bd16526a3a",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Audio\\Effects\\enemy_explosion_1.wav": {
     "hash": "ab5a104b0e83f6cceb8d5afc6bb15844",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Audio\\Effects\\enemy_explosion_2.wav": {
     "hash": "efb696f64977a233f3ee1d469f57449a",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Audio\\Effects\\enemy_explosion_3.wav": {
     "hash": "bf8ab19da4d67f9cbfe30d55e3b4e451",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Audio\\Effects\\laser1_prelim.wav": {
     "hash": "9539eb11430f0140ecf34d0d52549cd6",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Audio\\Effects\\laser2_prelim.wav": {
     "hash": "57e6c30640543ac4e05f652a9b5dd0a4",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Audio\\Effects\\player_explosion_1.wav": {
     "hash": "2ffda4621a408d2089a5c2895b2a153a",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Fonts\\IsaaxOrigin-Regular.otf": {
     "hash": "a7d3cadc4791fe4eab7bb6aab77ad57f",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Fonts\\IsaaxSans-Regular.otf": {
     "hash": "bb3d23614fb337b86999e9466e8da2e9",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Fonts\\SyneMono-Regular.ttf": {
     "hash": "9c4e7f2c1b4b76bf12d6c1a177ee7e94",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Actors\\Images\\enemy_one.png": {
     "hash": "9dd80e347b3d0c55ec98cca308b03527",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Actors\\Images\\enemy_three.png": {
     "hash": "34e7c57494ff07945fa45958a693a232",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Actors\\Images\\enemy_two.png": {
     "hash": "b2dac53034012899326f35532332560b",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Actors\\Images\\spaceship_one.png": {
     "hash": "9216745c699a86134a7a7f702c3fc34b",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Actors\\Images\\spaceship_three.png": {
     "hash": "430675b3a81ee75a75988a5a03866a0c",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Actors\\Images\\spaceship_two.png": {
     "hash": "cf1a277763f35c16a29c007cfa543e2f",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Background\\Images\\background_crystal.png": {
     "hash": "972c98e1347ccd66421319a584884e1b",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
+  },
+  "Assets\\Background\\Images\\crystal_cavern.png": {
+    "hash": "63aee37eab0d1a4ba7f42028b76b32ff",
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Background\\Images\\purple_cloud.png": {
     "hash": "30990916167925983558abfb53f5bfe6",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Background\\Images\\white_cloud.png": {
     "hash": "84088ba909640aa2e1731ac2c5b0c090",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Bullets\\Images\\bullet_cheveron.png": {
     "hash": "373ca96d60cc2f6efd0b939bcc40f5db",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Bullets\\Images\\bullet_crystal.png": {
     "hash": "81a1f47925d494f654efbfe930f3eda5",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Bullets\\Images\\bullet_default.png": {
     "hash": "2585986e8892b806985117cd48d5d126",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\Bullets\\Images\\bullet_lazer.png": {
     "hash": "9a4acc9e2790eca67a796028128829db",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\UI\\MainMenu\\Full_Menu_Selector_Rectangle.png": {
     "hash": "9a97994d429a1bed0dbf53d27044bf92",
-    "time": "2020-11-17 02:17:07"
+    "time": "2020-11-20 01:20:53"
   },
   "Assets\\UI\\MainMenu\\_hole_menu.png": {
     "hash": "dda8670642fa10e0a6bee24805a967cd",
-    "time": "2020-11-17 02:17:08"
+    "time": "2020-11-20 01:20:53"
+  },
+  "Assets\\UI\\Sliptime\\bar0.png": {
+    "hash": "0f73047e73cfb0cd577196c8479644b9",
+    "time": "2020-11-20 01:20:53"
+  },
+  "Assets\\UI\\Sliptime\\bar1.png": {
+    "hash": "c71de56df5b1a84926463add6acefe8f",
+    "time": "2020-11-20 01:20:53"
+  },
+  "Assets\\UI\\Sliptime\\bar2.png": {
+    "hash": "c5317622b19456fe7bf819bef5a5819f",
+    "time": "2020-11-20 01:20:53"
+  },
+  "Assets\\UI\\Sliptime\\cornerui_bar_empty.png": {
+    "hash": "345f932f1101637b1d15cc1e5b48c0e7",
+    "time": "2020-11-20 01:20:53"
+  },
+  "Assets\\UI\\Sliptime\\cornerui_bar_full.png": {
+    "hash": "92c510f8f0b40dbb4ac3d16dd5198f06",
+    "time": "2020-11-20 01:20:53"
+  },
+  "Assets\\UI\\Sliptime\\cornerui_meter_empty.png": {
+    "hash": "d591d0e119af0a66ecf9c2af411523bd",
+    "time": "2020-11-20 01:20:53"
+  },
+  "Assets\\UI\\Sliptime\\cornerui_meter_full.png": {
+    "hash": "0e57981f31e8c1fe82fec418623d4483",
+    "time": "2020-11-20 01:20:53"
+  },
+  "Assets\\UI\\Sliptime\\cornerui_mockup_empty.png": {
+    "hash": "3598b5dfd565014873f6e34c5198d3f6",
+    "time": "2020-11-20 01:20:53"
+  },
+  "Assets\\UI\\Sliptime\\cornerui_mockup_full.png": {
+    "hash": "651c97ef67640e565066a08d8eb0093a",
+    "time": "2020-11-20 01:20:53"
   }
 }
