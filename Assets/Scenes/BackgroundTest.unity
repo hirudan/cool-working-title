@@ -3212,7 +3212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slipTimeManager: {fileID: 1085074028}
   loopTranslationThreshold: 10
-  speed: 1
+  speed: 0.1
 --- !u!483693784 &1370881614
 TilemapRenderer:
   m_ObjectHideFlags: 0
