@@ -1,5 +1,4 @@
-﻿using System;
-using SlipTime;
+﻿using SlipTime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,41 +8,55 @@ namespace UI
     {
         public SlipTimeManager slipTimeManager;
 
-        public Text slipTimeUIText;
-
         private int slipTimeCharges;
+
+        // Fillable images for the sliptime meter and charge bars
+        public Image meter;
+        public Image[] bars;
 
         // Start is called before the first frame update
         private void Start()
         {
+            // Handle image setup
+            meter.type = Image.Type.Filled;
+            meter.fillAmount = 1;
+            foreach (var img in bars)
+            {
+                img.type = Image.Type.Filled;
+                img.fillAmount = 1;
+            }
             slipTimeCharges = slipTimeManager.slipTimeCharges;
-            slipTimeUIText.text = $"Slip Time Charges: {slipTimeCharges}";
         }
 
-        // Update is called once per frame
-        private void Update()
+        // LateUpdate is guaranteed to be called after Update. We use this for redrawing our charge meter 
+        // so that we are sure we have the latest data from SliptimeManager
+        private void LateUpdate()
         {
-            var slipTimeText = $"Slip Time Charges: {slipTimeManager.slipTimeCharges}";
-            
-            // Leave this code here for now. We may be able to re-use it later once we get a better UI for SlipTime
-            // if we don't have to constantly update the text box.
-            // if (slipTimeCharges != slipTimeManager.slipTimeCharges)
-            // {
-            //     slipTimeCharges = slipTimeManager.slipTimeCharges;
-            //     slipTimeUIText.text = $"Slip Time Charges: {slipTimeCharges}";
-            // }
-
-            if (slipTimeManager.InSlipTime)
+            if (slipTimeCharges != slipTimeManager.slipTimeCharges)
             {
-                slipTimeText += $"\nSlip Time Duration: {Convert.ToInt32(slipTimeManager.SlipTimeCounter)}";
+                slipTimeCharges = slipTimeManager.slipTimeCharges;
+                // Reset bars to unfilled
+                foreach (var img in bars)
+                {
+                    img.fillAmount = 0;
+                }
+                // Fill only the bars we need
+                for(var i = 0; i < slipTimeCharges; i++)
+                {
+                    bars[i].fillAmount = 1;
+                }
             }
 
+            // Sliptime meter should get emptied when sliptime is engaged. If sliptime is being charged, however, continue displaying the charge 
+            // amount. In the case where we use our first sliptime charge, the meter would already be full, so we need to empty it.
             if (slipTimeManager.IsChargingSlipTime)
             {
-                slipTimeText += $"\nSlip Time Cooldown: {Convert.ToInt32(slipTimeManager.ChargeTimeCounter)}";
+                meter.fillAmount = (slipTimeManager.slipTimeCooldownDuration - slipTimeManager.ChargeTimeCounter) / slipTimeManager.slipTimeCooldownDuration;
             }
-
-            slipTimeUIText.text = slipTimeText;
+            else if (slipTimeManager.InSlipTime)
+            {
+                meter.fillAmount = 0;
+            }
         }
     }
 }
