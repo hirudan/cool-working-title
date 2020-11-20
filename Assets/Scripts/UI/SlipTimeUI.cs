@@ -49,14 +49,13 @@ namespace UI
 
             // Sliptime meter should get emptied when sliptime is engaged. If sliptime is being charged, however, continue displaying the charge 
             // amount. In the case where we use our first sliptime charge, the meter would already be full, so we need to empty it.
-            if (slipTimeManager.InSlipTime)
-            {
-                meter.fillAmount = 0;
-            }
-
             if (slipTimeManager.IsChargingSlipTime)
             {
                 meter.fillAmount = (slipTimeManager.slipTimeCooldownDuration - slipTimeManager.ChargeTimeCounter) / slipTimeManager.slipTimeCooldownDuration;
+            }
+            else if (slipTimeManager.InSlipTime)
+            {
+                meter.fillAmount = 0;
             }
         }
     }
