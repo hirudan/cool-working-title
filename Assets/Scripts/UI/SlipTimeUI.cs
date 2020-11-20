@@ -28,7 +28,8 @@ namespace UI
             slipTimeCharges = slipTimeManager.slipTimeCharges;
         }
 
-        // Update is called once per frame
+        // LateUpdate is guaranteed to be called after Update. We use this for redrawing our charge meter 
+        // so that we are sure we have the latest data from SliptimeManager
         private void LateUpdate()
         {
             if (slipTimeCharges != slipTimeManager.slipTimeCharges)
@@ -40,13 +41,14 @@ namespace UI
                     img.fillAmount = 0;
                 }
                 // Fill only the bars we need
-                for(var i = 0; i<slipTimeCharges; i++)
+                for(var i = 0; i < slipTimeCharges; i++)
                 {
                     bars[i].fillAmount = 1;
                 }
             }
 
-            // Sliptime meter shild get emptied when sliptime is engaged
+            // Sliptime meter should get emptied when sliptime is engaged. If sliptime is being charged, however, continue displaying the charge 
+            // amount. In the case where we use our first sliptime charge, the meter would already be full, so we need to empty it.
             if (slipTimeManager.InSlipTime)
             {
                 meter.fillAmount = 0;
