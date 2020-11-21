@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809d9d6b73f596c40a6a7e312f2cf394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene: SampleScene
+  gameScene: MainScene
   recordsScene: 
   optionsScene: 
   staffScene: 

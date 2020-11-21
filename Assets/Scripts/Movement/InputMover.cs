@@ -18,7 +18,7 @@ namespace Movement
 
         private void Update()
         {
-            this.SetMovement(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * Speed * Time.deltaTime);
+            this.SetMovement(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0) * (Speed * Time.deltaTime));
         }
     }
 }
