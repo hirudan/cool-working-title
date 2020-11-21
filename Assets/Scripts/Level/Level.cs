@@ -80,6 +80,7 @@ namespace Level
 
         void Update()
         {
+            if (lost || won) return;
             if (!lost && playerObject.IsDead())
             {
                 lost = true;
