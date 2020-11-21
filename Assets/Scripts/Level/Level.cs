@@ -33,7 +33,6 @@ namespace Level
 
             // Look towards negate Z axis
             this.mainCamera.transform.forward = new Vector3(0, 0, 1);
-            this.mainCamera.rect = new Rect(0f, 0f, 1f, 1f);
 
             // Background color instead of default skyline
             this.mainCamera.backgroundColor = Color.black;
