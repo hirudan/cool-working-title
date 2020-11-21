@@ -1,4 +1,5 @@
 ﻿using Actor;
+using UI.Score;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,7 +19,11 @@ namespace Level
         public string mainLightName = "Main Light";
         Light mainLight;
 
+        public ScoreScreenManager scoreScreenManager;
+
         private Living playerObject, bossObject;
+
+        private bool won, lost = false;
 
         private void InitCamera()
         {
@@ -75,9 +80,15 @@ namespace Level
 
         void Update()
         {
-            if (bossObject.IsDead() || playerObject.IsDead())
+            if (!lost && playerObject.IsDead())
             {
-                SceneManager.LoadScene("PlayerScore");
+                lost = true;
+                scoreScreenManager.Lose();
+            }
+            else if(!won && bossObject.IsDead())
+            {
+                won = true;
+                scoreScreenManager.Win();
             }
         }
     }
