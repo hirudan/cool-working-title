@@ -15,6 +15,7 @@ namespace BulletManagement
         public float bulletSpeedMultiplier = 1.0f;
 
         public GameObject bulletPrefab;
+        public GameObject owner;
 
         public double timeCounter = 0.0;
 
@@ -28,9 +29,24 @@ namespace BulletManagement
         // Bullet decay, can be set to 0f for no decay
         public float bulletDecayTime = 0f;
 
+        [SerializeField]
+        public string ownerName;
+
         protected void Start()
         {
             this.bulletPattern = this.GetComponent<BulletPattern>();
+            if (transform.parent)
+            {
+                ownerName = transform.parent.name;
+            }
+            else if(owner)
+            {
+                ownerName = owner.name;
+            }
+            else
+            {
+                ownerName = "ROOT";
+            }
         }
 
         /// <summary>
@@ -44,7 +60,7 @@ namespace BulletManagement
                 Transform currentTransform = this.transform;
                 GameObject bulletGO = Instantiate(bulletPrefab, currentTransform.position, currentTransform.rotation);
                 var bullet = bulletGO.GetComponent<Bullet>();
-                bullet.SetData(this, this.bulletPattern, id);
+                bullet.SetData(ownerName, this, this.bulletPattern, id);
                 bullet.decayTime = bulletDecayTime;
             }
         }

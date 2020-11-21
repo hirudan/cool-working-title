@@ -98,7 +98,7 @@ namespace SlipTime
             }
 
             // Logic to decrease the active SlipTime duration if the player moves.
-            if (Input.GetButton("Horizontal") || Input.GetButton("Vertical") && InSlipTime)
+            if ((Input.GetButton("Horizontal") || Input.GetButton("Vertical")) && InSlipTime)
             {
                 SlipTimeCounter -= Time.deltaTime * slipTimeMovementPenaltyCoefficient;
             }
