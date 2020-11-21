@@ -1,4 +1,5 @@
-﻿using SlipTime;
+﻿using BulletManagement;
+using SlipTime;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -32,6 +33,7 @@ namespace Actor
         private SpriteRenderer spriteRenderer;
         private bool takenDamage = false;
         private float timeCounter = 0;
+        private bool died = false;
 
         // Getters and Setters
         public int Health => this.health;
@@ -46,8 +48,9 @@ namespace Actor
 
         private void Update()
         {
-            if (health <= 0)
+            if (health <= 0 && !died)
             {
+                died = true;
                 Die();
             }
 
@@ -70,13 +73,13 @@ namespace Actor
 
         public bool IsDead()
         {
-            return health <= 0;
+            return died;
         }
 
         public void TakeDamage(int amt)
         {
             // Cooldown period
-            if (takenDamage)
+            if (died || takenDamage)
             {
                 return;
             }
@@ -90,7 +93,23 @@ namespace Actor
 
         protected virtual void Die()
         {
+            // Clean up any bullets emitted by living entity via its name
+            // which all emitters will grab as its parent.
+            // This is very inefficient but is dirty and gets things done
+            var bullets = GameObject.FindObjectsOfType<Bullet>();
+            foreach (var b in bullets)
+            {
+                if (b.ownerName == gameObject.name)
+                {
+                    Destroy(b.gameObject);
+                }
+            }
+
             animator.SetTrigger("Die");
+            // Disable any further damage effects
+            animator.ResetTrigger("Damage");
+            spriteRenderer.color = Color.white;
+            Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -98,6 +117,7 @@ namespace Actor
             GameObject go = other.gameObject;
             if (go.layer == damageLayer)
             {
+                // TODO: Different bullet damage should be registered here.
                 TakeDamage(10);
                 if (go.GetComponent<BulletManagement.Bullet>().destroyBulletOnHit)
                 {

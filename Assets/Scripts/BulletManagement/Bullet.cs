@@ -14,6 +14,7 @@ namespace BulletManagement
         // Metadata
         public EmitterBase emitter = null;
         public BulletPattern bulletPattern = null;
+        public string ownerName;
 
         // Checks if a bullet should be destroyed once it hits an object.
         // Checked by Living.cs
@@ -70,8 +71,9 @@ namespace BulletManagement
             transform.Translate(translation);
         }
 
-        public virtual void SetData(EmitterBase emitter, BulletPattern bulletPattern, int bulletId)
+        public virtual void SetData(string ownerName, EmitterBase emitter, BulletPattern bulletPattern, int bulletId)
         {
+            this.ownerName = ownerName;
             this.emitter = emitter;
             this.bulletPattern = bulletPattern;
             this.bulletId = bulletId;

@@ -31,6 +31,8 @@ namespace Actor
             {
                 emitterObject.SlipTimeManager = slipTimeMgr;
                 emitterObject.transform.parent.gameObject.SetActive(true);
+                emitterObject.owner = gameObject;
+                emitterObject.ownerName = gameObject.name;
             }
         }
 

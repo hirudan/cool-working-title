@@ -28,6 +28,7 @@ namespace UI.Score
 
         void Start()
         {
+            Debug.Log(loseImage);
             loseImage.color = opacity;
             winImage.color = opacity;
             bonusImage.color = opacity;

@@ -33,7 +33,6 @@ namespace Level
 
             // Look towards negate Z axis
             this.mainCamera.transform.forward = new Vector3(0, 0, 1);
-            this.mainCamera.rect = new Rect(0f, 0f, 1f, 1f);
 
             // Background color instead of default skyline
             this.mainCamera.backgroundColor = Color.black;
@@ -90,6 +89,28 @@ namespace Level
             {
                 won = true;
                 scoreScreenManager.Win();
+
+                // Delete any living enemies which, if they have emitters as children, will
+                // auto clean bullets.
+                // If there is a boss, calling EnemyAttack.CleanUp() and using its emitters
+                // to remove the objects
+                var enemyAttacks = GameObject.FindObjectsOfType<EnemyAttack>();
+                var bullets = GameObject.FindObjectsOfType<BulletManagement.Bullet>();
+                foreach (var attack in enemyAttacks)
+                {
+                    string attackName = attack.gameObject.name;
+                    Debug.Log(attackName);
+
+                    // Delete each bullet
+                    foreach (var bullet in bullets)
+                    {
+                        if (bullet.ownerName == attackName)
+                        {
+                            Destroy(bullet.gameObject);
+                        }
+                    }
+                    attack.CleanUp();
+                }
             }
         }
     }
