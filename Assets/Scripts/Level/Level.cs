@@ -1,7 +1,8 @@
-﻿using Actor;
+﻿using System.Collections.Generic;
+using System.IO;
+using Actor;
 using UI.Score;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Level
 {
@@ -24,6 +25,16 @@ namespace Level
         private Living playerObject, bossObject;
 
         private bool won, lost = false;
+
+        // An ordered queue of enemies to spawn
+        private Queue<EnemySpawn> spawnList = new Queue<EnemySpawn>();
+
+        // The next enemy to spawn in
+        private EnemySpawn nextSpawn;
+
+        // Offset between TimeSinceLevelLoad and spawn timers. Accrues when waiting for a 
+        // bigger enemy to die, the game is paused, etc.
+        private float spawnTimeOffset;
 
         private void InitCamera()
         {
@@ -75,10 +86,21 @@ namespace Level
 
             playerObject = GameObject.Find("Player").GetComponent<Living>();
             bossObject = GameObject.Find("Boss").GetComponent<Living>();
+            
+            // Load enemy prefabs
+            GameObject saucer1 = Resources.Load<GameObject>(Path.Combine("Enemies", "SaucerDrone_SWnwLa3"));
+            GameObject saucer2 = Resources.Load<GameObject>(Path.Combine("Enemies", "SaucerDrone_SEneLa3 Variant"));
+            spawnList.Enqueue(new EnemySpawn {enemy = saucer1, spawnTime = 5f, spawnPosition = new Vector3(0,0,0)});
+            spawnList.Enqueue(new EnemySpawn {enemy = saucer1, spawnTime = 6f, spawnPosition = new Vector3(0,.2f,0)});
+            spawnList.Enqueue(new EnemySpawn {enemy = saucer1, spawnTime = 7f, spawnPosition = new Vector3(0,.4f,0)});
+            spawnList.Enqueue(new EnemySpawn {enemy = saucer1, spawnTime = 8f, spawnPosition = new Vector3(0,.6f,0)});
+            spawnList.Enqueue(new EnemySpawn {enemy = saucer1, spawnTime = 9f, spawnPosition = new Vector3(0,.8f,0)});
+            
         }
 
         void Update()
         {
+            // Handle win/lose conditions before dealing with new enemies
             if (lost || won) return;
             if (!lost && playerObject.IsDead())
             {
@@ -112,6 +134,17 @@ namespace Level
                     attack.CleanUp();
                 }
             }
+            
+            // Spawn enemies at appropriate times
+            if (spawnList.Count > 0 && nextSpawn == null)
+            {
+                nextSpawn = spawnList.Dequeue();
+            }
+
+            if (nextSpawn == null) return;
+            if (!(Time.timeSinceLevelLoad > nextSpawn.spawnTime)) return;
+            Instantiate(nextSpawn.enemy, nextSpawn.spawnPosition, Quaternion.identity);
+            nextSpawn = null;
         }
     }
 }

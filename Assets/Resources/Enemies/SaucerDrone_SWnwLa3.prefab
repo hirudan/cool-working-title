@@ -65,7 +65,7 @@ MonoBehaviour:
   emitFrequency: 1
   bulletDecayTime: 30
   ownerName: SaucerDrone_SWnwLa3
-  slipTimeManager: {fileID: 0}
+  slipTimeManager: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3, type: 3}
   emitCycles: 3
   startAngle: 0
   spinRate: 0
@@ -125,13 +125,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6da44785e24ddba1ad73673fc9806e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slipTimeManager: {fileID: 0}
+  slipTimeManager: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3, type: 3}
   direction1: {x: 0, y: -1, z: 0}
   direction2: {x: 1, y: 0.5, z: 0}
   timeBeforeSwitch: 1
   timeBetweenDirections: 5
   velocity1: {x: 1, y: 3, z: 1}
   velocity2: {x: 1, y: 1, z: 1}
+  rpm: 0
 --- !u!1001 &3317675090555311754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,6 +168,10 @@ PrefabInstance:
       propertyPath: health
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 554824663050249352, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
+      propertyPath: slipTimeManager
+      value: 
+      objectReference: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3, type: 3}
     - target: {fileID: 3484942365795540661, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
       propertyPath: m_Name
       value: SaucerDrone_SWnwLa3
