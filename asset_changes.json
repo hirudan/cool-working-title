@@ -1,222 +1,494 @@
 {
   "Assets\\Audio\\mainmen.mp3": {
     "hash": "ed5948711b8ae0ff13c896ad9bbd1751",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\nya.wav": {
     "hash": "101ac9d997b9de3d2a3666bd16526a3a",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\Effects\\menu_blip_placeholder.wav": {
     "hash": "53acd1e69230037c5dc64e5e8e0ad90b",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\Effects\\Moonshot.Sfx.Graze.wav": {
     "hash": "9ab473cb3fcf416ba365611c50e45e3d",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\Effects\\Moonshot.Sfx.SlipTime.wav": {
     "hash": "382b99bfdc316b72682ff2beffaa8539",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\Effects\\Explosions\\enemyexplosion01_prelim.wav": {
     "hash": "ab5a104b0e83f6cceb8d5afc6bb15844",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\Effects\\Explosions\\enemyexplosion02_prelim.wav": {
     "hash": "efb696f64977a233f3ee1d469f57449a",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\Effects\\Explosions\\enemyexplosion03_prelim.wav": {
     "hash": "bf8ab19da4d67f9cbfe30d55e3b4e451",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\Effects\\Explosions\\Moonshot.Sfx.Explosion.Player.Death.wav": {
     "hash": "2ffda4621a408d2089a5c2895b2a153a",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\Effects\\Hits\\Moonshot.Sfx.Hit.Enemy.Normal.wav": {
     "hash": "f415326049410fb1e46ec2241514cce2",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\Effects\\Hits\\Moonshot.Sfx.Hit.Enemy.Rock.wav": {
     "hash": "e110445eb67534b3f31c5442d2b51a96",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\Effects\\Hits\\Moonshot.Sfx.Hit.Enemy.SoftImpact.wav": {
     "hash": "ddacf7f71d84dcd89c95657c810d66bc",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Audio\\Effects\\Hits\\Moonshot.Sfx.Hit.Player.wav": {
     "hash": "7317b1da06d2207a80d9bff3aa3e0af0",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
-  "Assets\\Audio\\Effects\\Lasers\\Shot1.wav": {
+  "Assets\\Audio\\Effects\\Lasers\\shot1.wav": {
     "hash": "9539eb11430f0140ecf34d0d52549cd6",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
-  "Assets\\Audio\\Effects\\Lasers\\Shot2.wav": {
+  "Assets\\Audio\\Effects\\Lasers\\shot2.wav": {
     "hash": "57e6c30640543ac4e05f652a9b5dd0a4",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
-  "Assets\\Audio\\Effects\\Lasers\\Shot3.wav": {
+  "Assets\\Audio\\Effects\\Lasers\\shot3.wav": {
     "hash": "46966531c15b3b23d2d34dedeaaef927",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
-  "Assets\\Audio\\Effects\\Lasers\\Shot4.wav": {
+  "Assets\\Audio\\Effects\\Lasers\\shot4.wav": {
     "hash": "eacacb05533189556d84677b982ece4a",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
-  "Assets\\Audio\\Effects\\Lasers\\Shot5.wav": {
+  "Assets\\Audio\\Effects\\Lasers\\shot5.wav": {
     "hash": "923f14fc6385f34619f9c3f21e23fd65",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Fonts\\IsaaxOrigin-Regular.otf": {
     "hash": "a7d3cadc4791fe4eab7bb6aab77ad57f",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Fonts\\IsaaxSans-Regular.otf": {
     "hash": "bb3d23614fb337b86999e9466e8da2e9",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Fonts\\SyneMono-Regular.ttf": {
     "hash": "9c4e7f2c1b4b76bf12d6c1a177ee7e94",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Actors\\Images\\boss.png": {
     "hash": "62c822d7f2f2429fbfccc52b2c36a948",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Actors\\Images\\enemy_one.png": {
     "hash": "9dd80e347b3d0c55ec98cca308b03527",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Actors\\Images\\enemy_three.png": {
     "hash": "34e7c57494ff07945fa45958a693a232",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Actors\\Images\\enemy_two.png": {
     "hash": "b2dac53034012899326f35532332560b",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Actors\\Images\\spaceship_one.png": {
     "hash": "9216745c699a86134a7a7f702c3fc34b",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Actors\\Images\\spaceship_three.png": {
     "hash": "430675b3a81ee75a75988a5a03866a0c",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Actors\\Images\\spaceship_two.png": {
     "hash": "cf1a277763f35c16a29c007cfa543e2f",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0000.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0001.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0002.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0003.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0004.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0005.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0006.png": {
+    "hash": "e05d1888b584c2d4105e55d39fa91d3a",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0007.png": {
+    "hash": "e05d1888b584c2d4105e55d39fa91d3a",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0008.png": {
+    "hash": "e05d1888b584c2d4105e55d39fa91d3a",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0009.png": {
+    "hash": "e05d1888b584c2d4105e55d39fa91d3a",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0010.png": {
+    "hash": "e05d1888b584c2d4105e55d39fa91d3a",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0011.png": {
+    "hash": "e05d1888b584c2d4105e55d39fa91d3a",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0012.png": {
+    "hash": "f540a73e14305af4be58174fa7d74a82",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0013.png": {
+    "hash": "f540a73e14305af4be58174fa7d74a82",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0014.png": {
+    "hash": "f540a73e14305af4be58174fa7d74a82",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0015.png": {
+    "hash": "f540a73e14305af4be58174fa7d74a82",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0016.png": {
+    "hash": "f540a73e14305af4be58174fa7d74a82",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0017.png": {
+    "hash": "f540a73e14305af4be58174fa7d74a82",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0018.png": {
+    "hash": "8a56c901231bd5d1a4100faabc68d831",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0019.png": {
+    "hash": "8a56c901231bd5d1a4100faabc68d831",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0020.png": {
+    "hash": "df350665d944f25b74f2f3773a52ea2a",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0021.png": {
+    "hash": "df350665d944f25b74f2f3773a52ea2a",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0022.png": {
+    "hash": "80b002b500d76fef0de694ec862d3e21",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0023.png": {
+    "hash": "80b002b500d76fef0de694ec862d3e21",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0024.png": {
+    "hash": "ccf08b8dcd3cf4c9e3de4cf6b8159d78",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0025.png": {
+    "hash": "ccf08b8dcd3cf4c9e3de4cf6b8159d78",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0026.png": {
+    "hash": "e238068d0eb846fd0e3933800eecddc8",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0027.png": {
+    "hash": "e238068d0eb846fd0e3933800eecddc8",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0028.png": {
+    "hash": "a8aa872eb8e10bf707f0cf39a619133b",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0029.png": {
+    "hash": "a8aa872eb8e10bf707f0cf39a619133b",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0030.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0031.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0032.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0033.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0034.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0035.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0036.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0037.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0038.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0039.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0040.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0041.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0042.png": {
+    "hash": "2c32da4b26ef7a5992bfdfaa97d90632",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0043.png": {
+    "hash": "2c32da4b26ef7a5992bfdfaa97d90632",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0044.png": {
+    "hash": "2c32da4b26ef7a5992bfdfaa97d90632",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0045.png": {
+    "hash": "2c32da4b26ef7a5992bfdfaa97d90632",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0046.png": {
+    "hash": "2c32da4b26ef7a5992bfdfaa97d90632",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0047.png": {
+    "hash": "2c32da4b26ef7a5992bfdfaa97d90632",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0048.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0049.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0050.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0051.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0052.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0053.png": {
+    "hash": "64246d35540b5828ca1f05fc0eff20e1",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0054.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0055.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0056.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0057.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0058.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0059.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\idle\\spaceship_one_idle0060.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\shoot\\spaceship_one_shoot0000.png": {
+    "hash": "3984d263b66e9ca274b2babfdd567133",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\shoot\\spaceship_one_shoot0001.png": {
+    "hash": "3c55880985b1ad5f8efb33c457d48a4a",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\shoot\\spaceship_one_shoot0002.png": {
+    "hash": "763aabeb85dabd8100878d1999b5a988",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\shoot\\spaceship_one_shoot0003.png": {
+    "hash": "3ce1875936068880285b5da79e7fde25",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\shoot\\spaceship_one_shoot0004.png": {
+    "hash": "186117ede4bd73dbfaa6d06168f5c8e8",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\shoot\\spaceship_one_shoot0005.png": {
+    "hash": "0eba35c657ea70564f7364718461540c",
+    "time": "2020-11-22 19:48:11"
+  },
+  "Assets\\Animations\\Actors\\spaceship_one\\shoot\\spaceship_one_shoot0006.png": {
+    "hash": "e05d1888b584c2d4105e55d39fa91d3a",
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Background\\Images\\background_crystal.png": {
     "hash": "972c98e1347ccd66421319a584884e1b",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Background\\Images\\crystal_cavern.png": {
-    "hash": "63aee37eab0d1a4ba7f42028b76b32ff",
-    "time": "2020-11-21 13:46:58"
+    "hash": "17e26c4399f8b413f1b6cac04c819fa5",
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Background\\Images\\purple_cloud.png": {
     "hash": "30990916167925983558abfb53f5bfe6",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Background\\Images\\white_cloud.png": {
     "hash": "84088ba909640aa2e1731ac2c5b0c090",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Bullets\\Images\\bullet_cheveron.png": {
     "hash": "373ca96d60cc2f6efd0b939bcc40f5db",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Bullets\\Images\\bullet_crystal.png": {
     "hash": "81a1f47925d494f654efbfe930f3eda5",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Bullets\\Images\\bullet_default.png": {
     "hash": "2585986e8892b806985117cd48d5d126",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\Bullets\\Images\\bullet_lazer.png": {
     "hash": "9a4acc9e2790eca67a796028128829db",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Borders\\barrier_left.png": {
     "hash": "1d0035cae196f497ef2c91f8f0ecefeb",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Borders\\barrier_right.png": {
     "hash": "3d2960d27279632e21da768752e36c5c",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\MainMenu\\Full_Menu_Selector_Rectangle.png": {
     "hash": "9a97994d429a1bed0dbf53d27044bf92",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\MainMenu\\_hole_menu.png": {
     "hash": "dda8670642fa10e0a6bee24805a967cd",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Results\\peaceful_times.png": {
     "hash": "4cb4c5d1966de539c30d7deac882828a",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Results\\records.png": {
     "hash": "1702421020500a39a6dfe338b2083ad9",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Results\\results_loss.png": {
     "hash": "5f365b3a6843f276c5361446cf5711e1",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Results\\results_win.png": {
     "hash": "7241490bce30e9842cadf4eb2ece9857",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Sliptime\\bar0.png": {
     "hash": "0f73047e73cfb0cd577196c8479644b9",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Sliptime\\bar1.png": {
     "hash": "c71de56df5b1a84926463add6acefe8f",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Sliptime\\bar2.png": {
     "hash": "c5317622b19456fe7bf819bef5a5819f",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Sliptime\\cornerui_bar_empty.png": {
     "hash": "345f932f1101637b1d15cc1e5b48c0e7",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Sliptime\\cornerui_bar_full.png": {
     "hash": "92c510f8f0b40dbb4ac3d16dd5198f06",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Sliptime\\cornerui_meter_empty.png": {
     "hash": "d591d0e119af0a66ecf9c2af411523bd",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Sliptime\\cornerui_meter_full.png": {
     "hash": "0e57981f31e8c1fe82fec418623d4483",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Sliptime\\cornerui_mockup_empty.png": {
     "hash": "3598b5dfd565014873f6e34c5198d3f6",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Sliptime\\cornerui_mockup_full.png": {
     "hash": "651c97ef67640e565066a08d8eb0093a",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Sliptime\\slip_active_notif.png": {
     "hash": "57e2d6afe6beb40b7be22a398760e27c",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   },
   "Assets\\UI\\Sliptime\\slip_timer_bar.png": {
     "hash": "ca970c7b7b825dc651330e2c8805f19c",
-    "time": "2020-11-21 13:46:58"
+    "time": "2020-11-22 19:48:11"
   }
 }
