@@ -17,7 +17,7 @@ namespace BulletManagement
         public GameObject bulletPrefab;
         public GameObject owner;
 
-        public double timeCounter = 0.0;
+        protected double timeCounter = 0.0;
 
         // Number of bullets to emit each emit cycle.
         public int emitBulletCount;

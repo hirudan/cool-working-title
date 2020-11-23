@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2878554341998852060}
   - component: {fileID: 2878554341998852063}
   - component: {fileID: 2878554341998852062}
-  - component: {fileID: 4400338826778451893}
   - component: {fileID: 4661199263981372768}
+  - component: {fileID: 9182550331272467032}
   m_Layer: 10
   m_Name: crystal_bullet
   m_TagString: Untagged
@@ -101,23 +101,9 @@ MonoBehaviour:
   timeAlive: 0
   emitter: {fileID: 0}
   bulletPattern: {fileID: 0}
+  ownerName: 
+  destroyBulletOnHit: 1
   bulletId: 0
---- !u!58 &4400338826778451893
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2878554341998852033}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.64
 --- !u!50 &4661199263981372768
 Rigidbody2D:
   serializedVersion: 4
@@ -126,7 +112,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2878554341998852033}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -139,3 +125,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &9182550331272467032
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2878554341998852033}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.027625615, y: 0.5255238}
+      - {x: -0.2920087, y: 0.22739631}
+      - {x: -0.2848853, y: -0.23862982}
+      - {x: -0.066118985, y: -0.47040915}
+      - {x: -0.03237445, y: -0.5136517}
+      - {x: 0.04050221, y: -0.50652826}
+      - {x: 0.2848854, y: -0.21675754}
+      - {x: 0.2920087, y: 0.22625542}
+      - {x: 0.03438323, y: 0.5207752}

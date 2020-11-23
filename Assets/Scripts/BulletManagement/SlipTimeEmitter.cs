@@ -20,6 +20,8 @@ namespace BulletManagement
 
         private bool limited = false;
 
+        private float timeAlive = 0f;
+
         private Transform playerTransform;
 
         // The number of bullet waves to emit. Set to zero for no limit.
@@ -33,6 +35,9 @@ namespace BulletManagement
 
         // The maximum spin rate at which spin will reverse
         public float spinMax = 1f;
+        
+        // Amount of time to wait before starting to emit
+        public float startDelay = 0f;
         
         // Analogous to angular acceleration, the rate at which spinRate increases
         public float spinAccel = 0f;
@@ -70,6 +75,9 @@ namespace BulletManagement
         // Update is called once per frame
         private void Update()
         {
+            timeAlive += Time.deltaTime;
+            if (timeAlive < startDelay) return;
+            
             // Destroy the emitter if it has finished all its cycles (when applicable)
             if(limited && cyclesEmitted >= emitCycles) Destroy(this);
             if (aimed)
