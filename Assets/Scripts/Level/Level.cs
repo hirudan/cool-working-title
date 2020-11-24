@@ -32,7 +32,6 @@ namespace Level
         // An ordered queue of enemies to spawn
         private List<EnemySpawn> spawnList = new List<EnemySpawn>();
         private Queue<EnemySpawn> spawnQueue;
-        
 
         // The next enemy to spawn in
         private EnemySpawn nextSpawn;
@@ -40,6 +39,9 @@ namespace Level
         // Offset between TimeSinceLevelLoad and spawn timers. Accrues when waiting for a 
         // bigger enemy to die, the game is paused, etc.
         private float spawnTimeOffset;
+
+        // Used in place of Time.TimeSinceLevelLoad to account for sliptime
+        private float timeElapsed = 0f;
 
         private SlipTimeManager sliptime;
 
@@ -113,76 +115,20 @@ namespace Level
              */
             
             // A wave of small ships moving top left to mid-right
-            spawnList.Add(new EnemySpawn{spawnTime = 2.0f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 2.2f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 2.4f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 2.6f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 2.8f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 3.0f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 3.2f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 3.4f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 3.6f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 3.8f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
+            CurvedWave(10, 2f, saucer1, new Vector3(-6, 7, 0), EntrySide.Left);
             
             // A wave of small ships moving top right to mid-left
-            spawnList.Add(new EnemySpawn{spawnTime = 3.0f, enemy = saucer2, spawnPosition = new Vector3(6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 3.2f, enemy = saucer2, spawnPosition = new Vector3(6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 3.4f, enemy = saucer2, spawnPosition = new Vector3(6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 3.6f, enemy = saucer2, spawnPosition = new Vector3(6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 3.8f, enemy = saucer2, spawnPosition = new Vector3(6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 4.0f, enemy = saucer2, spawnPosition = new Vector3(6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 4.2f, enemy = saucer2, spawnPosition = new Vector3(6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 4.4f, enemy = saucer2, spawnPosition = new Vector3(6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 4.6f, enemy = saucer2, spawnPosition = new Vector3(6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 4.8f, enemy = saucer2, spawnPosition = new Vector3(6, 7, 0)});
+            CurvedWave(10, 3f, saucer2, new Vector3(6,7,0), EntrySide.Right);
             
             // A wave of small ships that move in from the top and leave from the sides
-            spawnList.Add(new EnemySpawn{spawnTime = 7.0f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 7.2f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 7.4f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 7.6f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 7.8f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 8.0f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 8.2f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 8.4f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 8.6f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 8.8f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            
-            spawnList.Add(new EnemySpawn{spawnTime = 7.0f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 7.2f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 7.4f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 7.6f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 7.8f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 8.0f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 8.2f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 8.4f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 8.6f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 8.8f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
+            TopWave(10, 7f, saucer3, new Vector3(1, 7, 0), EntrySide.Right, 2);
+            TopWave(10, 7f, saucer4, new Vector3(-1, 7, 0), EntrySide.Left, 2);
             
             /* 
              * 00:12 - 00:08
              */
             // A wave of doubled ships moving from top left to mid-right
-            spawnList.Add(new EnemySpawn{spawnTime = 12.0f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 12.2f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 12.4f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 12.6f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 12.8f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 13.0f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 13.2f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 13.4f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 13.6f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 13.8f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 12.0f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 12.2f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 12.4f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 12.6f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 12.8f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 13.0f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 13.2f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 13.4f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 13.6f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 13.8f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
+            CurvedWave(10, 12f, saucer1, new Vector3(-6,7,0), EntrySide.Left, 2);
             
             
             // Sort list by time and convert to queue
@@ -193,6 +139,8 @@ namespace Level
 
         void Update()
         {
+            // Update time elapsed, accounting for sliptime
+            timeElapsed += Time.deltaTime * sliptime.slipTimeCoefficient;
             // Handle win/lose conditions before dealing with new enemies
             if (lost || won) return;
             if (!lost && playerObject.IsDead())
@@ -235,7 +183,7 @@ namespace Level
             }
 
             if (nextSpawn == null) return;
-            if (!(Time.timeSinceLevelLoad > nextSpawn.spawnTime)) return;
+            if (!(timeElapsed > nextSpawn.spawnTime)) return;
             var enemy = Instantiate(nextSpawn.enemy, nextSpawn.spawnPosition, Quaternion.identity);
             enemy.GetComponent<EnemyLiving>().SlipTimeManager = sliptime;
             enemy.GetComponent<SlipTimeMover>().SlipTimeManager = sliptime;
@@ -244,6 +192,41 @@ namespace Level
                 component.SlipTimeManager = sliptime;
             }
             nextSpawn = null;
+        }
+
+        private void CurvedWave(int numShips, float startTime, GameObject shipType, Vector3 startPos, EntrySide entrySide, int numRows = 1)
+        {
+            var sign = entrySide == EntrySide.Left ? -1 : 1;
+            for (var i = 0; i < numShips; i++)
+            {
+                var spawnTime = 0.2f * i + startTime;
+                for (var j = 0; j < numRows; j++)
+                {
+                    var spawnPos = new Vector3(startPos.x + (sign * j * 0.5f), startPos.y - (j * 0.5f), startPos.z);
+                    spawnList.Add(new EnemySpawn{enemy = shipType, spawnPosition = spawnPos, spawnTime = spawnTime});
+                }
+            }
+        }
+
+        private void TopWave(int numShips, float startTime, GameObject shipType, Vector3 startPos, EntrySide entrySide,
+            int numRows = 1)
+        {
+            var sign = entrySide == EntrySide.Left ? -1 : 1;
+            for (var i = 0; i < numShips; i++)
+            {
+                var spawnTime = 0.2f * i + startTime;
+                for (var j = 0; j < numRows; j++)
+                {
+                    var spawnPos = new Vector3(startPos.x + (sign * j * 0.5f), startPos.y, startPos.z);
+                    spawnList.Add(new EnemySpawn{enemy = shipType, spawnPosition = spawnPos, spawnTime = spawnTime});
+                }
+            }
+        }
+        
+        private enum EntrySide
+        {
+            Left,
+            Right
         }
     }
 }

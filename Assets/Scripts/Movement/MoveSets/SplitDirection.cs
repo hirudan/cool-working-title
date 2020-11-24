@@ -45,7 +45,7 @@ namespace Movement
                 translateVect = Vector3.zero;
             }
 
-            timeAlive += Time.deltaTime;
+            timeAlive += Time.deltaTime * SlipTimeManager.slipTimeCoefficient;
             this.SetMovement(translateVect, (float)degreesToRotate);
         }
     }
