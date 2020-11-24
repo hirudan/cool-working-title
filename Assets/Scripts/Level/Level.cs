@@ -109,7 +109,7 @@ namespace Level
             // Load the enemy queue
 
             /* 
-             * 00:00 - 00:08
+             * 00:00 - 00:10
              */
             
             // A wave of small ships moving top left to mid-right
@@ -137,27 +137,53 @@ namespace Level
             spawnList.Add(new EnemySpawn{spawnTime = 4.8f, enemy = saucer2, spawnPosition = new Vector3(6, 7, 0)});
             
             // A wave of small ships that move in from the top and leave from the sides
-            spawnList.Add(new EnemySpawn{spawnTime = 6.0f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 6.2f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 6.4f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 6.6f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 6.8f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
             spawnList.Add(new EnemySpawn{spawnTime = 7.0f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
             spawnList.Add(new EnemySpawn{spawnTime = 7.2f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
             spawnList.Add(new EnemySpawn{spawnTime = 7.4f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
             spawnList.Add(new EnemySpawn{spawnTime = 7.6f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
             spawnList.Add(new EnemySpawn{spawnTime = 7.8f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 8.0f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 8.2f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 8.4f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 8.6f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 8.8f, enemy = saucer3, spawnPosition = new Vector3(1, 7, 0)});
             
-            spawnList.Add(new EnemySpawn{spawnTime = 6.0f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 6.2f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 6.4f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 6.6f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
-            spawnList.Add(new EnemySpawn{spawnTime = 6.8f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
             spawnList.Add(new EnemySpawn{spawnTime = 7.0f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
             spawnList.Add(new EnemySpawn{spawnTime = 7.2f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
             spawnList.Add(new EnemySpawn{spawnTime = 7.4f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
             spawnList.Add(new EnemySpawn{spawnTime = 7.6f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
             spawnList.Add(new EnemySpawn{spawnTime = 7.8f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 8.0f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 8.2f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 8.4f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 8.6f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 8.8f, enemy = saucer4, spawnPosition = new Vector3(-1, 7, 0)});
+            
+            /* 
+             * 00:12 - 00:08
+             */
+            // A wave of doubled ships moving from top left to mid-right
+            spawnList.Add(new EnemySpawn{spawnTime = 12.0f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 12.2f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 12.4f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 12.6f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 12.8f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 13.0f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 13.2f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 13.4f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 13.6f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 13.8f, enemy = saucer1, spawnPosition = new Vector3(-6, 7, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 12.0f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 12.2f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 12.4f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 12.6f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 12.8f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 13.0f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 13.2f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 13.4f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 13.6f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
+            spawnList.Add(new EnemySpawn{spawnTime = 13.8f, enemy = saucer1, spawnPosition = new Vector3(-6.5f, 6.5f, 0)});
+            
             
             // Sort list by time and convert to queue
             spawnList.Sort((x, y) => x.spawnTime.CompareTo(y.spawnTime));
