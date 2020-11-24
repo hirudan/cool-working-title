@@ -11,7 +11,11 @@ namespace Actor
     /// </summary>
     public class Living : MonoBehaviour, ISlipTimeAdherent
     {
-        public SlipTimeManager SlipTimeManager => slipTimeManager;
+        public SlipTimeManager SlipTimeManager
+        {
+            get => slipTimeManager;
+            set => slipTimeManager = value;
+        }
 
         public Color damageTint;
 

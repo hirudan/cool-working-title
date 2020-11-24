@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Actor;
+using BulletManagement;
+using Movement;
+using SlipTime;
 using UI.Score;
 using UnityEngine;
 
@@ -35,6 +38,8 @@ namespace Level
         // Offset between TimeSinceLevelLoad and spawn timers. Accrues when waiting for a 
         // bigger enemy to die, the game is paused, etc.
         private float spawnTimeOffset;
+
+        private SlipTimeManager sliptime;
 
         private void InitCamera()
         {
@@ -84,6 +89,7 @@ namespace Level
             this.InitCamera();
             this.InitSun();
 
+            sliptime = GameObject.Find("SlipTimeManager").GetComponent<SlipTimeManager>();
             playerObject = GameObject.Find("Player").GetComponent<Living>();
             bossObject = GameObject.Find("Boss").GetComponent<Living>();
             
@@ -143,7 +149,13 @@ namespace Level
 
             if (nextSpawn == null) return;
             if (!(Time.timeSinceLevelLoad > nextSpawn.spawnTime)) return;
-            Instantiate(nextSpawn.enemy, nextSpawn.spawnPosition, Quaternion.identity);
+            var enemy = Instantiate(nextSpawn.enemy, nextSpawn.spawnPosition, Quaternion.identity);
+            enemy.GetComponent<EnemyLiving>().SlipTimeManager = sliptime;
+            enemy.GetComponent<SlipTimeMover>().SlipTimeManager = sliptime;
+            foreach (var component in enemy.GetComponentsInChildren<SlipTimeEmitter>())
+            {
+                component.SlipTimeManager = sliptime;
+            }
             nextSpawn = null;
         }
     }

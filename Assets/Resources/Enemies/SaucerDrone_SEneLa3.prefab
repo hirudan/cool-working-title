@@ -11,6 +11,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaucerDrone_SEneLa3
       objectReference: {fileID: 0}
+    - target: {fileID: 3006607939101946370, guid: 24ffb3a84126ed840be01c2582f85b31, type: 3}
+      propertyPath: health
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006607939101946370, guid: 24ffb3a84126ed840be01c2582f85b31, type: 3}
+      propertyPath: colorDecayTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006607939101946370, guid: 24ffb3a84126ed840be01c2582f85b31, type: 3}
+      propertyPath: deathScoreBonus
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6729368823810617616, guid: 24ffb3a84126ed840be01c2582f85b31, type: 3}
       propertyPath: m_RootOrder
       value: 0
