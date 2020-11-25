@@ -9,5 +9,9 @@
         /// The player's score.
         /// </summary>
         public static int Score { get; set; }
+        /// <summary>
+        /// The player's health.
+        /// </summary>
+        public static int Health { get; set; }
     }
 }

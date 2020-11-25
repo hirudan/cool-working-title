@@ -30,7 +30,6 @@ namespace UI.Score
                 score = PlayerStats.Score;
                 scoreTextBox.text = "Score\n" + score;
             }
-            
         }
     }
 }

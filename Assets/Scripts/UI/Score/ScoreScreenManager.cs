@@ -28,15 +28,14 @@ namespace UI.Score
 
         void Start()
         {
-            Debug.Log(loseImage);
             loseImage.color = opacity;
             winImage.color = opacity;
             bonusImage.color = opacity;
             restartButton.gameObject.SetActive(false);
             quitButton.gameObject.SetActive(false);
         }
-        
-        IEnumerator TransitionImage(Image img) 
+
+        IEnumerator TransitionImage(Image img)
         {
             for (float ft = 0f; ft <= 1; ft += 0.1f)
             {
@@ -61,7 +60,7 @@ namespace UI.Score
             quitButton.gameObject.SetActive(true);
             StartCoroutine(TransitionImage(loseImage));
         }
-        
+
         public void OnRestartClicked()
         {
             SceneManager.LoadScene(gameScene);
