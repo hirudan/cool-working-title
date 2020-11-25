@@ -126,6 +126,11 @@ namespace Level
             /*
              * 00:00 - 00:10
              */
+            // A wave of small ships moving top left to mid-right
+            les.CurvedWave(10, 2f, saucer1, new Vector3(-6, 7, 0), EntrySide.Left);
+
+            // A wave of small ships moving top right to mid-left
+            les.CurvedWave(10, 3f, saucer2, new Vector3(6,7,0), EntrySide.Right);
 
             // A wave of small ships that move in from the top and leave from the sides
             les.TopWave(10, 7f, saucer3, new Vector3(1, 7, 0), EntrySide.Right, 1);
