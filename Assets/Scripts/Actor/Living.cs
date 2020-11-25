@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 namespace Actor
 {
     /// <summary>
-    /// Function that keeps track of health and 
+    /// Function that keeps track of health and
     /// any resources dealing with morbid death.
     /// </summary>
     public class Living : MonoBehaviour, ISlipTimeAdherent
@@ -24,16 +24,16 @@ namespace Actor
         // Private Variables
         [SerializeField]
         private SlipTimeManager slipTimeManager;
-        
+
         [SerializeField]
-        private int health = 100;
+        protected int health = 100;
 
         [SerializeField]
         private Animator animator;
-        
+
         [SerializeField]
         private float colorDecayTime = 2.0f;
-        
+
         private SpriteRenderer spriteRenderer;
         private bool takenDamage = false;
         private float timeCounter = 0;
@@ -44,7 +44,7 @@ namespace Actor
         public Color DamageTint => this.damageTint;
         public float ColorDecayTime => this.colorDecayTime;
 
-        protected void Start()
+        protected virtual void Start()
         {
             animator = gameObject.GetComponent<Animator>();
             spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -78,7 +78,7 @@ namespace Actor
             return died;
         }
 
-        public void TakeDamage(int amt)
+        public virtual void TakeDamage(int amt)
         {
             // Cooldown period
             if (died || takenDamage)

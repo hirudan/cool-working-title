@@ -47,7 +47,6 @@ MonoBehaviour:
   bulletSpeedMultiplier: 10
   bulletPrefab: {fileID: 6564427753518255878, guid: 73c52ece96e614548b01f741e1911aeb, type: 3}
   owner: {fileID: 0}
-  timeCounter: 0
   emitBulletCount: 1
   emitFrequency: 0.5
   bulletDecayTime: 0
@@ -114,7 +113,6 @@ MonoBehaviour:
   bulletSpeedMultiplier: 10
   bulletPrefab: {fileID: 6564427753518255878, guid: 73c52ece96e614548b01f741e1911aeb, type: 3}
   owner: {fileID: 0}
-  timeCounter: 0
   emitBulletCount: 1
   emitFrequency: 0.5
   bulletDecayTime: 0
@@ -328,10 +326,10 @@ GameObject:
   - component: {fileID: 6499014868206097203}
   - component: {fileID: 6499014868206097200}
   - component: {fileID: 6499014868206097201}
-  - component: {fileID: 6499014868206097198}
   - component: {fileID: 6499014868206097199}
   - component: {fileID: 6499014868206097196}
   - component: {fileID: 6499014868206097197}
+  - component: {fileID: 2004800197892670786}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -443,24 +441,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapToCameraBorder: 1
   Speed: 3
---- !u!114 &6499014868206097198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6499014868206097194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19a869e8ea7101248a4fa3cb98d336c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageTint: {r: 1, g: 0.5801887, b: 0.5801887, a: 1}
-  damageLayer: 10
-  slipTimeManager: {fileID: 0}
-  health: 30
-  animator: {fileID: 0}
-  colorDecayTime: 2
 --- !u!58 &6499014868206097199
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -592,6 +572,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2004800197892670786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499014868206097194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8322315e4d4e9b84790d364ac22e18c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTint: {r: 1, g: 0.5803922, b: 0.5803922, a: 1}
+  damageLayer: 10
+  slipTimeManager: {fileID: 0}
+  health: 75
+  animator: {fileID: 0}
+  colorDecayTime: 2
+  totalHealth: 75
+  healthBar: {fileID: 0}
 --- !u!1 &6499014868277100310
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +639,6 @@ MonoBehaviour:
   bulletSpeedMultiplier: 10
   bulletPrefab: {fileID: 6564427753518255878, guid: 73c52ece96e614548b01f741e1911aeb, type: 3}
   owner: {fileID: 0}
-  timeCounter: 0
   emitBulletCount: 1
   emitFrequency: 0.5
   bulletDecayTime: 0
