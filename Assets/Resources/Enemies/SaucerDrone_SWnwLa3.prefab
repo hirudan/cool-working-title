@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slipTimeManager: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3, type: 3}
   direction1: {x: 0, y: -1, z: 0}
-  direction2: {x: 1, y: 0.5, z: 0}
+  direction2: {x: -1, y: 0.5, z: 0}
   timeBeforeSwitch: 1
   timeBetweenDirections: 5
   velocity1: {x: 1, y: 3, z: 1}

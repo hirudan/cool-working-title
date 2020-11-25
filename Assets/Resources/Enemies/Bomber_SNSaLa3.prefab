@@ -377,7 +377,7 @@ MonoBehaviour:
   damageTint: {r: 0, g: 0, b: 0, a: 0}
   damageLayer: 10
   slipTimeManager: {fileID: 0}
-  health: 50
+  health: 100
   animator: {fileID: 1001857378673746859}
   colorDecayTime: 0.1
   hitScoreBonus: 5
