@@ -11,7 +11,11 @@ namespace Actor
     /// </summary>
     public class Living : MonoBehaviour, ISlipTimeAdherent
     {
-        public SlipTimeManager SlipTimeManager => slipTimeManager;
+        public SlipTimeManager SlipTimeManager
+        {
+            get => slipTimeManager;
+            set => slipTimeManager = value;
+        }
 
         public Color damageTint;
 
@@ -52,23 +56,21 @@ namespace Actor
             {
                 died = true;
                 Die();
+                return;
             }
 
             // Basic damage effect via scripts
             // we can decide to use sprites instead later down the line for crazier effects
-            if (takenDamage)
-            {
-                Color lerpedColor = Color.Lerp(damageTint, Color.white, timeCounter);
-                spriteRenderer.color = lerpedColor;
-                timeCounter += (Time.deltaTime * this.SlipTimeManager.slipTimeCoefficient) / colorDecayTime;
 
-                if (timeCounter >= colorDecayTime)
-                {
-                    animator.ResetTrigger("Damage");
-                    takenDamage = false;
-                    timeCounter = 0f;
-                }
-            }
+            if (died || !takenDamage) return;
+            Color lerpedColor = Color.Lerp(damageTint, Color.white, timeCounter);
+            spriteRenderer.color = lerpedColor;
+            timeCounter += (Time.deltaTime * this.SlipTimeManager.slipTimeCoefficient) / colorDecayTime;
+
+            if (!(timeCounter >= colorDecayTime)) return;
+            animator.ResetTrigger("Damage");
+            takenDamage = false;
+            timeCounter = 0f;
         }
 
         public bool IsDead()
