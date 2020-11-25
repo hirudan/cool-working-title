@@ -30,13 +30,13 @@ namespace Level
         private bool won, lost = false;
 
         // An ordered queue of enemies to spawn
-        private List<EnemySpawn> spawnList = new List<EnemySpawn>();
         private Queue<EnemySpawn> spawnQueue;
+        private LevelEnemySpawner les = new LevelEnemySpawner();
 
         // The next enemy to spawn in
         private EnemySpawn nextSpawn;
 
-        // Offset between TimeSinceLevelLoad and spawn timers. Accrues when waiting for a 
+        // Offset between TimeSinceLevelLoad and spawn timers. Accrues when waiting for a
         // bigger enemy to die, the game is paused, etc.
         private float spawnTimeOffset;
 
@@ -63,7 +63,7 @@ namespace Level
         {
             // Grab a directional light if possible
             // otherwise create one
-            foreach (Light light in FindObjectsOfType<Light>()) 
+            foreach (Light light in FindObjectsOfType<Light>())
             {
                 if (light.type == LightType.Directional && light.name == this.mainLightName) {
                     this.mainLight = light;
@@ -71,7 +71,7 @@ namespace Level
                 }
             }
 
-            if (this.mainLight == null) 
+            if (this.mainLight == null)
             {
                 GameObject lightGameObject = new GameObject(this.mainLightName);
                 this.mainLight = lightGameObject.AddComponent<Light>();
@@ -96,7 +96,7 @@ namespace Level
             sliptime = GameObject.Find("SlipTimeManager").GetComponent<SlipTimeManager>();
             playerObject = GameObject.Find("Player").GetComponent<Living>();
             bossObject = GameObject.Find("Boss").GetComponent<Living>();
-            
+
             // Load enemy prefabs
             GameObject saucer1 = Resources.Load<GameObject>(Path.Combine("Enemies", "SaucerDrone_SEE"));
             GameObject saucer2 = Resources.Load<GameObject>(Path.Combine("Enemies", "SaucerDrone_SWW"));
@@ -113,62 +113,54 @@ namespace Level
 
             // Load the enemy queue
 
-            /* 
+            /*
              * 00:00 - 00:10
              */
-            
-            // A wave of small ships moving top left to mid-right
-            CurvedWave(10, 2f, saucer1, new Vector3(-6, 7, 0), EntrySide.Left);
-            
-            // A wave of small ships moving top right to mid-left
-            CurvedWave(10, 3f, saucer2, new Vector3(6,7,0), EntrySide.Right);
-            
+
             // A wave of small ships that move in from the top and leave from the sides
-            TopWave(10, 7f, saucer3, new Vector3(1, 7, 0), EntrySide.Right, 1);
-            TopWave(10, 7f, saucer4, new Vector3(-1, 7, 0), EntrySide.Left, 1);
-            
-            /* 
+            les.TopWave(10, 7f, saucer3, new Vector3(1, 7, 0), EntrySide.Right, 1);
+            les.TopWave(10, 7f, saucer4, new Vector3(-1, 7, 0), EntrySide.Left, 1);
+
+            /*
              * 00:12 - 00:28
              */
             // A wave of doubled ships moving from top left to mid-right
-            CurvedWave(10, 12f, saucer1, new Vector3(-6,7,0), EntrySide.Left, 2);
+            les.CurvedWave(10, 12f, saucer1, new Vector3(-6,7,0), EntrySide.Left, 2);
             // Meanwhile, some shooter ships enter from top right
-            spawnList.Add(new EnemySpawn {enemy = saucer6, spawnPosition = new Vector3(4f, 7, 0), spawnTime = 14f});
-            spawnList.Add(new EnemySpawn {enemy = saucer6, spawnPosition = new Vector3(3.3f, 7, 0), spawnTime = 14.5f});
-            spawnList.Add(new EnemySpawn {enemy = saucer6, spawnPosition = new Vector3(2.6f, 7, 0), spawnTime = 15f});
-            spawnList.Add(new EnemySpawn {enemy = saucer6, spawnPosition = new Vector3(1.9f, 7, 0), spawnTime = 15.5f});
-            spawnList.Add(new EnemySpawn {enemy = saucer6, spawnPosition = new Vector3(1.2f, 7, 0), spawnTime = 16f});
-            
+            les.Add(new EnemySpawn {enemy = saucer6, spawnPosition = new Vector3(4f, 7, 0), spawnTime = 14f});
+            les.Add(new EnemySpawn {enemy = saucer6, spawnPosition = new Vector3(3.3f, 7, 0), spawnTime = 14.5f});
+            les.Add(new EnemySpawn {enemy = saucer6, spawnPosition = new Vector3(2.6f, 7, 0), spawnTime = 15f});
+            les.Add(new EnemySpawn {enemy = saucer6, spawnPosition = new Vector3(1.9f, 7, 0), spawnTime = 15.5f});
+            les.Add(new EnemySpawn {enemy = saucer6, spawnPosition = new Vector3(1.2f, 7, 0), spawnTime = 16f});
+
             // A wave of ships down the center to shoot down, while waves enter from corners with buckets of kill shots
-            TopWave(15, 18f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
-            TopWave(15, 18f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
-            CurvedWave(10, 20f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
-            
-            TopWave(15, 24f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
-            TopWave(15, 24f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
-            CurvedWave(10, 26f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
-            
+            les.TopWave(15, 18f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
+            les.TopWave(15, 18f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
+            les.CurvedWave(10, 20f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
+
+            les.TopWave(15, 24f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
+            les.TopWave(15, 24f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
+            les.CurvedWave(10, 26f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
+
             /*
              * 00:30 - 00:45
              */
             // Bomber from top to constrain followed by killshot waves
-            spawnList.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 7, 0), spawnTime = 30f});
-            CurvedWave(10, 32f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
-            
-            spawnList.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 34f});
-            spawnList.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(1, 7, 0), spawnTime = 34f});
-            CurvedWave(10, 35f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
-            
-            spawnList.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 7, 0), spawnTime = 37f});
-            spawnList.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 37f});
-            spawnList.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(1, 7, 0), spawnTime = 37f});
-            CurvedWave(10, 38f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
-            CurvedWave(10, 38f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
-            
-            // Sort list by time and convert to queue
-            spawnList.Sort((x, y) => x.spawnTime.CompareTo(y.spawnTime));
-            spawnQueue = new Queue<EnemySpawn>(spawnList);
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 7, 0), spawnTime = 30f});
+            les.CurvedWave(10, 32f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
 
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 34f});
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(1, 7, 0), spawnTime = 34f});
+            les.CurvedWave(10, 35f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
+
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 7, 0), spawnTime = 37f});
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 37f});
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(1, 7, 0), spawnTime = 37f});
+            les.CurvedWave(10, 38f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
+            les.CurvedWave(10, 38f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
+
+            // Sort list by time and convert to queue
+            spawnQueue = les.GetSpawnQueue();
         }
 
         void Update()
@@ -209,7 +201,7 @@ namespace Level
                     attack.CleanUp();
                 }
             }
-            
+
             // Spawn enemies at appropriate times
             if (spawnQueue.Count > 0 && nextSpawn == null)
             {
@@ -226,51 +218,6 @@ namespace Level
                 component.SlipTimeManager = sliptime;
             }
             nextSpawn = null;
-        }
-
-        /// <summary>
-        /// Creates a curved wave of ships that enters from the top diagonally and then exits via the side
-        /// </summary>
-        /// <param name="numShips">Number of ships per row</param>
-        /// <param name="startTime">Spawn time relative to level start</param>
-        /// <param name="shipType">Prefab of the ship to load</param>
-        /// <param name="startPos">Starting location (offscreen recommended</param>
-        /// <param name="entrySide">Which half of the screen the ship starts on (Left for -x, Right for +x)</param>
-        /// <param name="numRows">Number of rows to create</param>
-        /// <param name="offset">How far apart each ship should be spaced (larger for larger ships)</param>
-        private void CurvedWave(int numShips, float startTime, GameObject shipType, Vector3 startPos, EntrySide entrySide, int numRows = 1, float offset = 0.5f)
-        {
-            var sign = entrySide == EntrySide.Left ? -1 : 1;
-            for (var i = 0; i < numShips; i++)
-            {
-                var spawnTime = 0.2f * i + startTime;
-                for (var j = 0; j < numRows; j++)
-                {
-                    var spawnPos = new Vector3(startPos.x + (sign * j * offset), startPos.y - (j * offset), startPos.z);
-                    spawnList.Add(new EnemySpawn{enemy = shipType, spawnPosition = spawnPos, spawnTime = spawnTime});
-                }
-            }
-        }
-
-        private void TopWave(int numShips, float startTime, GameObject shipType, Vector3 startPos, EntrySide entrySide,
-            int numRows = 1, float offset = 0.5f)
-        {
-            var sign = entrySide == EntrySide.Left ? -1 : 1;
-            for (var i = 0; i < numShips; i++)
-            {
-                var spawnTime = 0.2f * i + startTime;
-                for (var j = 0; j < numRows; j++)
-                {
-                    var spawnPos = new Vector3(startPos.x + (sign * j * offset), startPos.y, startPos.z);
-                    spawnList.Add(new EnemySpawn{enemy = shipType, spawnPosition = spawnPos, spawnTime = spawnTime});
-                }
-            }
-        }
-        
-        private enum EntrySide
-        {
-            Left,
-            Right
         }
     }
 }
