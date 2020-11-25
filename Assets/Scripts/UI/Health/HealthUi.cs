@@ -23,9 +23,6 @@ namespace UI.Health
             float invertedThreshold = (float) discreteCount;
             float invertedPercentage = totalHealth /curHealth;
 
-            Debug.Log("threshodl" + invertedThreshold);
-            Debug.Log("thresper" + invertedPercentage);
-
             // Round downwards since health is discrete
             healthBlocker.fillAmount = 1f - (invertedThreshold / invertedPercentage)  / discreteCount;
         }
