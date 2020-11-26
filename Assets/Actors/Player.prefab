@@ -328,8 +328,8 @@ GameObject:
   - component: {fileID: 6499014868206097201}
   - component: {fileID: 6499014868206097199}
   - component: {fileID: 6499014868206097196}
-  - component: {fileID: 6499014868206097197}
   - component: {fileID: 2004800197892670786}
+  - component: {fileID: 3613583321993207096}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -553,7 +553,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &6499014868206097197
+--- !u!114 &2004800197892670786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499014868206097194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8322315e4d4e9b84790d364ac22e18c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTint: {r: 1, g: 0.5803922, b: 0.5803922, a: 1}
+  damageLayer: 10
+  slipTimeManager: {fileID: 0}
+  health: 30
+  animator: {fileID: 0}
+  colorDecayTime: 2
+  totalHealth: 30
+  healthBar: {fileID: 0}
+--- !u!95 &3613583321993207096
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -572,26 +592,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2004800197892670786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6499014868206097194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8322315e4d4e9b84790d364ac22e18c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageTint: {r: 1, g: 0.5803922, b: 0.5803922, a: 1}
-  damageLayer: 10
-  slipTimeManager: {fileID: 0}
-  health: 75
-  animator: {fileID: 0}
-  colorDecayTime: 2
-  totalHealth: 75
-  healthBar: {fileID: 0}
 --- !u!1 &6499014868277100310
 GameObject:
   m_ObjectHideFlags: 0

@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: slipTimeManager
       value: 
       objectReference: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3, type: 3}
+    - target: {fileID: 3484942365795540653, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7854b7b4afb0f4f49959b66df9ece4b0, type: 2}
     - target: {fileID: 3484942365795540661, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
       propertyPath: m_Name
       value: SaucerDrone_SWnwLa3
