@@ -128,85 +128,87 @@ namespace Level
              * 00:00 - 00:10
              */
             // A wave of small ships moving top left to mid-right
-            les.CurvedWave(10, 2f, saucer1, new Vector3(-6, 7, 0), EntrySide.Left);
+            les.CurvedWave(10, 12f, saucer1, new Vector3(-6, 7, 0), EntrySide.Left);
 
             // A wave of small ships moving top right to mid-left
-            les.CurvedWave(10, 3f, saucer2, new Vector3(6,7,0), EntrySide.Right);
+            les.CurvedWave(10, 13f, saucer2, new Vector3(6,7,0), EntrySide.Right);
 
             // A wave of small ships that move in from the top and leave from the sides
-            les.TopWave(10, 7f, saucer3, new Vector3(1, 7, 0), EntrySide.Right, 1);
-            les.TopWave(10, 7f, saucer4, new Vector3(-1, 7, 0), EntrySide.Left, 1);
+            les.TopWave(10, 17f, saucer3, new Vector3(1, 7, 0), EntrySide.Right, 1);
+            les.TopWave(10, 17f, saucer4, new Vector3(-1, 7, 0), EntrySide.Left, 1);
 
             /*
              * 00:12 - 00:40
              */
             // A wave of doubled ships moving from top left to mid-right
-            les.CurvedWave(10, 12f, saucer1, new Vector3(-6,7,0), EntrySide.Left, 2);
+            les.CurvedWave(10, 22f, saucer1, new Vector3(-6,7,0), EntrySide.Left, 2);
             // Meanwhile, some shooter ships enter from top right
-            les.TopRow(5, 14f, saucer6, new Vector3(4,7,0), EntrySide.Right);
+            les.TopRow(5, 24f, saucer6, new Vector3(4,7,0), EntrySide.Right);
             
             // A wave of doubled ships moving from top right to mid-left
-            les.CurvedWave(10, 16f, saucer2, new Vector3(6,7,0), EntrySide.Right, 2);
+            les.CurvedWave(10, 26f, saucer2, new Vector3(6,7,0), EntrySide.Right, 2);
             // Meanwhile, some shooter ships enter from top left
-            les.TopRow(5, 18f, saucer5, new Vector3(-4,7,0), EntrySide.Left);
+            les.TopRow(5, 28f, saucer5, new Vector3(-4,7,0), EntrySide.Left);
             
-            les.TopRow(15, 22f, saucer6, new Vector3(4, 8, 0), EntrySide.Right);
-            les.TopRow(15, 26f, saucer6, new Vector3(4, 8.5f, 0), EntrySide.Right);
+            les.TopRow(15, 32f, saucer6, new Vector3(4, 8, 0), EntrySide.Right);
+            les.TopRow(15, 36f, saucer6, new Vector3(4, 8.5f, 0), EntrySide.Right);
             
 
             // A wave of ships down the center to shoot down, while waves enter from corners with buckets of kill shots
-            les.TopWave(15, 30f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
-            les.TopWave(15, 30f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
-            les.CurvedWave(10, 32f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
+            les.TopWave(15, 40f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
+            les.TopWave(15, 40f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
+            les.CurvedWave(10, 42f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
             
-            les.TopWave(15, 36f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
-            les.TopWave(15, 36f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
-            les.CurvedWave(10, 38f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
+            les.TopWave(15, 46f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
+            les.TopWave(15, 46f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
+            les.CurvedWave(10, 48f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
             
             /*
              * 00:40 - 00:70
              */
             // Bomber from top to constrain followed by killshot waves
-            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(0, 7, 0), spawnTime = 42f});
-            les.CurvedWave(10, 44f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
+            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(0, 7, 0), spawnTime = 52f});
+            les.CurvedWave(10, 54f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
             
             // Two bombers with a wave
-            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 48f});
-            les.CurvedWave(10, 49f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
+            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 58f});
+            les.CurvedWave(10, 59f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
             
-            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(1, 7, 0), spawnTime = 53f});
-            les.CurvedWave(10, 54f, saucer7, new Vector3(-6, 7, 0), EntrySide.Right, 1, 0.7f);
+            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(1, 7, 0), spawnTime = 63f});
+            les.CurvedWave(10, 64f, saucer7, new Vector3(-6, 7, 0), EntrySide.Right, 1, 0.7f);
             
-            les.TopWave(15, 60f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
-            les.TopWave(15, 60f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
-            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 61f});
-            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(3, 7, 0), spawnTime = 61f});
-            
-            les.CurvedWave(15, 65f, saucer1, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
-            les.CurvedWave(15, 65f, saucer2, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
-            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 66f});
-            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(3, 7, 0), spawnTime = 66f});
-            
+            les.TopWave(15, 70f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
+            les.TopWave(15, 70f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 71f});
-            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(0, 7, 0), spawnTime = 71f});
-            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 71f});
-
-
-            // // Bomber from top to constrain followed by killshot waves
-            // les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 7, 0), spawnTime = 56f});
-            // les.CurvedWave(10, 57f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
-            //
-            // // Two bombers with a wave
-            // les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 60f});
-            // les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(1, 7, 0), spawnTime = 60f});
-            // les.CurvedWave(10, 61f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
-            //
-            // // Three bombers with two waves
-            // les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 7, 0), spawnTime = 65f});
-            // les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 65f});
-            // les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(1, 7, 0), spawnTime = 65f});
-            // les.CurvedWave(10, 66f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
-            // les.CurvedWave(10, 66f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
+            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(3, 7, 0), spawnTime = 71f});
+            
+            les.CurvedWave(15, 75f, saucer1, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
+            les.CurvedWave(15, 75f, saucer2, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
+            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 76f});
+            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(3, 7, 0), spawnTime = 76f});
+            
+            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 81f});
+            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(0, 7, 0), spawnTime = 81f});
+            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 81f});
+            
+            // Bomber from top to constrain followed by killshot waves
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 7, 0), spawnTime = 86f});
+            les.CurvedWave(10, 87f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
+            
+            // Two bombers with a wave
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 90f});
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(1, 7, 0), spawnTime = 90f});
+            les.CurvedWave(10, 91f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
+            
+            // Three bombers with two waves
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 7, 0), spawnTime = 95f});
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 95f});
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(1, 7, 0), spawnTime = 95f});
+            les.CurvedWave(10, 96f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
+            les.CurvedWave(10, 96f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
+            
+            // MIDBOSS
+            
 
             playSongWhenSpawnEnemyCount.Add(les.GetSpawnQueue().Count);
             // Sort list by time and convert to queue
