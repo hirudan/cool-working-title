@@ -20,6 +20,13 @@ namespace Movement
         {
             animator.SetFloat("HorizontalMovement", translate.x);
             animator.SetFloat("VerticalMovement", translate.y);
+
+            // Triggers used for exiting condition
+            if (translate.x == 0)
+                animator.SetTrigger("NoHorizontalMovement");
+            else
+                animator.ResetTrigger("NoHorizontalMovement");
+
             transform.Translate(translate);
 
             // Snap object to camera if toggled

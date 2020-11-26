@@ -3,7 +3,7 @@
 namespace BulletManagement
 {
     public class PlayerEmitter : EmitterBase
-    { 
+    {
         // For playing bullet animations and audio fx
         public Animator animator;
 
@@ -22,14 +22,14 @@ namespace BulletManagement
                 if (timeCounter >= emitFrequency)
                 {
                     // As long as shoot is in the shoot state, the audio will play
-                    animator.SetTrigger("Shoot");
+                    animator.SetBool("Shoot", true);
                     EmitBullets();
                     timeCounter = 0f;
                 }
             }
             else if(Input.GetButtonUp("Fire1"))
             {
-                animator.ResetTrigger("Shoot");
+                animator.SetBool("Shoot", false);
             }
         }
     }

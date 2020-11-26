@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2186426652727560231, guid: 24ffb3a84126ed840be01c2582f85b31, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7854b7b4afb0f4f49959b66df9ece4b0, type: 2}
     - target: {fileID: 2186426652727560255, guid: 24ffb3a84126ed840be01c2582f85b31, type: 3}
       propertyPath: m_Name
       value: SaucerDrone_SEneLa3

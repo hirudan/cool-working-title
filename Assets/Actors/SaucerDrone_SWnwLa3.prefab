@@ -58,6 +58,7 @@ MonoBehaviour:
   timeBetweenDirections: 5
   velocity1: {x: 1, y: 3, z: 1}
   velocity2: {x: 1, y: 1, z: 1}
+  rpm: 0
 --- !u!114 &8931123843845092878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +74,6 @@ MonoBehaviour:
   bulletSpeedMultiplier: 1
   bulletPrefab: {fileID: 1138292244347753129, guid: 7154e17d532751247b49ab5491757f5b, type: 3}
   owner: {fileID: 0}
-  timeCounter: 0
   emitBulletCount: 1
   emitFrequency: 1
   bulletDecayTime: 20
@@ -83,6 +83,7 @@ MonoBehaviour:
   startAngle: 0
   spinRate: 0
   spinMax: 1
+  startDelay: 0
   spinAccel: 0
   reverseSpin: 0
   aimed: 1
@@ -135,6 +136,10 @@ PrefabInstance:
       propertyPath: health
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3484942365795540653, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7854b7b4afb0f4f49959b66df9ece4b0, type: 2}
     - target: {fileID: 3484942365795540661, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
       propertyPath: m_Name
       value: SaucerDrone_SWnwLa3
@@ -145,11 +150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8316242647486818202, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.046
+      value: -0.074
       objectReference: {fileID: 0}
     - target: {fileID: 8316242647486818202, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.368
+      value: 3.239
       objectReference: {fileID: 0}
     - target: {fileID: 8316242647486818202, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
       propertyPath: m_LocalPosition.z

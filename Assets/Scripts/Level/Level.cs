@@ -6,6 +6,7 @@ using Movement;
 using SlipTime;
 using UI.Score;
 using UnityEngine;
+using Audio;
 
 namespace Level
 {
@@ -24,6 +25,7 @@ namespace Level
         Light mainLight;
 
         public ScoreScreenManager scoreScreenManager;
+        public AudioManager audioManager;
 
         private Living playerObject, bossObject;
 
@@ -32,6 +34,11 @@ namespace Level
         // An ordered queue of enemies to spawn
         private Queue<EnemySpawn> spawnQueue;
         private LevelEnemySpawner les = new LevelEnemySpawner();
+
+        // Audio syncing variables
+        private List<int> playSongWhenSpawnEnemyCount = new List<int>();
+        private int enemySpawnedCounter = 0;
+
 
         // The next enemy to spawn in
         private EnemySpawn nextSpawn;
@@ -92,6 +99,9 @@ namespace Level
             // Initialize Camera
             this.InitCamera();
             this.InitSun();
+
+            // Start Music
+            audioManager.Play();
 
             sliptime = GameObject.Find("SlipTimeManager").GetComponent<SlipTimeManager>();
             playerObject = GameObject.Find("Player").GetComponent<Living>();
@@ -158,6 +168,7 @@ namespace Level
             les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(1, 7, 0), spawnTime = 37f});
             les.CurvedWave(10, 38f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
             les.CurvedWave(10, 38f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
+            playSongWhenSpawnEnemyCount.Add(les.GetSpawnQueue().Count);
 
             // Sort list by time and convert to queue
             spawnQueue = les.GetSpawnQueue();
@@ -206,6 +217,19 @@ namespace Level
             if (spawnQueue.Count > 0 && nextSpawn == null)
             {
                 nextSpawn = spawnQueue.Dequeue();
+
+                Debug.Log(enemySpawnedCounter);
+
+                // This has to be above the if check
+                enemySpawnedCounter += 1;
+
+                // Play next song if applicable
+                if (enemySpawnedCounter == playSongWhenSpawnEnemyCount[0])
+                {
+                    Debug.Log("Playing next section!");
+                    audioManager.PlayNextSection();
+                    playSongWhenSpawnEnemyCount.RemoveAt(0);
+                }
             }
 
             if (nextSpawn == null) return;

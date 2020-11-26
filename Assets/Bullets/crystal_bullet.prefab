@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2878554341998852062}
   - component: {fileID: 4661199263981372768}
   - component: {fileID: 9182550331272467032}
+  - component: {fileID: 5905606791370972172}
   m_Layer: 10
   m_Name: crystal_bullet
   m_TagString: Untagged
@@ -159,3 +160,22 @@ PolygonCollider2D:
       - {x: 0.2848854, y: -0.21675754}
       - {x: 0.2920087, y: 0.22625542}
       - {x: 0.03438323, y: 0.5207752}
+--- !u!95 &5905606791370972172
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2878554341998852033}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb3057cd6d67ba74f97376ef5b468d4c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

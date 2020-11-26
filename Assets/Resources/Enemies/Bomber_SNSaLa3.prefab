@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 3
-  bulletPrefab: {fileID: 6109568193172911694, guid: a66e4f0987711164082ed97a5c542f5f, type: 3}
+  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e, type: 3}
   owner: {fileID: 1001857378673746870}
   emitBulletCount: 1
   emitFrequency: 1
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 3
-  bulletPrefab: {fileID: 6109568193172911694, guid: a66e4f0987711164082ed97a5c542f5f, type: 3}
+  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e, type: 3}
   owner: {fileID: 1001857378673746870}
   emitBulletCount: 1
   emitFrequency: 1
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 3
-  bulletPrefab: {fileID: 6109568193172911694, guid: a66e4f0987711164082ed97a5c542f5f, type: 3}
+  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e, type: 3}
   owner: {fileID: 1001857378673746870}
   emitBulletCount: 1
   emitFrequency: 1
