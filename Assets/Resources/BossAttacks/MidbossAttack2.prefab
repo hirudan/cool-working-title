@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durationSeconds: 15
-  health: 1000
+  health: 3000
   attackName: 
   scoreBonus: 2000
 --- !u!1 &1473340432059265866
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6964f510de09d0e4aa960ad93f9200a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeedMultiplier: 5
+  bulletSpeedMultiplier: 4
   bulletPrefab: {fileID: 2878554341998852033, guid: 6fddbd68736fff04d917044dceb315fe, type: 3}
   owner: {fileID: 0}
   emitBulletCount: 5
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6964f510de09d0e4aa960ad93f9200a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeedMultiplier: 5
+  bulletSpeedMultiplier: 4
   bulletPrefab: {fileID: 2878554341998852033, guid: 6fddbd68736fff04d917044dceb315fe, type: 3}
   owner: {fileID: 0}
   emitBulletCount: 5

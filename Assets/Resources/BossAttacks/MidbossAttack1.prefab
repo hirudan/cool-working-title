@@ -207,9 +207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durationSeconds: 15
-  health: 1000
+  health: 3000
   attackName: 
-  scoreBonus: 0
+  scoreBonus: 1000
 --- !u!1001 &5550998111316444912
 PrefabInstance:
   m_ObjectHideFlags: 0

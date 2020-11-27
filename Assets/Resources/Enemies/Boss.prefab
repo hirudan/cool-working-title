@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7634980049288103107}
   - component: {fileID: 7634980049288103106}
   - component: {fileID: 6952665489175729231}
+  - component: {fileID: 5476245131087760556}
   m_Layer: 12
   m_Name: Boss
   m_TagString: Untagged
@@ -239,11 +240,11 @@ MonoBehaviour:
   damageTint: {r: 0.98039216, g: 0.23529412, b: 0.23529412, a: 0}
   damageLayer: 11
   slipTimeManager: {fileID: 0}
-  health: 100
+  health: 50000
   animator: {fileID: 7634980049288103108}
-  colorDecayTime: 0.5
+  colorDecayTime: 0.1
   hitScoreBonus: 1
-  deathScoreBonus: 1000
+  deathScoreBonus: 10000
 --- !u!114 &7634980049288103106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,3 +338,23 @@ PolygonCollider2D:
       - {x: 0.38, y: 0.84999996}
       - {x: 0.38, y: 0.9}
       - {x: 0.34, y: 0.93}
+--- !u!114 &5476245131087760556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7634980049288103104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6da44785e24ddba1ad73673fc9806e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slipTimeManager: {fileID: 0}
+  direction1: {x: 0, y: 0, z: 0}
+  direction2: {x: 0, y: 0, z: 0}
+  timeBeforeSwitch: 3
+  timeBetweenDirections: 3
+  velocity1: {x: 0, y: 0, z: 0}
+  velocity2: {x: 0, y: 0, z: 0}
+  rpm: 0
