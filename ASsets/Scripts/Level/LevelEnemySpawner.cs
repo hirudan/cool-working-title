@@ -63,6 +63,22 @@ public class LevelEnemySpawner
                          spawnerLambda);
     }
 
+    public void TopRow(int numShips, float startTime, GameObject shipType, Vector3 startPos, EntrySide entrySide,
+        int numRows = 1, float offset = 0.7f)
+    {
+        var sign = (entrySide == EntrySide.Left) ? 1 : -1;
+        Func<int, int, Vector3> spawnerLambda = (col, row) => {
+            return new Vector3(startPos.x + (sign * col * offset), startPos.y, startPos.z);
+        };
+        
+        SpawnEnemyHelper(numShips,
+            startTime,
+            shipType,
+            entrySide,
+            numRows,
+            spawnerLambda);
+    }
+
     public void SpawnEnemyHelper(int numShips,
                                  float startTime,
                                  GameObject shipType,

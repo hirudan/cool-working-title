@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Audio;
+using UnityEngine;
 
 namespace SlipTime
 {
@@ -68,6 +69,8 @@ namespace SlipTime
         /// </summary>
         public bool IsChargingSlipTime { get; private set; }
 
+        public AudioManager audioManager;
+
         private void Start()
         {
             slipTimeCharges = maxSlipTimeCharges;
@@ -86,6 +89,7 @@ namespace SlipTime
                 InSlipTime = true;
                 slipTimeCoefficient = slipTimeScalar;
                 slipTimeCharges -= 1;
+                audioManager.ToggleSliptimeTrack();
             }
 
             // Logic for exiting SlipTime at user prompt.
@@ -95,6 +99,7 @@ namespace SlipTime
                 SlipTimeCounter = slipTimeDuration;
                 slipTimeCoefficient = 1f;
                 IsChargingSlipTime = true;
+                audioManager.ToggleSliptimeTrack();
             }
 
             // Logic to decrease the active SlipTime duration if the player moves.
@@ -113,6 +118,7 @@ namespace SlipTime
                     SlipTimeCounter = slipTimeDuration;
                     slipTimeCoefficient = 1f;
                     IsChargingSlipTime = true;
+                    audioManager.ToggleSliptimeTrack();
                 }
             }
 
