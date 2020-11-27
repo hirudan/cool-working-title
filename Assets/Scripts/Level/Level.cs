@@ -48,7 +48,7 @@ namespace Level
         private float spawnTimeOffset;
 
         // Used in place of Time.TimeSinceLevelLoad to account for sliptime
-        private float timeElapsed = 160f;
+        private float timeElapsed = 0f;
 
         private SlipTimeManager sliptime;
 
@@ -214,7 +214,7 @@ namespace Level
             //
             // // MIDBOSS
             // les.Add(new EnemySpawn{enemy = midboss, spawnPosition = new Vector3(0, 4f, 0), spawnTime = 100f, waitUntilDead = true});
-            
+            //
             // /*
             //  * 2:10 - 2:40
             //  */
@@ -231,26 +231,26 @@ namespace Level
             // les.CurvedWave(10, 155f, roid1, new Vector3(-5, 4, 0), EntrySide.Left);
             //
             // les.TopWave(10, 160f, roid3, new Vector3(3, 6, 0), EntrySide.Right);
-            
-            /*
-             * 2:40 - 3:00
-             */
-            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(3, 6, 0), spawnTime = 165});
-            les.CurvedWave(5, 166, roid1, new Vector3(-5,3,0), EntrySide.Left);
-            
-            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-3, 6, 0), spawnTime = 171});
-            les.CurvedWave(5, 172, roid2, new Vector3(5,3,0), EntrySide.Right);
-            
-            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 6, 0), spawnTime = 177});
-            les.CurvedWave(5, 178, roid2, new Vector3(5,3,0), EntrySide.Right);
-            les.CurvedWave(5, 178, roid1, new Vector3(-5,3,0), EntrySide.Left);
-            
-            les.TopRow(7, 184, roid3, new Vector3(-4, 5, 0), EntrySide.Left);
-            
-            les.TopRow(7, 190, roid3, new Vector3(4, 5, 0), EntrySide.Right);
-            
-            // BOSS
-            les.Add(new EnemySpawn{enemy = boss, spawnPosition = new Vector3(0, 4f, 0), spawnTime = 200f, waitUntilDead = true});
+            //
+            // /*
+            //  * 2:40 - 3:00
+            //  */
+            // les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(3, 6, 0), spawnTime = 165});
+            // les.CurvedWave(5, 166, roid1, new Vector3(-5,3,0), EntrySide.Left);
+            //
+            // les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-3, 6, 0), spawnTime = 171});
+            // les.CurvedWave(5, 172, roid2, new Vector3(5,3,0), EntrySide.Right);
+            //
+            // les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 6, 0), spawnTime = 177});
+            // les.CurvedWave(5, 178, roid2, new Vector3(5,3,0), EntrySide.Right);
+            // les.CurvedWave(5, 178, roid1, new Vector3(-5,3,0), EntrySide.Left);
+            //
+            // les.TopRow(7, 184, roid3, new Vector3(-4, 5, 0), EntrySide.Left);
+            //
+            // les.TopRow(7, 190, roid3, new Vector3(4, 5, 0), EntrySide.Right);
+            //
+            // // BOSS
+            // les.Add(new EnemySpawn{enemy = boss, spawnPosition = new Vector3(0, 4f, 0), spawnTime = 200f, waitUntilDead = true});
             
             // Sort list by time and convert to queue
             spawnQueue = les.GetSpawnQueue();
