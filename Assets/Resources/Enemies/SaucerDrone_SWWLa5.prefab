@@ -189,6 +189,10 @@ PrefabInstance:
       propertyPath: direction2.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 551826077536204423, guid: 955af790aa8106047a0d134a523f5948, type: 3}
+      propertyPath: colorDecayTime
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 551826077536204424, guid: 955af790aa8106047a0d134a523f5948, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -265,6 +265,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 554824663050249352, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
+      propertyPath: colorDecayTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 554824663050249352, guid: 222bc5825ef061749bc886d8f3e2ef1c, type: 3}
       propertyPath: deathScoreBonus
       value: 100
       objectReference: {fileID: 0}
