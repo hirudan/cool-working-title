@@ -26,7 +26,7 @@ namespace Actor
         private SlipTimeManager slipTimeManager;
 
         [SerializeField]
-        protected int health = 100;
+        public int health = 100;
 
         [SerializeField]
         private Animator animator;
