@@ -96,7 +96,7 @@ namespace Audio
             currentMusicBuffer = preloadMusicBuffer;
 
             // Play the song
-            Play(immediate);
+            Play(true);
 
             // Load next song
             preloadMusicBuffer = LoadMusic(currentSong, hasLoop);

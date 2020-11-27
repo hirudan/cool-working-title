@@ -120,6 +120,7 @@ namespace Level
             GameObject roid2 = Resources.Load<GameObject>(Path.Combine("Enemies", "Roid_WWLS10"));
             GameObject bomber1 = Resources.Load<GameObject>(Path.Combine("Enemies", "Bomber_SNSaLa3"));
             GameObject bomber2 = Resources.Load<GameObject>(Path.Combine("Enemies", "Bomber_SNS"));
+            GameObject midboss = Resources.Load<GameObject>(Path.Combine("Enemies", "MidBoss"));
             GameObject boss = Resources.Load<GameObject>(Path.Combine("Enemies", "Boss"));
 
             // Load the enemy queue
@@ -129,14 +130,14 @@ namespace Level
              */
             // A wave of small ships moving top left to mid-right
             les.CurvedWave(10, 12f, saucer1, new Vector3(-6, 7, 0), EntrySide.Left);
-
+            
             // A wave of small ships moving top right to mid-left
             les.CurvedWave(10, 13f, saucer2, new Vector3(6,7,0), EntrySide.Right);
-
+            
             // A wave of small ships that move in from the top and leave from the sides
             les.TopWave(10, 17f, saucer3, new Vector3(1, 7, 0), EntrySide.Right, 1);
             les.TopWave(10, 17f, saucer4, new Vector3(-1, 7, 0), EntrySide.Left, 1);
-
+            
             /*
              * 00:12 - 00:40
              */
@@ -153,7 +154,7 @@ namespace Level
             les.TopRow(15, 32f, saucer6, new Vector3(4, 8, 0), EntrySide.Right);
             les.TopRow(15, 36f, saucer6, new Vector3(4, 8.5f, 0), EntrySide.Right);
             
-
+            
             // A wave of ships down the center to shoot down, while waves enter from corners with buckets of kill shots
             les.TopWave(15, 40f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
             les.TopWave(15, 40f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
@@ -164,7 +165,7 @@ namespace Level
             les.CurvedWave(10, 48f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
             
             /*
-             * 00:40 - 00:70
+             * 00:40 - 01:21
              */
             // Bomber from top to constrain followed by killshot waves
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(0, 7, 0), spawnTime = 52f});
@@ -187,10 +188,13 @@ namespace Level
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 76f});
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(3, 7, 0), spawnTime = 76f});
             
-            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 81f});
+            //les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 81f});
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(0, 7, 0), spawnTime = 81f});
-            les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 81f});
+            //les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 81f});
             
+            /*
+             * 01:26 - 01:35 -- build to midboss
+             */
             // Bomber from top to constrain followed by killshot waves
             les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 7, 0), spawnTime = 86f});
             les.CurvedWave(10, 87f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
@@ -202,13 +206,13 @@ namespace Level
             
             // Three bombers with two waves
             les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 7, 0), spawnTime = 95f});
-            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 95f});
-            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(1, 7, 0), spawnTime = 95f});
+            // les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 95f});
+            // les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(1, 7, 0), spawnTime = 95f});
             les.CurvedWave(10, 96f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
             les.CurvedWave(10, 96f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
             
             // MIDBOSS
-            
+            les.Add(new EnemySpawn{enemy = midboss, spawnPosition = new Vector3(0, 4f, 0), spawnTime = 100f, waitUntilDead = true});
 
             playSongWhenSpawnEnemyCount.Add(les.GetSpawnQueue().Count);
             // Sort list by time and convert to queue
