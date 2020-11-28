@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durationSeconds: 30
-  health: 1000
+  health: 3000
   attackName: 'Judgment Protocol: Fulminated Cinnabar'
   scoreBonus: 2000
 --- !u!1 &6670319100942892486
