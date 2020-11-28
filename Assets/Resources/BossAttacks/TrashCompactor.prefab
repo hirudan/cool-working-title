@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 6670319100657616891}
   - component: {fileID: 6670319100657616892}
   m_Layer: 0
-  m_Name: BossAttack1
+  m_Name: TrashCompactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   durationSeconds: 30
   health: 1000
-  attackName: 
+  attackName: 'Judgment Protocol: Fulminated Cinnabar'
   scoreBonus: 2000
 --- !u!1 &6670319100942892486
 GameObject:

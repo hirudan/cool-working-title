@@ -7,6 +7,8 @@ using SlipTime;
 using UI.Score;
 using UnityEngine;
 using Audio;
+using JetBrains.Annotations;
+using UnityEngine.UI;
 
 namespace Level
 {
@@ -26,6 +28,13 @@ namespace Level
 
         public ScoreScreenManager scoreScreenManager;
         public AudioManager audioManager;
+        
+        // Fields related to boss healthbar management
+        [CanBeNull] public Text attackNameText;
+        
+        [CanBeNull] public Text timeRemaining;
+        
+        public Image healthBar;
 
         private Living playerLiving, bossLiving;
         private GameObject bossObject;
@@ -99,6 +108,11 @@ namespace Level
             // Initialize Camera
             this.InitCamera();
             this.InitSun();
+            
+            // Disable boss health bar until needed
+            healthBar.gameObject.SetActive(false);
+            timeRemaining.gameObject.SetActive(false);
+            attackNameText.gameObject.SetActive(false);
 
             // Start Music
             audioManager.Play();
@@ -330,6 +344,15 @@ namespace Level
             foreach (var component in enemy.GetComponentsInChildren<SlipTimeEmitter>())
             {
                 component.SlipTimeManager = sliptime;
+            }
+            
+            // If a boss-type enemy, pass in health bar fields
+            var manager = enemy.GetComponent<EnemyAttackManager>();
+            if(manager != null)
+            {
+                manager.healthBar = healthBar;
+                manager.attackNameText = attackNameText;
+                manager.timeRemaining = timeRemaining;
             }
 
             if (nextSpawn.enemy == bossObject)
