@@ -164,11 +164,6 @@ namespace Actor
             healthBar.fillAmount = (currentAttack.health - damageTaken)/(float)currentAttack.health;
         }
 
-        private void LateUpdate()
-        {
-
-        }
-
         /// <summary>
         /// Populates the attack name text box when applicable
         /// </summary>
