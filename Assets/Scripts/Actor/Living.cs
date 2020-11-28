@@ -44,10 +44,13 @@ namespace Actor
         public Color DamageTint => this.damageTint;
         public float ColorDecayTime => this.colorDecayTime;
 
+        private Collider2D collision;
+
         protected virtual void Start()
         {
             animator = gameObject.GetComponent<Animator>();
             spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            collision = gameObject.GetComponent<Collider2D>();
         }
 
         private void Update()
@@ -69,6 +72,7 @@ namespace Actor
 
             if (!(timeCounter >= colorDecayTime)) return;
             animator.ResetTrigger("Damage");
+            spriteRenderer.color = Color.white;
             takenDamage = false;
             timeCounter = 0f;
         }
@@ -93,7 +97,7 @@ namespace Actor
             animator.SetTrigger("Damage");
         }
 
-        protected virtual void Die()
+        public virtual void Die()
         {
             // Clean up any bullets emitted by living entity via its name
             // which all emitters will grab as its parent.
@@ -107,11 +111,11 @@ namespace Actor
                 }
             }
 
-            animator.SetTrigger("Die");
+            animator.SetBool("Die", true);
             // Disable any further damage effects
             animator.ResetTrigger("Damage");
             spriteRenderer.color = Color.white;
-            Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+            Destroy(collision);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -127,6 +131,11 @@ namespace Actor
                     Destroy(go);
                 }
             }
+        }
+
+        public void KillOnAnimationEnd()
+        {
+            Destroy(gameObject);
         }
     }
 }

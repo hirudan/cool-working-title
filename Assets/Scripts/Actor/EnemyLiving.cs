@@ -7,7 +7,7 @@ namespace Actor
     public class EnemyLiving : Living
     {
         public int hitScoreBonus = 1;
-        
+
         public int deathScoreBonus = 1000;
 
         private new void Start()
@@ -19,12 +19,12 @@ namespace Actor
             base.Start();
         }
 
-        protected override void Die()
+        public override void Die()
         {
             PlayerStats.Score += deathScoreBonus;
             base.Die();
         }
-        
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             GameObject go = other.gameObject;

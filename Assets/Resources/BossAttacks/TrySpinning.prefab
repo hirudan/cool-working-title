@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 6723257021379330004}
   - component: {fileID: 6723257021379330005}
   m_Layer: 0
-  m_Name: BossAttack2
+  m_Name: TrySpinning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,8 +198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durationSeconds: 45
-  health: 1000
-  attackName: 
+  health: 3000
+  attackName: 'Erasure Protocol: Ignited Lemniscate'
   scoreBonus: 2000
 --- !u!1 &6723257021746863468
 GameObject:

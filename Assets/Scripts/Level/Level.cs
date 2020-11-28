@@ -7,6 +7,8 @@ using SlipTime;
 using UI.Score;
 using UnityEngine;
 using Audio;
+using JetBrains.Annotations;
+using UnityEngine.UI;
 
 namespace Level
 {
@@ -26,11 +28,18 @@ namespace Level
 
         public ScoreScreenManager scoreScreenManager;
         public AudioManager audioManager;
+        
+        // Fields related to boss healthbar management
+        [CanBeNull] public Text attackNameText;
+        
+        [CanBeNull] public Text timeRemaining;
+        
+        public Image healthBar;
 
         private Living playerLiving, bossLiving;
         private GameObject bossObject;
 
-        private bool won, lost, bossDead = false;
+        private bool won, lost, waitToSpawn, bossDead = false;
 
         // An ordered queue of enemies to spawn
         private Queue<EnemySpawn> spawnQueue;
@@ -42,6 +51,9 @@ namespace Level
 
         // The next enemy to spawn in
         private EnemySpawn nextSpawn;
+        
+        // Keeps track of enemy with waitUntilDead flag
+        private EnemyLiving awaitedDeath;
 
         // Offset between TimeSinceLevelLoad and spawn timers. Accrues when waiting for a
         // bigger enemy to die, the game is paused, etc.
@@ -99,6 +111,11 @@ namespace Level
             // Initialize Camera
             this.InitCamera();
             this.InitSun();
+            
+            // Disable boss health bar until needed
+            healthBar.gameObject.SetActive(false);
+            timeRemaining.gameObject.SetActive(false);
+            attackNameText.gameObject.SetActive(false);
 
             // Start Music
             audioManager.Play();
@@ -217,39 +234,39 @@ namespace Level
             /*
              * 2:10 - 2:40
              */
-            les.CurvedWave(5, 135f, roid1, new Vector3(-5, 3, 0), EntrySide.Left);
+            les.CurvedWave(5, 110f, roid1, new Vector3(-5, 3, 0), EntrySide.Left);
 
-            les.CurvedWave(5, 140f, roid2, new Vector3(5, 3.5f, 0), EntrySide.Right);
+            les.CurvedWave(5, 115f, roid2, new Vector3(5, 3.5f, 0), EntrySide.Right);
 
-            les.TopWave(5, 145f, roid3, new Vector3(-3, 6, 0), EntrySide.Left);
+            les.TopWave(5, 120f, roid3, new Vector3(-3, 6, 0), EntrySide.Left);
 
-            les.CurvedWave(5, 150f, roid2, new Vector3(5, 4f, 0), EntrySide.Right);
+            les.CurvedWave(5, 125f, roid2, new Vector3(5, 4f, 0), EntrySide.Right);
 
-            les.TopWave(5, 155f, roid3, new Vector3(3, 6, 0), EntrySide.Right);
+            les.TopWave(5, 130f, roid3, new Vector3(3, 6, 0), EntrySide.Right);
 
-            les.CurvedWave(5, 160f, roid1, new Vector3(-5, 4, 0), EntrySide.Left);
+            les.CurvedWave(5, 135f, roid1, new Vector3(-5, 4, 0), EntrySide.Left);
 
-            les.TopWave(5, 165f, roid3, new Vector3(3, 6, 0), EntrySide.Right);
+            les.TopWave(5, 140f, roid3, new Vector3(3, 6, 0), EntrySide.Right);
 
             /*
              * 2:40 - 3:00
              */
-            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(3, 6, 0), spawnTime = 170});
-            les.CurvedWave(5, 171, roid1, new Vector3(-5,3,0), EntrySide.Left);
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(3, 6, 0), spawnTime = 145});
+            les.CurvedWave(5, 146, roid1, new Vector3(-5,3,0), EntrySide.Left);
 
-            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-3, 6, 0), spawnTime = 176});
-            les.CurvedWave(5, 177, roid2, new Vector3(5,3,0), EntrySide.Right);
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(-3, 6, 0), spawnTime = 151});
+            les.CurvedWave(5, 152, roid2, new Vector3(5,3,0), EntrySide.Right);
 
-            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 6, 0), spawnTime = 182});
-            les.CurvedWave(5, 183, roid2, new Vector3(5,3,0), EntrySide.Right);
-            les.CurvedWave(5, 183, roid1, new Vector3(-5,3,0), EntrySide.Left);
+            les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 6, 0), spawnTime = 157});
+            les.CurvedWave(5, 158, roid2, new Vector3(5,3,0), EntrySide.Right);
+            les.CurvedWave(5, 158, roid1, new Vector3(-5,3,0), EntrySide.Left);
 
-            les.TopRow(5, 189, roid3, new Vector3(-4, 5, 0), EntrySide.Left);
+            les.TopRow(5, 164, roid3, new Vector3(-4, 5, 0), EntrySide.Left);
 
-            les.TopRow(5, 195, roid3, new Vector3(4, 5, 0), EntrySide.Right);
+            les.TopRow(5, 170, roid3, new Vector3(4, 5, 0), EntrySide.Right);
 
             // BOSS
-            les.Add(new EnemySpawn{enemy = boss, spawnPosition = new Vector3(0, 4f, 0), spawnTime = 205f, waitUntilDead = true});
+            les.Add(new EnemySpawn{enemy = boss, spawnPosition = new Vector3(0, 4f, 0), spawnTime = 180f, waitUntilDead = true});
 
             // Sort list by time and convert to queue
             spawnQueue = les.GetSpawnQueue();
@@ -298,7 +315,12 @@ namespace Level
                     attack.CleanUp();
                 }
             }
-
+            
+            if (waitToSpawn)
+            {
+                spawnTimeOffset += Time.deltaTime;
+                waitToSpawn = !awaitedDeath.IsDead();
+            }
             // Spawn enemies at appropriate times
             if (spawnQueue.Count > 0 && nextSpawn == null)
             {
@@ -323,13 +345,29 @@ namespace Level
                 bossDead = GameObject.Find("Boss").GetComponent<EnemyLiving>().IsDead();
                 return;
             }
-            if (!(timeElapsed > nextSpawn.spawnTime)) return;
+            if (!(timeElapsed > nextSpawn.spawnTime + spawnTimeOffset)) return;
             var enemy = Instantiate(nextSpawn.enemy, nextSpawn.spawnPosition, Quaternion.identity);
             enemy.GetComponent<EnemyLiving>().SlipTimeManager = sliptime;
             enemy.GetComponent<SlipTimeMover>().SlipTimeManager = sliptime;
             foreach (var component in enemy.GetComponentsInChildren<SlipTimeEmitter>())
             {
                 component.SlipTimeManager = sliptime;
+            }
+            
+            // If we should wait for this enemy to die before spawning more, keep track of its Living component
+            if (nextSpawn.waitUntilDead)
+            {
+                awaitedDeath = enemy.GetComponent<EnemyLiving>();
+                waitToSpawn = true;
+            }
+            
+            // If a boss-type enemy, pass in health bar fields
+            var manager = enemy.GetComponent<EnemyAttackManager>();
+            if(manager != null)
+            {
+                manager.healthBar = healthBar;
+                manager.attackNameText = attackNameText;
+                manager.timeRemaining = timeRemaining;
             }
 
             if (nextSpawn.enemy == bossObject)

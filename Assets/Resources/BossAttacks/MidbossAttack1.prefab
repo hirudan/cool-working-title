@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bd4bad15ce414ca286b51614cab770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durationSeconds: 15
+  durationSeconds: 30
   health: 3000
   attackName: 
   scoreBonus: 1000
