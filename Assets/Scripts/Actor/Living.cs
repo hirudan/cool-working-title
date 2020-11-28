@@ -97,7 +97,7 @@ namespace Actor
             animator.SetTrigger("Damage");
         }
 
-        protected virtual void Die()
+        public virtual void Die()
         {
             // Clean up any bullets emitted by living entity via its name
             // which all emitters will grab as its parent.

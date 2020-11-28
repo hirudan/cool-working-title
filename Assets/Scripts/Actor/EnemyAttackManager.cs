@@ -10,17 +10,17 @@ namespace Actor
         /// A list of attack patterns that can contain non-spells and spells.
         /// </summary>
         public GameObject[] attacks;
-        
+
         /// <summary>
         /// The attack pattern currently active.
         /// </summary>
         public EnemyAttack currentAttack;
-        
+
         /// <summary>
         /// How long to wait before switching to a new attack pattern.
         /// </summary>
         public float attackSwitchCooldownSeconds = 2f;
-        
+
         /// <summary>
         /// The score text box to update and display.
         /// </summary>
@@ -30,12 +30,12 @@ namespace Actor
         /// The amount of time left on the attack
         /// </summary>
         [CanBeNull] public Text timeRemaining;
-        
+
         /// <summary>
         /// The health bar to display for the attack
         /// </summary>
         public Image healthBar;
-        
+
         /// <summary>
         /// Whether the enemy should loop through its attacks.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Actor
         /// Whether the enemy should die if it runs out of attacks.
         /// </summary>
         public bool canBeTimedOut;
-        
+
         // Whether the enemy has attacks to execute.
         private bool hasAttacksToExecute;
 
@@ -53,19 +53,19 @@ namespace Actor
         private float timeElapsed;
         private int damageTaken;
         private bool inAttack;
-        private Living vitality;
+        private EnemyLiving vitality;
         private int attackIndex;
 
         // The health at the beginning of the current attack.
-        private int baselineHealth;
+        public int baselineHealth;
 
         private void Start()
         {
             healthBar.type = Image.Type.Filled;
-            vitality = gameObject.GetComponent<Living>();
+            vitality = gameObject.GetComponent<EnemyLiving>();
             baselineHealth = vitality.Health;
             inAttack = true;
-            
+
             if (attacks.Length > 0)
             {
                 hasAttacksToExecute = true;
@@ -111,9 +111,9 @@ namespace Actor
             {
                 // Dispose of the current attack's emitter(s).
                 currentAttack.CleanUp();
-                    
+
                 attackIndex += 1;
-                    
+
                 // If we've reached the end of the attack list, handle next actions based on the type of enemy.
                 if (attackIndex >= attacks.Length)
                 {
@@ -122,18 +122,19 @@ namespace Actor
                     {
                         attackIndex = 0;
                     }
-                        
+
                     // If the enemy should die at the end of its attack cycle, kill it.
                     if (canBeTimedOut)
                     {
-                        vitality.TakeDamage(vitality.Health);
+                        vitality.health = 0;
+                        vitality.Die();
                         // Disable healthbar items after last attack concludes
                         healthBar.gameObject.SetActive(false);
                         timeRemaining.gameObject.SetActive(false);
                         attackNameText.gameObject.SetActive(false);
                         return;
                     }
-                        
+
                     // The enemy has no more attacks if we've reached the end of the list and shouldn't loop or die.
                     hasAttacksToExecute = false;
                     // Disable healthbar items after last attack concludes
@@ -165,7 +166,7 @@ namespace Actor
 
         private void LateUpdate()
         {
-            
+
         }
 
         /// <summary>
