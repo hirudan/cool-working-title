@@ -1,7 +1,9 @@
-﻿using BulletManagement;
-using SlipTime;
+﻿using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Serialization;
+using BulletManagement;
+using SlipTime;
 
 namespace Actor
 {
@@ -44,6 +46,8 @@ namespace Actor
         public Color DamageTint => this.damageTint;
         public float ColorDecayTime => this.colorDecayTime;
 
+        public GameObject explosionLight;
+
         private Collider2D collision;
 
         protected virtual void Start()
@@ -51,6 +55,7 @@ namespace Actor
             animator = gameObject.GetComponent<Animator>();
             spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
             collision = gameObject.GetComponent<Collider2D>();
+            explosionLight = Resources.Load<GameObject>(Path.Combine("Enemies", "ExplosionLight"));
         }
 
         private void Update()
@@ -116,6 +121,18 @@ namespace Actor
             animator.ResetTrigger("Damage");
             spriteRenderer.color = Color.white;
             Destroy(collision);
+
+            // Destroy any current lights
+            // XXXHACK, cannot import experimental type to type search
+            foreach (Transform light in transform)
+            {
+                if (light.name != "Light") { continue; }
+                Destroy(light.gameObject);
+            }
+
+            // Create an explosion light
+            var explosionEffect = Instantiate(explosionLight, gameObject.transform.position, Quaternion.identity);
+            explosionEffect.transform.parent = gameObject.transform;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
