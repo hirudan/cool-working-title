@@ -2460,6 +2460,8 @@ MonoBehaviour:
   hasLoopSection: 0
   nextHasLoopSection: 0
   inLoopSection: 0
+  bps: 2
+  barsMod: 8
 --- !u!4 &763662322
 Transform:
   m_ObjectHideFlags: 0
@@ -3299,7 +3301,7 @@ MonoBehaviour:
   slipTimeDuration: 7
   maxSlipTimeCharges: 3
   slipTimeCharges: 0
-  slipTimeCooldownDuration: 60
+  slipTimeCooldownDuration: 10
   slipTimeMovementPenaltyCoefficient: 0.5
   bulletGrazingCooldownDecreaseCoefficient: 0.5
   audioManager: {fileID: 763662321}
