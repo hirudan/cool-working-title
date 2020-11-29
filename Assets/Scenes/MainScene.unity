@@ -5510,7 +5510,10 @@ MonoBehaviour:
   slipTimeNotification: {fileID: 1322349904}
   durationBar: {fileID: 715295926}
   meter: {fileID: 876998066}
-  bars: []
+  bars:
+  - {fileID: 490820323}
+  - {fileID: 1233683450}
+  - {fileID: 361958102}
 --- !u!1001 &113825864381453870
 PrefabInstance:
   m_ObjectHideFlags: 0
