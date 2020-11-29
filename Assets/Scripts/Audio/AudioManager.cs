@@ -34,7 +34,15 @@ namespace Audio
         public bool hasLoopSection = false;
         public bool nextHasLoopSection = false;
         public bool inLoopSection = false;
+
+        // Beats per second
+        public int bps = (int) (130f / 60);
+        // When we can switch to next track
+        public int barsMod = 8;
+        private int quantumSeconds;
         private bool inSlipTime = false;
+        private bool awaitingNextTrack = false;
+        private bool awaitingNextLoop = false;
 
         private AudioClip[] LoadMusic(string trackName, bool hasLoopSection = false, bool slipTimeVariant = false)
         {
@@ -86,6 +94,13 @@ namespace Audio
 
         protected void PlayLoopTrack()
         {
+            // We can't play the next track yet
+            if (sourceMain.time / quantumSeconds >= 0.1f)
+            {
+                awaitingNextLoop = true;
+                return;
+            }
+
             sourceMain.clip = currentMusicBuffer[1];
             sourceMain.loop = true;
             sourceMain.time = 0f;
@@ -95,6 +110,7 @@ namespace Audio
             sourceSecondary.time = 0f;
 
             inLoopSection = true;
+            awaitingNextLoop = false;
 
             if (inSlipTime)
             {
@@ -125,6 +141,14 @@ namespace Audio
 
         public void PlayNextSection()
         {
+            // We can't play the next track yet
+            if (sourceMain.time / quantumSeconds >= 0.1f)
+            {
+                Debug.Log(sourceMain.time / quantumSeconds);
+                awaitingNextTrack = true;
+                return;
+            }
+
             currentSong = nextSong;
 
             // Get the next song state two states forward to preload
@@ -135,6 +159,7 @@ namespace Audio
             currentMusicBuffer = preloadMusicBuffer;
             currentSliptimeBuffer = preloadSliptimeBuffer;
             hasLoopSection = nextHasLoopSection;
+            awaitingNextTrack = false;
 
             // Play the song
             Play();
@@ -167,6 +192,9 @@ namespace Audio
 
         private void Start()
         {
+            // Seconds when we are able to toggle music
+            quantumSeconds = bps * barsMod;
+
             currentMusicBuffer = LoadMusic(introTrackName);
             currentSliptimeBuffer = LoadMusic(introTrackName, false, true);
             currentSong = introTrackName;
@@ -184,6 +212,16 @@ namespace Audio
 
         private void Update()
         {
+            if (awaitingNextTrack)
+            {
+                PlayNextSection();
+                return;
+            }
+            else if (awaitingNextLoop)
+            {
+                PlayLoopTrack();
+                return;
+            }
 
             // Go to next section if non-looping clip
             // (which means transition) and not immediately playing.

@@ -28,12 +28,12 @@ namespace Level
 
         public ScoreScreenManager scoreScreenManager;
         public AudioManager audioManager;
-        
+
         // Fields related to boss healthbar management
         [CanBeNull] public Text attackNameText;
-        
+
         [CanBeNull] public Text timeRemaining;
-        
+
         public Image healthBar;
 
         private Living playerLiving, bossLiving;
@@ -51,7 +51,7 @@ namespace Level
 
         // The next enemy to spawn in
         private EnemySpawn nextSpawn;
-        
+
         // Keeps track of enemy with waitUntilDead flag
         private EnemyLiving awaitedDeath;
 
@@ -110,8 +110,8 @@ namespace Level
 
             // Initialize Camera
             this.InitCamera();
-            this.InitSun();
-            
+            // this.InitSun();
+
             // Disable boss health bar until needed
             healthBar.gameObject.SetActive(false);
             timeRemaining.gameObject.SetActive(false);
@@ -315,7 +315,7 @@ namespace Level
                     attack.CleanUp();
                 }
             }
-            
+
             if (waitToSpawn)
             {
                 spawnTimeOffset += Time.deltaTime;
@@ -353,14 +353,14 @@ namespace Level
             {
                 component.SlipTimeManager = sliptime;
             }
-            
+
             // If we should wait for this enemy to die before spawning more, keep track of its Living component
             if (nextSpawn.waitUntilDead)
             {
                 awaitedDeath = enemy.GetComponent<EnemyLiving>();
                 waitToSpawn = true;
             }
-            
+
             // If a boss-type enemy, pass in health bar fields
             var manager = enemy.GetComponent<EnemyAttackManager>();
             if(manager != null)
