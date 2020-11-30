@@ -45,6 +45,7 @@ namespace Audio
         private bool inSlipTime = false;
         private bool awaitingNextTrack = false;
         private bool awaitingNextLoop = false;
+        private IEnumerator fadeOut;
 
         private AudioClip[] LoadMusic(string trackName, bool hasLoopSection = false, bool slipTimeVariant = false)
         {
@@ -143,10 +144,15 @@ namespace Audio
             return hasLoop;
         }
 
-        public void PlayNextSection()
+        public void PlayNextSection(bool force = false)
         {
+            // If we absolutely want to cut over to the next song now, fade out the current one
+            if (force)
+            {
+                StartCoroutine(fadeOut);
+            }
             // We can't play the next track yet
-            if (sourceMain.time / quantumSeconds >= 0.1f)
+            else if (sourceMain.time / quantumSeconds >= 0.1f)
             {
                 Debug.Log(sourceMain.time / quantumSeconds);
                 awaitingNextTrack = true;
@@ -167,7 +173,7 @@ namespace Audio
 
             // Play the song
             Play();
-
+            StopCoroutine(fadeOut);
             // Load next song
             preloadMusicBuffer = LoadMusic(nextSong, hasLoop);
             preloadSliptimeBuffer = LoadMusic(nextSong, hasLoop, true);
@@ -192,9 +198,24 @@ namespace Audio
             sourceSecondary.Play();
             inSlipTime = true;
         }
+        
+        // Shamelessly copied from https://forum.unity.com/threads/fade-out-audio-source.335031/
+        public static IEnumerator FadeOut (AudioSource audioSource, float FadeTime) {
+            float startVolume = audioSource.volume;
+ 
+            while (audioSource.volume > 0) {
+                audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+ 
+                yield return null;
+            }
+ 
+            audioSource.Stop ();
+            audioSource.volume = startVolume;
+        }
 
         private void Start()
         {
+            fadeOut = FadeOut(sourceMain, 1.0f);
             // Seconds when we are able to toggle music
             quantumSeconds = bps * barsMod;
 

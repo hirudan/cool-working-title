@@ -303,7 +303,7 @@ namespace Level
                 if (!bossLiving.IsDead()) return;
                 won = true;
                 scoreScreenManager.Win();
-                audioManager.PlayNextSection();
+                audioManager.PlayNextSection(true);
 
                 // Delete any living enemies which, if they have emitters as children, will
                 // auto clean bullets.
@@ -355,6 +355,7 @@ namespace Level
             if (nextSpawn == null)
             {
                 bossDead = GameObject.Find("Boss").GetComponent<EnemyLiving>().IsDead();
+                audioManager.PlayNextSection(true);
                 return;
             }
             if (!(timeElapsed > nextSpawn.spawnTime + spawnTimeOffset)) return;
