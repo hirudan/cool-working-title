@@ -230,19 +230,19 @@ namespace Level
             les.CurvedWave(10, 96f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
             les.CurvedWave(10, 96f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
 
-            // Trigger post-midboss level track.
-            spawnQueue = les.GetSpawnQueue();
-            playSongWhenSpawnEnemyCount.Add(spawnQueue.Count);
-            
             // MIDBOSS
-            les.Add(new EnemySpawn{enemy = midboss, spawnPosition = new Vector3(0, 4f, 0), spawnTime = 105f, waitUntilDead = true});
+            les.Add(new EnemySpawn{enemy = midboss, spawnPosition = new Vector3(0, 4f, 0), spawnTime = 109f, waitUntilDead = true});
             
             /*
              * 2:10 - 2:40
              */
             // Have you played EoSD Stage 4?
             les.CurvedWave(5, 110f, roid1, new Vector3(-5, 3, 0), EntrySide.Left);
-
+            
+            // Trigger post-midboss level track.
+            spawnQueue = les.GetSpawnQueue();
+            playSongWhenSpawnEnemyCount.Add(spawnQueue.Count);
+            
             les.CurvedWave(5, 115f, roid2, new Vector3(5, 3.5f, 0), EntrySide.Right);
 
             les.TopWave(5, 120f, roid3, new Vector3(-3, 6, 0), EntrySide.Left);
@@ -275,10 +275,6 @@ namespace Level
             les.TopRow(5, 164, roid3, new Vector3(-4, 5, 0), EntrySide.Left);
 
             les.TopRow(5, 170, roid3, new Vector3(4, 5, 0), EntrySide.Right);
-            
-            // Cue outro track
-            spawnQueue = les.GetSpawnQueue();
-            playSongWhenSpawnEnemyCount.Add(spawnQueue.Count);
 
             // BOSS
             les.Add(new EnemySpawn{enemy = boss, spawnPosition = new Vector3(0, 4f, 0), spawnTime = 180f, waitUntilDead = true});

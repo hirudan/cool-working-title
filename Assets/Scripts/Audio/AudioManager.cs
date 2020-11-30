@@ -134,7 +134,7 @@ namespace Audio
             bool hasLoop = true;
             if (currentSong == introTrackName) { nextSong = sectionOneTrackName; }
             else if (currentSong == sectionOneTrackName) { nextSong = transitionTrackName; hasLoop = false; }
-            else if (currentSong == transitionTrackName) { nextSong = sectionTwoTrackName; hasLoop = false; }
+            else if (currentSong == transitionTrackName) { nextSong = sectionTwoTrackName; }
             else if (currentSong == sectionTwoTrackName) { nextSong = sectionThreeTrackName; }
             else if (currentSong == sectionThreeTrackName) { nextSong = outroTrackName; hasLoop = false; }
             else if (currentSong == outroTrackName) { nextSong = bossTrackName; }
