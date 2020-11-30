@@ -15,6 +15,8 @@ namespace Audio
         private string sectionTwoTrackName = "bgm_stage01{0}_04";
         private string sectionThreeTrackName = "bgm_stage01{0}_05";
         private string outroTrackName = "bgm_stage01{0}_06";
+        private string bossTrackName = "bgm_stage01{0}_boss";
+        private string resultsTrackName = "bgm_end";
 
         public AudioClip[] currentMusicBuffer;
         public AudioClip[] currentSliptimeBuffer;
@@ -125,16 +127,18 @@ namespace Audio
         }
 
         /// <summary>
-        /// Get's next song name. Returns a boolean indicating if there is a loop part to the song.
+        /// Gets next song name. Returns a boolean indicating if there is a loop part to the song.
         /// </summary>
         public bool SetNextSongState()
         {
             bool hasLoop = true;
             if (currentSong == introTrackName) { nextSong = sectionOneTrackName; }
             else if (currentSong == sectionOneTrackName) { nextSong = transitionTrackName; hasLoop = false; }
-            else if (currentSong == transitionTrackName) { nextSong = sectionTwoTrackName; }
+            else if (currentSong == transitionTrackName) { nextSong = sectionTwoTrackName; hasLoop = false; }
             else if (currentSong == sectionTwoTrackName) { nextSong = sectionThreeTrackName; }
             else if (currentSong == sectionThreeTrackName) { nextSong = outroTrackName; hasLoop = false; }
+            else if (currentSong == outroTrackName) { nextSong = bossTrackName; }
+            else if (currentSong == bossTrackName) { nextSong = resultsTrackName; }
             else { nextSong = introTrackName; }
             return hasLoop;
         }
@@ -187,7 +191,6 @@ namespace Audio
             sourceMain.Pause();
             sourceSecondary.Play();
             inSlipTime = true;
-            return ;
         }
 
         private void Start()
