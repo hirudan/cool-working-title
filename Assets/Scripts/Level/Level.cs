@@ -60,7 +60,7 @@ namespace Level
         private float spawnTimeOffset;
 
         // Used in place of Time.TimeSinceLevelLoad to account for sliptime
-        private float timeElapsed = 0f;
+        private float timeElapsed = 10f;
 
         private SlipTimeManager sliptime;
 
@@ -193,9 +193,13 @@ namespace Level
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 58f});
             les.CurvedWave(10, 59f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
 
+            // Cue midboss build track
+            spawnQueue = les.GetSpawnQueue();
+            playSongWhenSpawnEnemyCount.Add(spawnQueue.Count);
+            
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(1, 7, 0), spawnTime = 63f});
             les.CurvedWave(10, 64f, saucer7, new Vector3(-6, 7, 0), EntrySide.Right, 1, 0.7f);
-
+            
             les.TopWave(15, 70f, saucer4, new Vector3(-1, 8, 0), EntrySide.Left, 1 );
             les.TopWave(15, 70f, saucer3, new Vector3(1, 8, 0), EntrySide.Right, 1 );
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 71f});
@@ -203,9 +207,10 @@ namespace Level
 
             les.CurvedWave(15, 75f, saucer1, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
             les.CurvedWave(15, 75f, saucer2, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
+
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-3, 7, 0), spawnTime = 76f});
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(3, 7, 0), spawnTime = 76f});
-
+            
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(0, 7, 0), spawnTime = 81f});
 
             /*
@@ -225,17 +230,19 @@ namespace Level
             les.CurvedWave(10, 96f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);
             les.CurvedWave(10, 96f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
 
-            spawnQueue = les.GetSpawnQueue();
-            playSongWhenSpawnEnemyCount.Add(spawnQueue.Count);
-
             // MIDBOSS
-            les.Add(new EnemySpawn{enemy = midboss, spawnPosition = new Vector3(0, 4f, 0), spawnTime = 105f, waitUntilDead = true});
-
+            les.Add(new EnemySpawn{enemy = midboss, spawnPosition = new Vector3(0, 4f, 0), spawnTime = 109f, waitUntilDead = true});
+            
             /*
              * 2:10 - 2:40
              */
+            // Have you played EoSD Stage 4?
             les.CurvedWave(5, 110f, roid1, new Vector3(-5, 3, 0), EntrySide.Left);
-
+            
+            // Trigger post-midboss level track.
+            spawnQueue = les.GetSpawnQueue();
+            playSongWhenSpawnEnemyCount.Add(spawnQueue.Count);
+            
             les.CurvedWave(5, 115f, roid2, new Vector3(5, 3.5f, 0), EntrySide.Right);
 
             les.TopWave(5, 120f, roid3, new Vector3(-3, 6, 0), EntrySide.Left);
@@ -261,6 +268,10 @@ namespace Level
             les.CurvedWave(5, 158, roid2, new Vector3(5,3,0), EntrySide.Right);
             les.CurvedWave(5, 158, roid1, new Vector3(-5,3,0), EntrySide.Left);
 
+            // Cue outro track
+            spawnQueue = les.GetSpawnQueue();
+            playSongWhenSpawnEnemyCount.Add(spawnQueue.Count);
+            
             les.TopRow(5, 164, roid3, new Vector3(-4, 5, 0), EntrySide.Left);
 
             les.TopRow(5, 170, roid3, new Vector3(4, 5, 0), EntrySide.Right);
@@ -270,7 +281,7 @@ namespace Level
 
             // Sort list by time and convert to queue
             spawnQueue = les.GetSpawnQueue();
-            playSongWhenSpawnEnemyCount.Add(spawnQueue.Count);
+            //playSongWhenSpawnEnemyCount.Add(spawnQueue.Count);
         }
 
         void Update()
@@ -292,6 +303,7 @@ namespace Level
                 if (!bossLiving.IsDead()) return;
                 won = true;
                 scoreScreenManager.Win();
+                audioManager.PlayNextSection(true);
 
                 // Delete any living enemies which, if they have emitters as children, will
                 // auto clean bullets.
@@ -343,6 +355,7 @@ namespace Level
             if (nextSpawn == null)
             {
                 bossDead = GameObject.Find("Boss").GetComponent<EnemyLiving>().IsDead();
+                audioManager.PlayNextSection(true);
                 return;
             }
             if (!(timeElapsed > nextSpawn.spawnTime + spawnTimeOffset)) return;
