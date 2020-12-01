@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 2878554341998852033, guid: 6fddbd68736fff04d917044dceb315fe, type: 3}
+  bulletPrefab: {fileID: 2878554341998852033, guid: 6fddbd68736fff04d917044dceb315fe,
+    type: 3}
   owner: {fileID: 1001857378673746870}
   emitBulletCount: 5
   emitFrequency: 1
-  bulletDecayTime: 30
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 20
@@ -120,11 +121,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 3
-  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e, type: 3}
+  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e,
+    type: 3}
   owner: {fileID: 1001857378673746870}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 30
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 20
@@ -194,11 +196,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 3
-  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e, type: 3}
+  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e,
+    type: 3}
   owner: {fileID: 1001857378673746870}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 30
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 20
@@ -279,7 +282,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -380,6 +382,7 @@ MonoBehaviour:
   health: 100
   animator: {fileID: 1001857378673746859}
   colorDecayTime: 0.1
+  explosionLight: {fileID: 0}
   hitScoreBonus: 5
   deathScoreBonus: 500
 --- !u!95 &1001857378673746859
@@ -562,11 +565,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 3
-  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e, type: 3}
+  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e,
+    type: 3}
   owner: {fileID: 1001857378673746870}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 30
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 20
