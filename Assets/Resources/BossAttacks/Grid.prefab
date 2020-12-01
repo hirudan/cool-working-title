@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -119,11 +120,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -193,11 +195,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 2878554341998852033, guid: 8296551e17cafff409148826e29339b6, type: 3}
+  bulletPrefab: {fileID: 2878554341998852033, guid: 8296551e17cafff409148826e29339b6,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -267,11 +270,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -341,11 +345,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -415,11 +420,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -489,11 +495,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -563,11 +570,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -637,11 +645,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -711,11 +720,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 2878554341998852033, guid: 8296551e17cafff409148826e29339b6, type: 3}
+  bulletPrefab: {fileID: 2878554341998852033, guid: 8296551e17cafff409148826e29339b6,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -785,11 +795,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -918,11 +929,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0

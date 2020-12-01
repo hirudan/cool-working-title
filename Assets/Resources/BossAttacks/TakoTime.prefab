@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e, type: 3}
+  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 5
@@ -119,7 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e, type: 3}
+  bulletPrefab: {fileID: 6109568193172911694, guid: 4e8fbd68c3919724ca268521fa89929e,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 1
   emitFrequency: 5
@@ -193,10 +195,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 4
-  bulletPrefab: {fileID: 2878554341998852033, guid: 6fddbd68736fff04d917044dceb315fe, type: 3}
+  bulletPrefab: {fileID: 2878554341998852033, guid: 6fddbd68736fff04d917044dceb315fe,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 8
-  emitFrequency: 0.1
+  emitFrequency: 0.3
   bulletDecayTime: 30
   ownerName: 
   slipTimeManager: {fileID: 0}
