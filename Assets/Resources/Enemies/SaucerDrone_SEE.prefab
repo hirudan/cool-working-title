@@ -53,10 +53,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTint: {r: 0, g: 0, b: 0, a: 0}
   damageLayer: 10
-  slipTimeManager: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3, type: 3}
+  slipTimeManager: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3,
+    type: 3}
   health: 20
   animator: {fileID: 0}
   colorDecayTime: 0.1
+  explosionLight: {fileID: 0}
   hitScoreBonus: 1
   deathScoreBonus: 50
 --- !u!212 &551826077536204422
@@ -74,7 +76,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -196,7 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6da44785e24ddba1ad73673fc9806e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slipTimeManager: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3, type: 3}
+  slipTimeManager: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3,
+    type: 3}
   direction1: {x: 1, y: -1, z: 0}
   direction2: {x: 1, y: 0, z: 0}
   timeBeforeSwitch: 3
@@ -348,7 +350,7 @@ MonoBehaviour:
   m_FalloffIntensity: 1
   m_Color: {r: 0.20719118, g: 0.4528302, b: 0.44056043, a: 1}
   m_Intensity: 1
-  m_LightVolumeOpacity: 0
+  m_LightVolumeOpacity: 0.175
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0

@@ -119,7 +119,7 @@ PrefabInstance:
     - target: {fileID: 8044001135217085804, guid: 6e15464ed941c8c459cb1a9dcd652dae,
         type: 3}
       propertyPath: m_LightVolumeOpacity
-      value: 0.274
+      value: 0.17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}

@@ -38,13 +38,13 @@ namespace Audio
         public bool inLoopSection = false;
 
         // Beats per second
-        public int bps = (int) (130f / 60);
+        public int bps = (int) (133f / 60);
         // When we can switch to next track
         public int barsMod = 8;
         private int quantumSeconds;
-        private bool inSlipTime = false;
-        private bool awaitingNextTrack = false;
-        private bool awaitingNextLoop = false;
+        public bool inSlipTime = false;
+        public bool awaitingNextTrack = false;
+        public bool awaitingNextLoop = false;
         private IEnumerator fadeOut;
 
         private AudioClip[] LoadMusic(string trackName, bool hasLoopSection = false, bool slipTimeVariant = false)
@@ -172,8 +172,8 @@ namespace Audio
             awaitingNextTrack = false;
 
             // Play the song
-            Play();
             StopCoroutine(fadeOut);
+            Play();
             // Load next song
             preloadMusicBuffer = LoadMusic(nextSong, hasLoop);
             preloadSliptimeBuffer = LoadMusic(nextSong, hasLoop, true);
@@ -198,18 +198,18 @@ namespace Audio
             sourceSecondary.Play();
             inSlipTime = true;
         }
-        
+
         // Shamelessly copied from https://forum.unity.com/threads/fade-out-audio-source.335031/
         public static IEnumerator FadeOut (AudioSource audioSource, float FadeTime) {
             float startVolume = audioSource.volume;
- 
+
             while (audioSource.volume > 0) {
                 audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
- 
+
                 yield return null;
             }
- 
-            audioSource.Stop ();
+
+            audioSource.Stop();
             audioSource.volume = startVolume;
         }
 

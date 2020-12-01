@@ -53,7 +53,11 @@ namespace UI.MainMenu
 
         public void OnEndClicked()
         {
-            Application.Quit();
+            #define UNITY_WEBGL
+                Application.OpenURL("https://youtu.be/ub82Xb1C8os");
+            #else
+                Application.Quit();
+            #endif
         }
     }
 }

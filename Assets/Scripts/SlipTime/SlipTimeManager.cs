@@ -14,6 +14,7 @@ namespace SlipTime
         public AudioSource enterSliptimeEffect;
 
         public AudioSource rechargeSliptimeEffect;
+        public AudioSource exitSliptimeEffect;
 
         /// <summary>
         /// The percentage by which to scale time in SlipTime.
@@ -101,6 +102,13 @@ namespace SlipTime
             rechargeSliptimeEffect.Play();
         }
 
+        private void PlayExitEffect()
+        {
+            exitSliptimeEffect.time = 0f;
+            exitSliptimeEffect.loop = false;
+            exitSliptimeEffect.Play();
+        }
+
         // Update is called once per frame.
         private void Update()
         {
@@ -121,6 +129,7 @@ namespace SlipTime
                 SlipTimeCounter = slipTimeDuration;
                 slipTimeCoefficient = 1f;
                 IsChargingSlipTime = true;
+                PlayExitEffect();
                 audioManager.ToggleSliptimeTrack();
             }
 
@@ -140,6 +149,7 @@ namespace SlipTime
                     SlipTimeCounter = slipTimeDuration;
                     slipTimeCoefficient = 1f;
                     IsChargingSlipTime = true;
+                    PlayExitEffect();
                     audioManager.ToggleSliptimeTrack();
                 }
             }
