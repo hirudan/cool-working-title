@@ -193,10 +193,6 @@ namespace Level
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(-1, 7, 0), spawnTime = 58f});
             les.CurvedWave(10, 59f, saucer8, new Vector3(6, 7, 0), EntrySide.Right, 1, 0.7f);
 
-            // Cue midboss build track
-            spawnQueue = les.GetSpawnQueue();
-            playSongWhenSpawnEnemyCount.Add(spawnQueue.Count);
-
             les.Add(new EnemySpawn{enemy = bomber2, spawnPosition = new Vector3(1, 7, 0), spawnTime = 63f});
             les.CurvedWave(10, 64f, saucer7, new Vector3(-6, 7, 0), EntrySide.Right, 1, 0.7f);
 
@@ -216,6 +212,9 @@ namespace Level
             /*
              * 01:26 - 01:35 -- build to midboss
              */
+            // Cue midboss build track
+            spawnQueue = les.GetSpawnQueue();
+            playSongWhenSpawnEnemyCount.Add(spawnQueue.Count);
             // Bomber from top to constrain followed by killshot waves
             les.Add(new EnemySpawn{enemy = bomber1, spawnPosition = new Vector3(0, 7, 0), spawnTime = 86f});
             les.CurvedWave(10, 87f, saucer7, new Vector3(-6, 7, 0), EntrySide.Left, 1, 0.7f);

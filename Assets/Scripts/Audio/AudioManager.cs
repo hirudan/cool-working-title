@@ -109,7 +109,7 @@ namespace Audio
                 if (secondsElapsed <= 2f && sourceSecondary.time - (nfmod(sourceSecondary.time, quantumSeconds) * quantumSeconds) > 0.1f)
                 {
                     Debug.Log(sourceSecondary.time - (nfmod(sourceSecondary.time, quantumSeconds) * quantumSeconds));
-                    awaitingNextTrack = true;
+                    awaitingNextLoop = true;
                     secondsElapsed += Time.deltaTime;
                     return;
                 }
@@ -120,7 +120,7 @@ namespace Audio
                 if (secondsElapsed <= 2f && sourceMain.time - (nfmod(sourceMain.time, quantumSeconds) * quantumSeconds) > 0.1f)
                 {
                     Debug.Log(sourceMain.time - (nfmod(sourceMain.time, quantumSeconds) * quantumSeconds));
-                    awaitingNextTrack = true;
+                    awaitingNextLoop = true;
                     secondsElapsed += Time.deltaTime;
                     return;
                 }
