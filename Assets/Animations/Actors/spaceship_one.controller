@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 8998a5f317fc62f4580f86b8a514b06e, type: 3}
+  audioGroup: FX
   volume: 0.2
 --- !u!1101 &-8760793812803718044
 AnimatorStateTransition:
@@ -232,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 613203c012d94094184a908b0e77e22f, type: 3}
+  audioGroup: FX
   volume: 1
 --- !u!114 &-6386510437142806454
 MonoBehaviour:
@@ -246,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 8998a5f317fc62f4580f86b8a514b06e, type: 3}
+  audioGroup: FX
   volume: 0.2
 --- !u!1101 &-5994197446696176326
 AnimatorStateTransition:
@@ -701,7 +704,7 @@ AnimatorStateMachine:
     m_Position: {x: -10, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7211961076498107351}
-    m_Position: {x: 290, y: 440, z: 0}
+    m_Position: {x: 290, y: 450, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6786942329047169253}
     m_Position: {x: 140, y: 240, z: 0}
@@ -1325,6 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 8998a5f317fc62f4580f86b8a514b06e, type: 3}
+  audioGroup: FX
   volume: 0.2
 --- !u!1101 &4628565080759956808
 AnimatorStateTransition:
@@ -1679,6 +1683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 9c0f76652a28edf4d8f0bf078055b011, type: 3}
+  audioGroup: FX
   volume: 1
 --- !u!1102 &8525818569206899730
 AnimatorState:

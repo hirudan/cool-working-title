@@ -98,7 +98,7 @@ namespace Audio
         protected void PlayLoopTrack()
         {
             // We can't play the next track yet
-            if (sourceMain.time / quantumSeconds >= 0.1f)
+            if ((sourceMain.time % quantumSeconds) >= 0.1f)
             {
                 awaitingNextLoop = true;
                 return;
@@ -140,7 +140,7 @@ namespace Audio
             else if (currentSong == sectionThreeTrackName) { nextSong = outroTrackName; hasLoop = false; }
             else if (currentSong == outroTrackName) { nextSong = bossTrackName; }
             else if (currentSong == bossTrackName) { nextSong = resultsTrackName; }
-            else { nextSong = introTrackName; }
+            else { nextSong = introTrackName; hasLoop = false; }
             return hasLoop;
         }
 
@@ -152,9 +152,8 @@ namespace Audio
                 StartCoroutine(fadeOut);
             }
             // We can't play the next track yet
-            else if (sourceMain.time / quantumSeconds >= 0.1f)
+            else if (sourceMain.time % quantumSeconds >= 0.1f)
             {
-                Debug.Log(sourceMain.time / quantumSeconds);
                 awaitingNextTrack = true;
                 return;
             }
