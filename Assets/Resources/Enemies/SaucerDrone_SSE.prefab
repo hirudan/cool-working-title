@@ -35,6 +35,7 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 6964066292741729871}
+  - {fileID: 8760967440839350775}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52,10 +53,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTint: {r: 0, g: 0, b: 0, a: 0}
   damageLayer: 10
-  slipTimeManager: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3, type: 3}
+  slipTimeManager: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3,
+    type: 3}
   health: 20
   animator: {fileID: 0}
   colorDecayTime: 0.1
+  explosionLight: {fileID: 0}
   hitScoreBonus: 1
   deathScoreBonus: 50
 --- !u!212 &3124360150119197070
@@ -73,7 +76,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -195,7 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6da44785e24ddba1ad73673fc9806e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slipTimeManager: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3, type: 3}
+  slipTimeManager: {fileID: 1871252788147460062, guid: c4a08ef8b19d333448920a80cf7897f3,
+    type: 3}
   direction1: {x: 0, y: -1, z: 0}
   direction2: {x: 1, y: -1, z: 0}
   timeBeforeSwitch: 3
@@ -359,6 +362,78 @@ MonoBehaviour:
   m_PointLightOuterAngle: 182.23
   m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 3
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &7958186318588820861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8760967440839350775}
+  - component: {fileID: 2353792960923155591}
+  m_Layer: 0
+  m_Name: Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8760967440839350775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7958186318588820861}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.545692, y: 0.50090516, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3124360150119197056}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2353792960923155591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7958186318588820861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 1
+  m_Color: {r: 0.20719118, g: 0.4528302, b: 0.44056043, a: 1}
+  m_Intensity: 1
+  m_LightVolumeOpacity: 0.175
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 142.83
+  m_PointLightOuterAngle: 197.98
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5

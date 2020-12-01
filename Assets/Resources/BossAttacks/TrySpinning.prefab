@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 5
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -120,16 +121,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae, type: 3}
+  bulletPrefab: {fileID: 631285443255349691, guid: 6e15464ed941c8c459cb1a9dcd652dae,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 5
   emitFrequency: 1
-  bulletDecayTime: 0
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
   startAngle: 15
-  spinRate: 50
+  spinRate: -50
   spinMax: 1
   startDelay: 0
   spinAccel: 0
@@ -199,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   durationSeconds: 45
   health: 3000
-  attackName: 'Erasure Protocol: Ignited Lemniscate'
+  attackName: 'Erasure Protocol: Ignited Cardioid'
   scoreBonus: 2000
 --- !u!1 &6723257021746863468
 GameObject:
@@ -245,12 +247,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6964f510de09d0e4aa960ad93f9200a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeedMultiplier: 4
-  bulletPrefab: {fileID: 1138292244347753129, guid: 7154e17d532751247b49ab5491757f5b, type: 3}
+  bulletSpeedMultiplier: 3.5
+  bulletPrefab: {fileID: 1138292244347753129, guid: 7154e17d532751247b49ab5491757f5b,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 5
-  emitFrequency: 0.2
-  bulletDecayTime: 0
+  emitFrequency: 0.3
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0
@@ -320,12 +323,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6964f510de09d0e4aa960ad93f9200a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeedMultiplier: 4
-  bulletPrefab: {fileID: 1138292244347753129, guid: 7154e17d532751247b49ab5491757f5b, type: 3}
+  bulletSpeedMultiplier: 3.5
+  bulletPrefab: {fileID: 1138292244347753129, guid: 7154e17d532751247b49ab5491757f5b,
+    type: 3}
   owner: {fileID: 0}
   emitBulletCount: 5
-  emitFrequency: 0.2
-  bulletDecayTime: 0
+  emitFrequency: 0.3
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 0

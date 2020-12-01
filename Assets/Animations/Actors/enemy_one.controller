@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 0}
+  audioGroup: FX
   volume: 1
 --- !u!1101 &-7389333171684072082
 AnimatorStateTransition:
@@ -149,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: e6ab923dc87bd564a83f78cb463afe8d, type: 3}
+  audioGroup: FX
   volume: 0.5
 --- !u!1101 &-6128142673034309847
 AnimatorStateTransition:
@@ -533,6 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: cafffac57dd597c4698044bb15b34cbb, type: 3}
+  audioGroup: Explosions
   volume: 1
 --- !u!1102 &8525818569206899730
 AnimatorState:

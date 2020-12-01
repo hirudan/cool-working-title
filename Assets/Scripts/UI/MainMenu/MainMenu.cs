@@ -12,24 +12,27 @@ namespace UI.MainMenu
         /// The scene to load when the player clicks "Start".
         /// </summary>
         public string gameScene;
-        
+
         /// <summary>
         /// The scene to load when the player clicks "Records".
         /// </summary>
         public string recordsScene;
-        
+
         /// <summary>
         /// The scene to load when the player clicks "Options".
         /// </summary>
         public string optionsScene;
-        
+
         /// <summary>
         /// The scene to load when the player clicks "Staff".
         /// </summary>
         public string staffScene;
 
+        public GameObject mainMenuAudio;
+
         public void OnStartClicked()
         {
+            Destroy(mainMenuAudio);
             SceneManager.LoadScene(gameScene);
         }
 
@@ -50,7 +53,10 @@ namespace UI.MainMenu
 
         public void OnEndClicked()
         {
-            Application.Quit();
+#if UNITY_WEBGL
+#else
+                Application.Quit();
+#endif
         }
     }
 }

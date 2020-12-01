@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedMultiplier: 2
-  bulletPrefab: {fileID: 1138292244347753129, guid: 7154e17d532751247b49ab5491757f5b, type: 3}
+  bulletPrefab: {fileID: 1138292244347753129, guid: 7154e17d532751247b49ab5491757f5b,
+    type: 3}
   owner: {fileID: 8613771122884575107}
   emitBulletCount: 10
   emitFrequency: 0.5
-  bulletDecayTime: 30
+  bulletDecayTime: 20
   ownerName: 
   slipTimeManager: {fileID: 0}
   emitCycles: 20
@@ -128,7 +129,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -229,6 +229,7 @@ MonoBehaviour:
   health: 100
   animator: {fileID: 8613771122884575134}
   colorDecayTime: 0.1
+  explosionLight: {fileID: 0}
   hitScoreBonus: 5
   deathScoreBonus: 500
 --- !u!95 &8613771122884575134
