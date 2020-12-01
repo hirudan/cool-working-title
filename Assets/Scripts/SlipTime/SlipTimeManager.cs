@@ -9,6 +9,13 @@ namespace SlipTime
     public class SlipTimeManager : MonoBehaviour
     {
         /// <summary>
+        /// Enter sliptime effect audio.
+        /// </summary>
+        public AudioSource enterSliptimeEffect;
+
+        public AudioSource rechargeSliptimeEffect;
+
+        /// <summary>
         /// The percentage by which to scale time in SlipTime.
         /// </summary>
         public float slipTimeScalar = 0.25f;
@@ -80,6 +87,20 @@ namespace SlipTime
             ChargeTimeCounter = slipTimeCooldownDuration;
         }
 
+        private void PlayEnterEffect()
+        {
+            enterSliptimeEffect.time = 0f;
+            enterSliptimeEffect.loop = false;
+            enterSliptimeEffect.Play();
+        }
+
+        private void PlayRechargeEffect()
+        {
+            rechargeSliptimeEffect.time = 0f;
+            rechargeSliptimeEffect.loop = false;
+            rechargeSliptimeEffect.Play();
+        }
+
         // Update is called once per frame.
         private void Update()
         {
@@ -89,6 +110,7 @@ namespace SlipTime
                 InSlipTime = true;
                 slipTimeCoefficient = slipTimeScalar;
                 slipTimeCharges -= 1;
+                PlayEnterEffect();
                 audioManager.ToggleSliptimeTrack();
             }
 
@@ -129,6 +151,7 @@ namespace SlipTime
                 if (ChargeTimeCounter <= 0)
                 {
                     slipTimeCharges += 1;
+                    PlayRechargeEffect();
                     ChargeTimeCounter = slipTimeCooldownDuration;
                     if (slipTimeCharges == maxSlipTimeCharges)
                     {
