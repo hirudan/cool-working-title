@@ -38,14 +38,20 @@ namespace Audio
         public bool inLoopSection = false;
 
         // Beats per second
-        public int bps = (int) (133f / 60);
+        public float bps = 133f / 60;
         // When we can switch to next track
         public int barsMod = 8;
-        private int quantumSeconds;
+        private float quantumSeconds;
         public bool inSlipTime = false;
         public bool awaitingNextTrack = false;
         public bool awaitingNextLoop = false;
         private IEnumerator fadeOut;
+        public float secondsElapsed = 0.0f;
+
+        float nfmod(float a,float b)
+        {
+            return a - b * Mathf.Floor(a / b);
+        }
 
         private AudioClip[] LoadMusic(string trackName, bool hasLoopSection = false, bool slipTimeVariant = false)
         {
@@ -98,11 +104,30 @@ namespace Audio
         protected void PlayLoopTrack()
         {
             // We can't play the next track yet
-            if ((sourceMain.time % quantumSeconds) >= 0.1f)
+            if (inSlipTime)
             {
-                awaitingNextLoop = true;
-                return;
+                if (secondsElapsed <= 2f && sourceSecondary.time - (nfmod(sourceSecondary.time, quantumSeconds) * quantumSeconds) > 0.1f)
+                {
+                    Debug.Log(sourceSecondary.time - (nfmod(sourceSecondary.time, quantumSeconds) * quantumSeconds));
+                    awaitingNextTrack = true;
+                    secondsElapsed += Time.deltaTime;
+                    return;
+                }
+                Debug.Log(sourceSecondary.time - (nfmod(sourceSecondary.time, quantumSeconds) * quantumSeconds));
             }
+            else
+            {
+                if (secondsElapsed <= 2f && sourceMain.time - (nfmod(sourceMain.time, quantumSeconds) * quantumSeconds) > 0.1f)
+                {
+                    Debug.Log(sourceMain.time - (nfmod(sourceMain.time, quantumSeconds) * quantumSeconds));
+                    awaitingNextTrack = true;
+                    secondsElapsed += Time.deltaTime;
+                    return;
+                }
+                Debug.Log(sourceMain.time - (nfmod(sourceMain.time, quantumSeconds) * quantumSeconds));
+            }
+
+            secondsElapsed = 0.0f;
 
             sourceMain.clip = currentMusicBuffer[1];
             sourceMain.loop = true;
@@ -152,13 +177,31 @@ namespace Audio
                 StartCoroutine(fadeOut);
             }
             // We can't play the next track yet
-            else if (sourceMain.time % quantumSeconds >= 0.1f)
+            if (inSlipTime)
             {
-                awaitingNextTrack = true;
-                return;
+                if (secondsElapsed <= 2f && sourceSecondary.time - (nfmod(sourceSecondary.time, quantumSeconds) * quantumSeconds) > 0.1f)
+                {
+                    Debug.Log(sourceSecondary.time - (nfmod(sourceSecondary.time, quantumSeconds) * quantumSeconds));
+                    awaitingNextTrack = true;
+                    secondsElapsed += Time.deltaTime;
+                    return;
+                }
+                Debug.Log(sourceSecondary.time - (nfmod(sourceSecondary.time, quantumSeconds) * quantumSeconds));
             }
-
+            else
+            {
+                if (secondsElapsed <= 2f && sourceMain.time - (nfmod(sourceMain.time, quantumSeconds) * quantumSeconds) > 0.1f)
+                {
+                    Debug.Log(sourceMain.time - (nfmod(sourceMain.time, quantumSeconds) * quantumSeconds));
+                    awaitingNextTrack = true;
+                    secondsElapsed += Time.deltaTime;
+                    return;
+                }
+                Debug.Log(sourceMain.time - (nfmod(sourceMain.time, quantumSeconds) * quantumSeconds));
+            }
             currentSong = nextSong;
+            Debug.Log(sourceMain.time - (nfmod(sourceMain.time, quantumSeconds) * quantumSeconds));
+            secondsElapsed = 0.0f;
 
             // Get the next song state two states forward to preload
             bool hasLoop = SetNextSongState();
